@@ -14,10 +14,10 @@ from cookbook.models import Food, Ingredient, Keyword, Recipe, Step, Unit
 
 class Cooklang(Integration):
     # ----------------------------------------------------Helper Functions----------------------------------------------------
-    def apply_metadata_cooklang_to_tandoor(self, cooklang_metadata: dict, tandoor_recipe: Recipe) -> None:
+    def apply_metadata_cooklang_to_table(self, cooklang_metadata: dict, table_recipe: Recipe) -> None:
         # find exact matches in metadata, if none, then try fuzzy matching
         # all non-matched values become keywords
-        tandoor_recipe_meta_types = {
+        table_recipe_meta_types = {
             "name": ["title"],
             "description": ["summary", "details"],
             "servings": ["serves", "makes", "batch", "yields"],
@@ -27,29 +27,29 @@ class Cooklang(Integration):
             # "nutrition": ["nutritional", "health information"]
         }
         for key in cooklang_metadata.keys():
-            keyword, certainty = match_or_fuzzymatch(key, tandoor_recipe_meta_types)
+            keyword, certainty = match_or_fuzzymatch(key, table_recipe_meta_types)
             if certainty >= 75:
                 match keyword:
                     case "servings":
-                        tandoor_recipe.servings = parse_servings(cooklang_metadata[key])
-                        tandoor_recipe.servings_text = parse_servings_text(cooklang_metadata[key])
+                        table_recipe.servings = parse_servings(cooklang_metadata[key])
+                        table_recipe.servings_text = parse_servings_text(cooklang_metadata[key])
                     case "keywords":
                         for item in cooklang_metadata[key].split(","):
                             item = item.lstrip()
                             if not item:
                                 continue
-                            tandoor_recipe.keywords.add(Keyword.objects.get_or_create(space=self.request.space, name=item)[0])
+                            table_recipe.keywords.add(Keyword.objects.get_or_create(space=self.request.space, name=item)[0])
 
                     case "working time":
-                        tandoor_recipe.working_time = get_minutes(cooklang_metadata[key])
+                        table_recipe.working_time = get_minutes(cooklang_metadata[key])
                     case "source url":
-                        tandoor_recipe.source_url = cooklang_metadata[key]
+                        table_recipe.source_url = cooklang_metadata[key]
                     # case "nutrition":
                     #     pass
                     case _:
-                        setattr(tandoor_recipe, keyword, cooklang_metadata[key])
+                        setattr(table_recipe, keyword, cooklang_metadata[key])
             else:
-                tandoor_recipe.keywords.add(Keyword.objects.get_or_create(space=self.request.space, name=cooklang_metadata[key])[0])
+                table_recipe.keywords.add(Keyword.objects.get_or_create(space=self.request.space, name=cooklang_metadata[key])[0])
 
     # ------------------------------------------Integration Method Override Functions------------------------------------------
 
@@ -65,7 +65,7 @@ class Cooklang(Integration):
             name=os.path.basename(file.name).replace('.cook', ""), description="", created_by=self.request.user, internal=True, servings=1, space=self.request.space
         )
         # specific metadata setup function
-        self.apply_metadata_cooklang_to_tandoor(cooklang_object.metadata, recipe)
+        self.apply_metadata_cooklang_to_table(cooklang_object.metadata, recipe)
         # Translate the Steps and their related Ingredients
         i = 0
         for step in cooklang_object.steps:

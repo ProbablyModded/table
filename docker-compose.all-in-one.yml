@@ -1,0 +1,27 @@
+services:
+  table:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TABLE_BUNDLED_POSTGRES: "1"
+    image: table:all-in-one
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      TABLE_BUNDLED_POSTGRES: "1"
+      SECRET_KEY: ${SECRET_KEY:?Set SECRET_KEY in .env}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost}
+      DB_ENGINE: django.db.backends.postgresql
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-table}
+      POSTGRES_USER: ${POSTGRES_USER:-table}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "${TABLE_HTTP_PORT:-8080}:80"
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+      - ./mediafiles:/opt/recipes/mediafiles
+      - ./staticfiles:/opt/recipes/staticfiles

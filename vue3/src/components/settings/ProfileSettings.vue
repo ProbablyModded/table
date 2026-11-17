@@ -6,7 +6,7 @@
         <thank-you-note ></thank-you-note>
 
         <!--                    <v-label>Avatar</v-label><br/>-->
-        <!--                    <v-avatar class="mt-3 mb-3" style="height: 10vh; width: 10vh" color="info">V</v-avatar> Feature coming in a future Version of Tandoor.-->
+        <!--                    <v-avatar class="mt-3 mb-3" style="height: 10vh; width: 10vh" color="info">V</v-avatar> Feature coming in a future version.-->
 
         <v-text-field class="mt-3" :label="$t('First_name')" v-model="user.firstName"></v-text-field>
         <v-text-field :label="$t('Last_name')" v-model="user.lastName"></v-text-field>
@@ -18,6 +18,7 @@
         <p class="text-disabled">{{ $t('DeviceSettingsHelp') }}</p>
 
         <v-checkbox v-model="useUserPreferenceStore().deviceSettings.start_showMealPlan" :label="$t('ShowMealPlanOnStartPage')"></v-checkbox>
+        <v-checkbox v-model="useUserPreferenceStore().deviceSettings.general_showPantry" :label="$t('ShowPantry')" :hint="$t('ShowPantryHelp')" persistent-hint></v-checkbox>
 
         <v-btn @click="useUserPreferenceStore().resetDeviceSettings()" color="warning">{{ $t('Reset') }}</v-btn>  <br/>
         <v-btn @click="useUserPreferenceStore().deviceSettings.general_closedHelpAlerts = []" color="warning" class="mt-1">{{ $t('ResetHelp') }}</v-btn> <br/>

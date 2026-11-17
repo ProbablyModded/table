@@ -274,7 +274,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ##################################################################
-####### Tandoor specific auth settings
+####### Table-specific auth settings
 ##################################################################
 
 ENABLE_SIGNUP = extract_bool('ENABLE_SIGNUP', False)
@@ -346,7 +346,7 @@ SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = extract_bool('SOCIALACCOUNT_EM
 
 INSTALLED_APPS = INSTALLED_APPS + SOCIAL_PROVIDERS
 
-SOCIALACCOUNT_ADAPTER = 'cookbook.helper.social_adapter.TandoorSocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'cookbook.helper.social_adapter.TableSocialAccountAdapter'
 
 try:
     SOCIALACCOUNT_PROVIDERS = ast.literal_eval(os.getenv('SOCIALACCOUNT_PROVIDERS') if os.getenv('SOCIALACCOUNT_PROVIDERS') else '{}')
@@ -460,8 +460,8 @@ REST_FRAMEWORK = {
 ##################################################################
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Tandoor',
-    'DESCRIPTION': 'Tandoor API Docs',
+    'TITLE': 'Table',
+    'DESCRIPTION': 'Table API Docs',
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': False,
     'ENUM_ADD_EXPLICIT_BLANK_NULL_CHOICE': False,
@@ -483,9 +483,9 @@ SPECTACULAR_SETTINGS = {
     'REDOC_DIST': 'SIDECAR',
     'EXTENSIONS_INFO': {
         "x-logo": {
-            "url": f"{STATIC_URL}assets/brand_logo.svg",
+            "url": f"{STATIC_URL}assets/table_logo.svg",
             "backgroundColor": "#FFFFFF",
-            "altText": "Tandoor logo",
+            "altText": "Table logo",
             'href': '/'
         }
     },
@@ -752,7 +752,7 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = extract_bool('EMAIL_USE_TLS', False)
 EMAIL_USE_SSL = extract_bool('EMAIL_USE_SSL', False)
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
-ACCOUNT_EMAIL_SUBJECT_PREFIX = os.getenv('ACCOUNT_EMAIL_SUBJECT_PREFIX', '[Tandoor Recipes] ')  # allauth sender prefix
+ACCOUNT_EMAIL_SUBJECT_PREFIX = os.getenv('ACCOUNT_EMAIL_SUBJECT_PREFIX', '[Table] ')  # allauth sender prefix
 
 DISABLE_EXTERNAL_CONNECTORS = extract_bool('DISABLE_EXTERNAL_CONNECTORS', False)
 EXTERNAL_CONNECTORS_QUEUE_SIZE = int(os.getenv('EXTERNAL_CONNECTORS_QUEUE_SIZE', 100))

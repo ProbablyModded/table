@@ -6,28 +6,31 @@ import traceback
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGINS_DIRECTORY = os.path.join(BASE_DIR, 'recipes', 'plugins')
+TABLE_DEFAULT_VERSION = '1.0'
 
 version_info = []
-tandoor_tag = ''
-tandoor_hash = ''
+table_tag = ''
+table_hash = ''
 try:
-    print('getting tandoor version')
+    print('getting Table version')
     r = subprocess.check_output(['git', 'show', '-s'], cwd=BASE_DIR).decode()
-    tandoor_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=BASE_DIR).decode().replace('\n', '')
-    tandoor_hash = r.split('\n')[0].split(' ')[1]
+    table_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=BASE_DIR).decode().replace('\n', '')
+    table_hash = r.split('\n')[0].split(' ')[1]
     try:
-        tandoor_tag = subprocess.check_output(['git', 'describe', '--exact-match', '--tags', tandoor_hash], cwd=BASE_DIR).decode().replace('\n', '')
+        table_tag = subprocess.check_output(['git', 'describe', '--exact-match', '--tags', table_hash], cwd=BASE_DIR).decode().replace('\n', '')
     except BaseException:
         pass
 
+    table_version = table_tag or TABLE_DEFAULT_VERSION
+
     version_info.append({
-        'name': 'Tandoor ',
-        'version': re.sub(r'<.*>', '', r),
-        'website': 'https://github.com/TandoorRecipes/recipes',
-        'commit_link': 'https://github.com/TandoorRecipes/recipes/commit/' + r.split('\n')[0].split(' ')[1],
-        'ref': tandoor_hash,
-        'branch': tandoor_branch,
-        'tag': tandoor_tag
+        'name': 'Table ',
+        'version': table_version,
+        'website': '',
+        'commit_link': '',
+        'ref': table_hash,
+        'branch': table_branch,
+        'tag': table_tag
     })
 
     if os.path.isdir(PLUGINS_DIRECTORY):
@@ -71,6 +74,6 @@ except BaseException:
 
 with open('cookbook/version_info.py', 'w+', encoding='UTF-8') as f:
     print(f"writing version info {version_info}")
-    if not tandoor_tag:
-        tandoor_tag = tandoor_hash
-    f.write(f'TANDOOR_VERSION = "{tandoor_tag}"\nTANDOOR_REF = "{tandoor_hash}"\nVERSION_INFO = {version_info}')
+    if not table_tag:
+        table_tag = TABLE_DEFAULT_VERSION
+    f.write(f'TABLE_VERSION = "{table_tag}"\nTABLE_REF = "{table_hash}"\nVERSION_INFO = {version_info}')

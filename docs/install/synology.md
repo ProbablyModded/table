@@ -9,8 +9,8 @@ Basic guide to setup `vabenee1111/recipes` docker container on Synology NAS.
 - Login to Synology DSM through your browser
 - Install `Container Manager` through package center
 - Install `Text Editor` through package center (needed to edit `.env` if you don't edit it locally first)
-- If you do not already have a shared `docker` folder in your File Station, create one at the root of your volume. 
-- inside of your `volume1/docker` folder, create a `recipes` folder. 
+- If you do not already have a shared `docker` folder in your File Station, create one at the root of your volume.
+- inside of your `volume1/docker` folder, create a `recipes` folder.
 - Within, create the necessary folder structure. You will need these folders:
 
 ```
@@ -27,20 +27,20 @@ volume1/docker/
 
 - Open the [.env template](https://github.com/vabene1111/recipes/blob/develop/.env.template)
   - Copy the text and save it as `.env.txt` to your recipes folder (the .txt extension allows you to modify it)
-  - Open the file with Text Editor. Populate the necessary fields, such as `SECRET_KEY` and `POSTGRES_PASSWORD`. 
-  - Save the file and then rename it as `.env` (without the .txt extension) 
-- Open the [docker-compose.yml template](https://raw.githubusercontent.com/TandoorRecipes/recipes/refs/heads/develop/docs/install/docker/plain/docker-compose.yml)
-  - Copy the text and keep reading. 
+  - Open the file with Text Editor. Populate the necessary fields, such as `SECRET_KEY` and `POSTGRES_PASSWORD`.
+  - Save the file and then rename it as `.env` (without the .txt extension)
+- Open the [docker-compose.yml template](https://raw.githubusercontent.com/Table/recipes/refs/heads/develop/docs/install/docker/plain/docker-compose.yml)
+  - Copy the text and keep reading.
 
 ### 3. Creating the Container
-- In DSM, open `Container Manager`. Click on `Project`. 
-- Click `Create` to create a new project. Fill out the following fields: 
-  - `Name`: `tandoor_recipes` or similar. 
+- In DSM, open `Container Manager`. Click on `Project`.
+- Click `Create` to create a new project. Fill out the following fields:
+  - `Name`: `table_recipes` or similar.
   - `Path`: select your `recipes` folder. If you have been following along `/docker/recipes`
-  - `Source`: Select `Create docker-compose.yml`. A textbox will appear. 
+  - `Source`: Select `Create docker-compose.yml`. A textbox will appear.
 
 ### 4. Edit docker-compose.yml
-- Paste the `docker-compose.yml` into the `source` textbox. 
+- Paste the `docker-compose.yml` into the `source` textbox.
 - This file tells docker how to setup recipes. Docker will create two containers for recipes to work, `web_recipes` and `db_recipes`. They are all required and need to store and share data through the folders you created before.
 - Under the `web_recipes` section, you can add `ports` . This line specifies which external synology port will point to which internal docker port. Chose a free port to use and replace the first number with it. You will open recipes by browsing to http://your.synology.ip:chosen.port, e.g. http://192.168.1.1:2000
 - If you want to use port 2000 you would edit the `ports` to `2000:80`
@@ -50,11 +50,11 @@ volume1/docker/
  	```
 
 ### 5. Finishing up
-- Click `Next`. 
-- Synology will take you to a `web portal settings` page. Skip this page by clicking `Next`. 
-  - If you enable this option then the container will not build because your specified port will be used by the Web Service. The Container already comes with nginx configured to serve files so you do not need the `web portal settings`. 
-- You'll see a `Summary` page. Review and click `Done`. 
-- The project will begin being built and should finish. 
+- Click `Next`.
+- Synology will take you to a `web portal settings` page. Skip this page by clicking `Next`.
+  - If you enable this option then the container will not build because your specified port will be used by the Web Service. The Container already comes with nginx configured to serve files so you do not need the `web portal settings`.
+- You'll see a `Summary` page. Review and click `Done`.
+- The project will begin being built and should finish.
 	```bash
 	Container recipes-db_recipes-1 Starting
 	Container recipes-db_recipes-1 Started
@@ -104,14 +104,14 @@ Easiest way is to do it via Reverse Proxy.
 	- Source IP: Depends, All allows access from outside, i use specific to only connect in my network
 	- Action: Allow
 - Save and make sure it's above the deny rules
-	
+
 ### 8. Deprecated Guides
 
-The following are older guides that may be useful if you are running older versions of DSM. 
+The following are older guides that may be useful if you are running older versions of DSM.
 
-- The following documentation was provided by 
+- The following documentation was provided by
 @therealschimmi in [this issue discussion](https://github.com/vabene1111/recipes/issues/98#issuecomment-643062907).
 
-- There is also this 
-([word](https://github.com/vabene1111/recipes/files/6708738/Tandoor.on.a.Synology.Disk.Station.docx), 
-[pdf](https://github.com/vabene1111/recipes/files/6901601/Tandoor.on.a.Synology.Disk.Station.pdf)) awesome and very detailed guide provided by @DiversityBug.
+- There is also this
+([word](https://github.com/vabene1111/recipes/files/6708738/Table.on.a.Synology.Disk.Station.docx),
+[pdf](https://github.com/vabene1111/recipes/files/6901601/Table.on.a.Synology.Disk.Station.pdf)) awesome and very detailed guide provided by @DiversityBug.

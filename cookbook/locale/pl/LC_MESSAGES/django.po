@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-09-06 11:10+0000\n"
 "Last-Translator: Rudolf Starzewski <sirtah1995@gmail.com>\n"
-"Language-Team: Polish <http://translate.tandoor.dev/projects/tandoor/recipes-"
+"Language-Team: Polish <http://weblate.org/projects/table/recipes-"
 "backend/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -558,8 +558,8 @@ msgid "You have been invited by "
 msgstr "Zostałeś zaproszony przez "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " aby dołączyć do sekcji „Przepisy z pieca tandoor” "
+msgid " to join their Table Recipes space "
+msgstr " aby dołączyć do sekcji „Przepisy z pieca table” "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -578,13 +578,13 @@ msgstr "Zaproszenie jest ważne do "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"„Tandoor Recipes” to menedżer przepisów typu open source. Zajrzyj na GitHub "
+"„Table Recipes” to menedżer przepisów typu open source. Zajrzyj na GitHub "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Zapraszamy do zapoznania się z przepisami na potrawy z pieca tandoor"
+msgid "Table Recipes Invite"
+msgstr "Zapraszamy do zapoznania się z przepisami na potrawy z pieca table"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -893,9 +893,9 @@ msgstr "Rejestracja Wyłączona"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Przepraszamy, ale rejestracja jest aktualnie zamknięta."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Menedżer przepisów Tandoor"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Menedżer przepisów Table"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1590,19 +1590,19 @@ msgstr "System"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        „Tandoor Recipes” to darmowa aplikacja typu open source. Jest ona "
+"        „Table Recipes” to darmowa aplikacja typu open source. Jest ona "
 "dostępna na:\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
 "        Listę zmian można znaleźć <a href=\"https://github.com/"
-"TandoorRecipes/recipes/releases\">tutaj</a>.\n"
+"Table/recipes/releases\">tutaj</a>.\n"
 "    "
 
 #: .\cookbook\templates\system.html:30
@@ -2321,8 +2321,8 @@ msgstr ""
 "przeglądarce (Ctrl+P), aby zapisać przepis jako PDF."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "Ta funkcja nie jest jeszcze dostępna w hostowanej wersji tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "Ta funkcja nie jest jeszcze dostępna w hostowanej wersji table!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"

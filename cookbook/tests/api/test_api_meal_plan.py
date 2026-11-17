@@ -245,7 +245,7 @@ def test_ical_event(obj_1, u1_s1):
 
     event = events[0]
     # UID must be RFC 5545 compliant (format: identifier@domain)
-    assert event['uid'] == f'mealplan-{obj_1.id}@tandoor.recipes'
+    assert event['uid'] == f'mealplan-{obj_1.id}@table.app'
     assert event['summary'] == f'{obj_1.meal_type.name}: {obj_1.get_label()}'
     assert event['description'] == obj_1.note
     assert event.decoded('dtstart').date() == timezone.now().date()

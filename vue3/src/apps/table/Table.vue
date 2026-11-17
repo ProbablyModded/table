@@ -1,16 +1,16 @@
 <template>
-    <v-app>
-        <v-app-bar color="tandoor" flat density="comfortable" v-if="!useUserPreferenceStore().isAuthenticated && !useUserPreferenceStore().isPrintMode">
-            <a href="https://tandoor.dev">
-                <v-img src="../../assets/brand_logo.svg" width="140px" class="ms-2"></v-img>
-            </a>
+    <v-app class="table-app">
+        <v-app-bar color="table" flat density="comfortable" v-if="!useUserPreferenceStore().isAuthenticated && !useUserPreferenceStore().isPrintMode">
+            <router-link :to="{name: 'StartPage'}" aria-label="Table">
+                <v-img src="../../assets/table_logo.svg" width="140px" class="ms-2"></v-img>
+            </router-link>
         </v-app-bar>
         <v-app-bar :color="useUserPreferenceStore().activeSpace.navBgColor ? useUserPreferenceStore().activeSpace.navBgColor : useUserPreferenceStore().userSettings.navBgColor"
                    flat density="comfortable" v-if="useUserPreferenceStore().isAuthenticated && !useUserPreferenceStore().isPrintMode"
                    :absolute="!useUserPreferenceStore().userSettings.navSticky"
                    :scroll-behavior="useUserPreferenceStore().userSettings.navSticky ? 'elevate' : ''">
             <router-link :to="{ name: 'StartPage', params: {} }">
-                <v-img src="../../assets/brand_logo.svg" width="140px" class="ms-2"
+                <v-img src="../../assets/table_logo.svg" width="140px" class="ms-2"
                        v-if="useUserPreferenceStore().userSettings.navShowLogo && !useUserPreferenceStore().activeSpace.navLogo"></v-img>
                 <v-img :src="useUserPreferenceStore().activeSpace.navLogo.preview" width="140px" class="ms-2"
                        v-if="useUserPreferenceStore().userSettings.navShowLogo && useUserPreferenceStore().activeSpace.navLogo != undefined"></v-img>
@@ -63,7 +63,7 @@
             </p>
         </v-app-bar>
 
-        <v-main>
+        <v-main class="table-main">
             <router-view></router-view>
         </v-main>
 
@@ -81,7 +81,7 @@
                 <v-list nav>
                     <v-list-item prepend-icon="fas fa-sliders" :title="$t('Settings')" :to="{ name: 'SettingsPage', params: {} }"></v-list-item>
                     <v-list-item prepend-icon="fa-solid fa-heart" link>
-                        Tandoor {{ useUserPreferenceStore().serverSettings.version }}
+                        Table {{ useUserPreferenceStore().serverSettings.version }}
                         <help-dialog></help-dialog>
                     </v-list-item>
                 </v-list>
@@ -194,7 +194,7 @@ router.afterEach((to, from) => {
         if (to.meta.title) {
             title.value = t(to.meta.title)
         } else {
-            title.value = 'Tandoor'
+            title.value = 'Table'
         }
     })
 })
@@ -492,6 +492,168 @@ a:hover {
     color: rgb(var(--v-theme-primary));
     text-decoration: underline;
     opacity: 0.85;
+}
+
+/* Table 1.0 visual system */
+:root {
+    --table-ink: #2e2925;
+    --table-muted: #756b63;
+    --table-surface: rgba(255, 252, 248, 0.88);
+    --table-surface-strong: #fffdfb;
+    --table-border: rgba(122, 89, 63, 0.14);
+    --table-shadow: 0 18px 48px rgba(76, 47, 29, 0.1);
+    --table-radius: 22px;
+}
+
+.table-app {
+    font-family: "Avenir Next", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--table-ink);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(217, 130, 91, 0.14), transparent 26rem),
+        radial-gradient(circle at 92% 14%, rgba(130, 170, 139, 0.16), transparent 28rem),
+        #f8f4ef;
+}
+
+.v-theme--dark.table-app {
+    --table-ink: #f7efe8;
+    --table-muted: #c0b3aa;
+    --table-surface: rgba(43, 35, 31, 0.88);
+    --table-surface-strong: #2b231f;
+    --table-border: rgba(255, 230, 210, 0.13);
+    --table-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(217, 130, 91, 0.12), transparent 26rem),
+        radial-gradient(circle at 92% 14%, rgba(130, 170, 139, 0.1), transparent 28rem),
+        #1f1a18;
+}
+
+.table-main {
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate;
+}
+
+.table-main::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    opacity: 0.35;
+    background-image: linear-gradient(rgba(122, 89, 63, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 89, 63, 0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.table-app .v-app-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 8px 28px rgba(56, 37, 24, 0.08) !important;
+    backdrop-filter: blur(18px);
+}
+
+.table-app .v-navigation-drawer {
+    border-right: 1px solid var(--table-border) !important;
+    background: rgba(255, 252, 248, 0.86) !important;
+    backdrop-filter: blur(18px);
+}
+
+.v-theme--dark.table-app .v-navigation-drawer,
+.v-theme--dark.table-app .v-bottom-navigation {
+    background: rgba(35, 29, 26, 0.9) !important;
+}
+
+.table-app .v-card {
+    border: 1px solid var(--table-border);
+    border-radius: var(--table-radius);
+    box-shadow: var(--table-shadow);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.table-app .v-card:not(.v-card--flat):hover {
+    border-color: rgba(185, 135, 102, 0.3);
+    box-shadow: 0 22px 58px rgba(76, 47, 29, 0.14);
+    transform: translateY(-2px);
+}
+
+.table-app .v-btn {
+    min-height: 42px;
+    border-radius: 13px;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.table-app .v-btn:hover {
+    filter: saturate(1.08);
+    transform: translateY(-1px);
+}
+
+.table-app .v-list-item {
+    margin: 3px 8px;
+    border-radius: 13px;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.table-app .v-list-item:hover {
+    transform: translateX(2px);
+}
+
+.table-app .v-data-table,
+.table-app .v-data-table-server {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.table-app .v-field {
+    border-radius: 13px;
+}
+
+.table-app .v-bottom-navigation {
+    border-top: 1px solid var(--table-border);
+    box-shadow: 0 -10px 32px rgba(76, 47, 29, 0.1);
+    backdrop-filter: blur(18px);
+}
+
+@keyframes table-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-main > .v-container,
+.table-main > .v-container-fluid {
+    animation: table-fade-up 420ms ease both;
+}
+
+@media (max-width: 600px) {
+    .table-app .v-container {
+        padding: 14px;
+    }
+
+    .table-app .v-card {
+        border-radius: 18px;
+    }
+
+    .table-app .v-card-title {
+        font-size: 1.08rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .table-app *,
+    .table-app *::before,
+    .table-app *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+    }
 }
 
 </style>

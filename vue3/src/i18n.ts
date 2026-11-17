@@ -5,7 +5,7 @@ import type {
 
 import {createI18n} from "vue-i18n";
 import en from "@/locales/en.json";
-import {TANDOOR_PLUGINS} from "@/types/Plugins.ts";
+import {TABLE_PLUGINS} from "@/types/Plugins.ts";
 import {qualified as qualifiedLocales, coverage as localeCoverage, minCoverage as LOCALE_MIN_COVERAGE} from 'virtual:locale-coverage'
 import {Settings} from "luxon";
 
@@ -81,7 +81,7 @@ export function setupI18n() {
     }) as I18n
 
     // async load plugin default locales
-    TANDOOR_PLUGINS.forEach(plugin => {
+    TABLE_PLUGINS.forEach(plugin => {
         plugin.defaultLocale.then(pluginMessages => {
             i18n.global.mergeLocaleMessage('en', pluginMessages)
         })
@@ -118,7 +118,7 @@ export async function loadLocaleMessages(i18n: I18n, locale: Locale) {
     i18n.global.setLocaleMessage(locale, messages)
 
     // async load and merge messages from plugins (skip coverage — plugin translations are independent)
-    TANDOOR_PLUGINS.forEach(plugin => {
+    TABLE_PLUGINS.forEach(plugin => {
         const pluginLocaleMap = buildLocaleMap(plugin.localeFiles, false)
         const pluginFilename = pluginLocaleMap.get(locale)
         if (pluginFilename) {

@@ -48,7 +48,7 @@ def _store_error(error_entry):
         pass
 
 
-class TandoorSocialAccountAdapter(DefaultSocialAccountAdapter):
+class TableSocialAccountAdapter(DefaultSocialAccountAdapter):
 
     def is_open_for_signup(self, request, sociallogin):
         """

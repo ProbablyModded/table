@@ -10,8 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-09-30 07:26+0000\n"
 "Last-Translator: Lucas Wang <unicornundermoon@protonmail.com>\n"
-"Language-Team: Chinese (Simplified Han script) <http://translate.tandoor.dev/"
-"projects/tandoor/recipes-backend/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified Han script) <http://weblate.org/"
+"projects/table/recipes-backend/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -535,8 +535,8 @@ msgid "You have been invited by "
 msgstr "您已被邀请至 "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " 加入他们的 Tandoor 食谱空间 "
+msgid " to join their Table Recipes space "
+msgstr " 加入他们的 Table 食谱空间 "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -553,12 +553,12 @@ msgstr "邀请有效期至 "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
-msgstr "Tandoor 是一个开源食谱管理器。 在 GitHub 上查看 "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
+msgstr "Table 是一个开源食谱管理器。 在 GitHub 上查看 "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor 食谱邀请"
+msgid "Table Recipes Invite"
+msgstr "Table 食谱邀请"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -855,9 +855,9 @@ msgstr "注册已关闭"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "我们很抱歉，但目前注册已经结束。"
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Tandoor 食谱管理"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Table 食谱管理"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1494,18 +1494,18 @@ msgstr "系统"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes 是一款开源自由软件。你可以在\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a> 上找"
+"        Table Recipes 是一款开源自由软件。你可以在\n"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a> 上找"
 "到它。\n"
-"        更新日志可在<a href=\"https://github.com/TandoorRecipes/recipes/"
+"        更新日志可在<a href=\"https://github.com/Table/recipes/"
 "releases\">此处</a>查看。\n"
 "    "
 
@@ -2133,8 +2133,8 @@ msgid ""
 msgstr "PDF 导出不再可用。请使用浏览器的打印功能（Ctrl+P）将食谱保存为 PDF。"
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "此功能在 Tandoor 的托管版本中尚不可用！"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "此功能在 Table 的托管版本中尚不可用！"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2428,14 +2428,14 @@ msgstr "查看你的购物清单"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "翻译 Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "翻译 Table"
 
 #~ msgid "Log out"
 #~ msgstr "退出"
 
 #~ msgid "You are using the free version of Tandor"
-#~ msgstr "你正在使用免费版的 Tandoor"
+#~ msgstr "你正在使用免费版的 Table"
 
 #~ msgid "Upgrade Now"
 #~ msgstr "现在升级"

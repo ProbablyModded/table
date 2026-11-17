@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-06-30 10:54+0000\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
-"Language-Team: Italian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Italian <http://weblate.org/projects/table/"
 "recipes-backend/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -556,8 +556,8 @@ msgid "You have been invited by "
 msgstr "Sei stato invitato da "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " a entrare nella sua istanza di Tandoor Recipes "
+msgid " to join their Table Recipes space "
+msgstr " a entrare nella sua istanza di Table Recipes "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -576,14 +576,14 @@ msgstr "L'invito è valido fino al "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes è un gestore di ricette Open Source. Dagli un'occhiata su "
+"Table Recipes è un gestore di ricette Open Source. Dagli un'occhiata su "
 "GitHub "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Invito per Tandoor Recipes"
+msgid "Table Recipes Invite"
+msgstr "Invito per Table Recipes"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -890,9 +890,9 @@ msgstr "Iscrizioni chiuse"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Spiacenti, al momento le iscrizioni sono chiuse."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Gestore delle ricette Tandoor"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Gestore delle ricette Table"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1575,19 +1575,19 @@ msgstr "Sistema"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes è una applicazione gratuita e open source. È "
+"        Table Recipes è una applicazione gratuita e open source. È "
 "disponibile su\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
 "        Puoi consultare le ultime novità <a href=\"https://github.com/"
-"TandoorRecipes/recipes/releases\">qui</a>.\n"
+"Table/recipes/releases\">qui</a>.\n"
 "    "
 
 #: .\cookbook\templates\system.html:30
@@ -2300,9 +2300,9 @@ msgstr ""
 "del tuo browser (Ctrl+P) per salvare le ricette in formato PDF."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
-"Questa funzione non è ancora disponibile nella versione ospitata di Tandoor!"
+"Questa funzione non è ancora disponibile nella versione ospitata di Table!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2627,14 +2627,14 @@ msgstr "Visualizza le tue liste della spesa"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Traduci Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Traduci Table"
 
 #~ msgid "Log out"
 #~ msgstr "Esci"
 
 #~ msgid "You are using the free version of Tandor"
-#~ msgstr "Stai usando la versione gratuita di Tandoor"
+#~ msgstr "Stai usando la versione gratuita di Table"
 
 #~ msgid "Upgrade Now"
 #~ msgstr "Aggiorna ora"

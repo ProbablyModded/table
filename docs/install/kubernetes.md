@@ -1,8 +1,8 @@
 !!! info "Community Contributed"
     This guide was contributed by the community and is neither officially supported, nor updated or tested.
 
-!!! danger "Tandoor 2 Compatibility"
-    This guide has not been verified/tested for Tandoor 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
+!!! danger "Table 2 Compatibility"
+    This guide has not been verified/tested for Table 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
 
 ## K8s Setup
 
@@ -60,7 +60,7 @@ Creating the database service.
 
 ### 50-deployment.yaml
 
-The deployment first fires up a init container to do the database migrations and file modifications. This init container runs as root. The init container runs part of the [boot.sh](https://github.com/TandoorRecipes/recipes/blob/develop/boot.sh) script from the `vabene1111/recipes` image. 
+The deployment first fires up a init container to do the database migrations and file modifications. This init container runs as root. The init container runs part of the [boot.sh](https://github.com/Table/recipes/blob/develop/boot.sh) script from the `vabene1111/recipes` image.
 
 The deployment then runs two containers, the recipes-nginx and the recipes container which runs the gunicorn app. The nginx container gets it's nginx.conf via config map to deliver static content `/static` and `/media`. The guincorn container gets it's secret key and the database password from the secret `recipes`. `gunicorn` runs as user `nobody`.
 

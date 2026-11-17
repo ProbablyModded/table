@@ -73,7 +73,7 @@ class CookBookApp(Integration):
                 space=self.request.space,
             ))
 
-        # Tandoor doesn't have notes, append it as the last step
+        # Table doesn't have notes, append it as the last step
         if 'notes' in recipe_json and len(recipe_json['notes']) > 0:
             notes_text = f"#### Notes\n\n{recipe_json['notes']}"
             step = Step.objects.create(

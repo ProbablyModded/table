@@ -425,7 +425,7 @@ function createCustomFilter() {
 function loadSelectedCustomFilter() {
     let customFilterParams = JSON.parse(selectedCustomFilter.value.search)
     if (customFilterParams['version'] == null) {
-        customFilterParams = transformTandoor1Filter(customFilterParams)
+        customFilterParams = transformLegacyV1Filter(customFilterParams)
     }
 
     if (customFilterParams['query'] != null) {
@@ -465,10 +465,10 @@ function filtersToCustomFilterFormat() {
 }
 
 /**
- * transform a filter that is in the tandoor 1 format into the tandoor 2 format
+ * transform a filter from the legacy v1 format into the current format
  * @param customFilterParams
  */
-function transformTandoor1Filter(customFilterParams: any) {
+function transformLegacyV1Filter(customFilterParams: any) {
 
     // _or was basically an alias to the standard filter which behaves like an or filter
     [['books_or', 'books'], ['foods_or', 'foods'], ['keywords_or', 'keywords'],].forEach(pair => {

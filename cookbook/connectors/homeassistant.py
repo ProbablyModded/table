@@ -92,7 +92,7 @@ def _format_shopping_list_entry(shopping_list_entry: ShoppingListEntryDTO) -> Tu
         else:
             item += ")"
 
-    description = "From TandoorRecipes"
+    description = "From Table"
     if shopping_list_entry.created_by.first_name:
         description += f", by {shopping_list_entry.created_by.first_name}"
     else:

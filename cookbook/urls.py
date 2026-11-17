@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView
 from rest_framework import routers
 
-from cookbook.version_info import TANDOOR_VERSION
+from cookbook.version_info import TABLE_VERSION
 from recipes.settings import PLUGINS
 from .views import api, telegram, views, import_export
 
@@ -96,7 +96,7 @@ urlpatterns = [
     # for internal use only
     path('view-recipe-pdf/<int:pk>/', views.recipe_pdf_viewer, name='view_recipe_pdf'),
 
-    # Tandoor v1 redirects
+    # Legacy v1 redirects
     path('view/recipe/<int:pk>', views.redirect_recipe_view, name='redirect_recipe_view'),
     path('view/recipe/<int:pk>/<slug:share>', views.redirect_recipe_share_view, name='redirect_recipe_share_view'),
 
@@ -122,7 +122,7 @@ urlpatterns = [
     path('docs/search/', views.search_info, name='docs_search'),
     path('docs/api/', views.Redoc.as_view(url_name='openapi-schema'), name='docs_api'),
     path('docs/swagger/', views.Swagger.as_view(url_name='openapi-schema'), name='docs_swagger'),
-    path('openapi/', SpectacularAPIView.as_view(api_version=TANDOOR_VERSION), name='openapi-schema'),
+    path('openapi/', SpectacularAPIView.as_view(api_version=TABLE_VERSION), name='openapi-schema'),
     path('api/', include((router.urls, 'api'))),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
@@ -135,5 +135,5 @@ urlpatterns = [
 # catchall view for new frontend
 urlpatterns += [
     path('', views.index, name='index'),
-    path('<path:resource>', views.index, name='tandoor_frontend'),
+    path('<path:resource>', views.index, name='table_frontend'),
 ]

@@ -23,4 +23,4 @@ If you want to test the documentation, locally run `mkdocs serve` from the proje
 ## Super Low Tech
 
 Create your documentation in any work processor (or even create a video!) and [open a feature request](https://github.com/vabene1111/recipes/issues)
-attaching your document and requesting that someone add the documentation to Tandoor.
+attaching your document and requesting that someone add the documentation to Table.

@@ -11,7 +11,7 @@ If you like this application and want it to give back, there are many ways to co
 If you know any foreign languages you can:
 Improve the translations for any of the existing languages.
 
-See [here](/contribute/translations/) for further information on how to contribute translation to Tandoor.
+See [here](/contribute/translations/) for further information on how to contribute translation to Table.
 
 ## Issues and Feature Requests
 
@@ -22,17 +22,17 @@ Without feedback, improvement can't happen, so don't hesitate to say what you wa
 
 ## Documentation
 
-Helping improve the documentation for Tandoor is one of the easiest ways to give back and doesn't even require deep technical knowledge.
-You can write guides on how to install and configure Tandoor expanding our repository of non-standard configuations.
-Or you can write how-to guides using some of Tandoor's advanced features such as authentication or automation.
+Helping improve the documentation for Table is one of the easiest ways to give back and doesn't even require deep technical knowledge.
+You can write guides on how to install and configure Table expanding our repository of non-standard configuations.
+Or you can write how-to guides using some of Table's advanced features such as authentication or automation.
 
-See [here](/contribute/documentation/) for more information on how to add documentation to Tandoor.
+See [here](/contribute/documentation/) for more information on how to add documentation to Table.
 
 
 ## Contributing Code
 
 For the truly ambitious, you can help write code to fix issues, add additional features, or write your own scripts using
-Tandoor's extensive API and share your work with the community.
+Table's extensive API and share your work with the community.
 
 Guides for contributing specific types of features can be found [here](/contribute/feature_contrib/featureguides/)
 

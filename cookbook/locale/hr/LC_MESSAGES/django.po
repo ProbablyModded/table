@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-02-20 22:13+0000\n"
 "Last-Translator: Bruno <bbadanjak2@gmail.com>\n"
-"Language-Team: Croatian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Croatian <http://weblate.org/projects/table/"
 "recipes-backend/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -552,8 +552,8 @@ msgid "You have been invited by "
 msgstr "Pozvao vas je "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " pridružiti se njihovom prostoru Tandoor Recipes "
+msgid " to join their Table Recipes space "
+msgstr " pridružiti se njihovom prostoru Table Recipes "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -572,13 +572,13 @@ msgstr "Poziv vrijedi do "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes je upravitelj recepata otvorenog koda. Provjerite na GitHubu "
+"Table Recipes je upravitelj recepata otvorenog koda. Provjerite na GitHubu "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor Recipes pozivnica"
+msgid "Table Recipes Invite"
+msgstr "Table Recipes pozivnica"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -883,11 +883,11 @@ msgstr "Registracija je zatvorena"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Žao nam je, ali registracija je trenutno zatvorena."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
+#: .\cookbook\templates\frontend\table.html:15
 #, fuzzy
-#| msgid "Tandoor Recipes Invite"
-msgid "Tandoor Recipe Manager"
-msgstr "Tandoor Recipes pozivnica"
+#| msgid "Table Recipes Invite"
+msgid "Table Recipe Manager"
+msgstr "Table Recipes pozivnica"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1440,10 +1440,10 @@ msgstr "Sustav"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
@@ -2046,7 +2046,7 @@ msgid ""
 msgstr ""
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
 
 #: .\cookbook\views\api.py:3386
@@ -2346,8 +2346,8 @@ msgstr ""
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Prevedi Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Prevedi Table"
 
 #~ msgid "Log out"
 #~ msgstr "Odjava"

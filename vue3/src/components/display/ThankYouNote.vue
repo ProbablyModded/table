@@ -3,7 +3,7 @@
         <v-alert-title>
             <v-row>
                 <v-col>
-                    <v-avatar image="../../assets/logo_color.svg" class="me-2"></v-avatar>
+                    <v-avatar image="../../assets/table_logo.svg" class="me-2"></v-avatar>
                     {{ $t('ThankYou') }}!
 
                 </v-col>
@@ -20,7 +20,7 @@
         <v-alert-title>
             <v-row>
                 <v-col>
-                    <v-avatar image="../../assets/logo_color.svg" class="me-2"></v-avatar>
+                    <v-avatar image="../../assets/table_logo.svg" class="me-2"></v-avatar>
                     {{ $t('ThankYou') }}!
 
                 </v-col>

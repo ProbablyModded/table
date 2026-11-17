@@ -17,7 +17,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-07-19 09:49+0000\n"
 "Last-Translator: Julian <julianrottenberg@mailbox.org>\n"
-"Language-Team: German <http://translate.tandoor.dev/projects/tandoor/recipes-"
+"Language-Team: German <http://weblate.org/projects/table/recipes-"
 "backend/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -560,8 +560,8 @@ msgid "You have been invited by "
 msgstr "Du wurdest eingeladen von "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " um deren Tandoor Recipes Instanz beizutreten "
+msgid " to join their Table Recipes space "
+msgstr " um deren Table Recipes Instanz beizutreten "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -580,14 +580,14 @@ msgstr "Die Einladung ist gültig bis "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes ist ein Open-Source Rezept-Manager. Mehr Informationen sind "
+"Table Recipes ist ein Open-Source Rezept-Manager. Mehr Informationen sind "
 "auf GitHub zu finden "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor Recipes Einladung"
+msgid "Table Recipes Invite"
+msgstr "Table Recipes Einladung"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -895,9 +895,9 @@ msgstr "Registrierung geschlossen"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Es tut uns Leid, aber die Registrierung ist derzeit geschlossen."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Tandoor Rezept Manager"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Table Rezept Manager"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1566,19 +1566,19 @@ msgstr "System"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes ist eine kostenlose OpenSource-Anwendung. Der "
+"        Table Recipes ist eine kostenlose OpenSource-Anwendung. Der "
 "Quellcode befindet sich auf\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
 "        Eine Übersicht über alle Änderungen findet sich <a href=\"https://"
-"github.com/TandoorRecipes/recipes/releases\">hier</a>.\n"
+"github.com/Table/recipes/releases\">hier</a>.\n"
 "    "
 
 #: .\cookbook\templates\system.html:30
@@ -2286,8 +2286,8 @@ msgstr ""
 "Funktion (STRG+P) Ihres Browsers um das Rezept als PDF zu speichern."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "Diese Funktion ist in dieser Version von Tandoor noch nicht verfügbar!"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "Diese Funktion ist in dieser Version von Table noch nicht verfügbar!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2609,14 +2609,14 @@ msgstr "Zeige deine Einkaufslisten"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Tandoor übersetzen"
+#~ msgid "Translate Table"
+#~ msgstr "Table übersetzen"
 
 #~ msgid "Log out"
 #~ msgstr "Ausloggen"
 
 #~ msgid "You are using the free version of Tandor"
-#~ msgstr "Du benutzt die Gratis-Version von Tandoor"
+#~ msgstr "Du benutzt die Gratis-Version von Table"
 
 #~ msgid "Upgrade Now"
 #~ msgstr "Jetzt upgraden"

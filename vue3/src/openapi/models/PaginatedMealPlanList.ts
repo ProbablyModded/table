@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Tandoor
- * Tandoor API Docs
+ * Table
+ * Table API Docs
  *
  * The version of the OpenAPI document: 0.0.0
  * 

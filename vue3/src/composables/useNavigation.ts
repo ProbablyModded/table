@@ -2,11 +2,11 @@ import {useI18n} from "vue-i18n";
 import {VDivider, VListItem} from "vuetify/components";
 import {useUserPreferenceStore} from "@/stores/UserPreferenceStore.ts";
 import {useDjangoUrls} from "@/composables/useDjangoUrls.ts";
-import {TANDOOR_PLUGINS} from "@/types/Plugins.ts";
+import {TABLE_PLUGINS} from "@/types/Plugins.ts";
 import {plugin} from "@/plugins/open_data_plugin/plugin.ts";
 
 /**
- * manages configuration and loading of navigation entries for tandoor main app and plugins
+ * manages configuration and loading of navigation entries for the main app and plugins
  */
 export function useNavigation() {
     const {t} = useI18n()
@@ -18,12 +18,15 @@ export function useNavigation() {
             {component: VListItem, prependIcon: '$mealplan', title: t('Meal_Plan'), to: {name: 'MealPlanPage', params: {}}},
             {component: VListItem, prependIcon: '$shopping', title: t('Shopping'), to: {name: 'ShoppingListPage', params: {}}},
             {component: VListItem, prependIcon: 'fas fa-globe', title: t('Import'), to: {name: 'RecipeImportPage', params: {}}},
-            {component: VListItem, prependIcon: '$pantry', title: t('Pantry'), to: {name: 'PantryPage', params: {}}},
             {component: VListItem, prependIcon: '$books', title: t('Books'), to: {name: 'BooksPage', params: {}}},
             {component: VListItem, prependIcon: 'fa-solid fa-folder-tree', title: t('Database'), to: {name: 'DatabasePage', params: {}}},
         ]
 
-        TANDOOR_PLUGINS.forEach(plugin => {
+        if (useUserPreferenceStore().deviceSettings.general_showPantry) {
+            navigation.splice(5, 0, {component: VListItem, prependIcon: '$pantry', title: t('Pantry'), to: {name: 'PantryPage', params: {}}})
+        }
+
+        TABLE_PLUGINS.forEach(plugin => {
             plugin.navigationDrawer.forEach(navEntry => {
                 let navEntryCopy = Object.assign({}, navEntry)
                 if ('title' in navEntryCopy) {
@@ -42,11 +45,14 @@ export function useNavigation() {
             {component: VListItem, prependIcon: 'fas fa-globe', title: t('Import'), to: {name: 'RecipeImportPage', params: {}}},
             {component: VListItem, prependIcon: 'fa-solid fa-folder-tree', title: t('Database'), to: {name: 'DatabasePage', params: {}}},
             {component: VListItem, prependIcon: '$search', title: t('Search'), to: {name: 'SearchPage', params: {}}},
-            {component: VListItem, prependIcon: '$pantry', title: t('Pantry'), to: {name: 'PantryPage', params: {}}},
             {component: VListItem, prependIcon: '$books', title: t('Books'), to: {name: 'BooksPage', params: {}}},
         ]
 
-        TANDOOR_PLUGINS.forEach(plugin => {
+        if (useUserPreferenceStore().deviceSettings.general_showPantry) {
+            navigation.splice(4, 0, {component: VListItem, prependIcon: '$pantry', title: t('Pantry'), to: {name: 'PantryPage', params: {}}})
+        }
+
+        TABLE_PLUGINS.forEach(plugin => {
             plugin.bottomNavigation.forEach(navEntry => {
                 let navEntryCopy = Object.assign({}, navEntry)
                 if ('title' in navEntryCopy) {
@@ -84,7 +90,7 @@ export function useNavigation() {
             navigation.push({component: VDivider})
         }
 
-        TANDOOR_PLUGINS.forEach(plugin => {
+        TABLE_PLUGINS.forEach(plugin => {
             plugin.userNavigation.forEach(navEntry => {
                 let navEntryCopy = Object.assign({}, navEntry)
                 if ('title' in navEntryCopy) {

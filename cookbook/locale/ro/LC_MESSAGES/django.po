@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2025-02-16 14:58+0000\n"
 "Last-Translator: Cots Partier <cots.pastier.34@icloud.com>\n"
-"Language-Team: Romanian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Romanian <http://weblate.org/projects/table/"
 "recipes-backend/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -559,8 +559,8 @@ msgid "You have been invited by "
 msgstr "Ați fost invitat de "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " pentru a vă alătura la spațiul lor de rețete Tandoor "
+msgid " to join their Table Recipes space "
+msgstr " pentru a vă alătura la spațiul lor de rețete Table "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -579,13 +579,13 @@ msgstr "Invitația este valabilă până la "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes este un manager de rețete Open Source. Priviți pe GitHub "
+"Table Recipes este un manager de rețete Open Source. Priviți pe GitHub "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Invitație Tandoor Recipes"
+msgid "Table Recipes Invite"
+msgstr "Invitație Table Recipes"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -892,11 +892,11 @@ msgstr "Înscrierea închisă"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Ne pare rău, dar înscrierea este în prezent închisă."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
+#: .\cookbook\templates\frontend\table.html:15
 #, fuzzy
-#| msgid "Tandoor Recipes Invite"
-msgid "Tandoor Recipe Manager"
-msgstr "Invitație Tandoor Recipes"
+#| msgid "Table Recipes Invite"
+msgid "Table Recipe Manager"
+msgstr "Invitație Table Recipes"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1597,10 +1597,10 @@ msgstr "Sistem"
 #| "    "
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
@@ -2260,9 +2260,9 @@ msgid ""
 msgstr ""
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
-"Această funcție nu este încă disponibilă în versiunea găzduită a tandoor!"
+"Această funcție nu este încă disponibilă în versiunea găzduită a table!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2572,8 +2572,8 @@ msgstr "Vezi listele de cumpărături"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Traducere Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Traducere Table"
 
 #~ msgid "Log out"
 #~ msgstr "Deconectare"

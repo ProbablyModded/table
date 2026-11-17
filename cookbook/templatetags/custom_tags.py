@@ -111,15 +111,15 @@ def recipe_last(recipe, user):
 @register.simple_tag
 def page_help(page_name):
     help_pages = {
-        'edit_storage': 'https://docs.tandoor.dev/features/external_recipes/',
-        'list_connector_config': 'https://docs.tandoor.dev/features/connectors/',
-        'new_connector_config': 'https://docs.tandoor.dev/features/connectors/',
-        'edit_connector_config': 'https://docs.tandoor.dev/features/connectors/',
-        'view_shopping': 'https://docs.tandoor.dev/features/shopping/',
-        'view_import': 'https://docs.tandoor.dev/features/import_export/',
-        'data_import_url': 'https://docs.tandoor.dev/features/import_export/',
-        'view_export': 'https://docs.tandoor.dev/features/import_export/',
-        'list_automation': 'https://docs.tandoor.dev/features/automation/',
+        'edit_storage': '/help',
+        'list_connector_config': '/help',
+        'new_connector_config': '/help',
+        'edit_connector_config': '/help',
+        'view_shopping': '/help',
+        'view_import': '/help',
+        'data_import_url': '/help',
+        'view_export': '/help',
+        'list_automation': '/help',
     }
 
     link = help_pages.get(page_name, '')
@@ -181,8 +181,8 @@ def bookmarklet(request):
 
     bookmark = "<a href='javascript: \
     (function(){ \
-        if(window.bookmarkletTandoor!==undefined){ \
-            bookmarkletTandoor(); \
+        if(window.bookmarkletTable!==undefined){ \
+            bookmarkletTable(); \
         } else { \
             localStorage.setItem('importURL', '" + server + reverse('api:bookmarkletimport-list') + "'); \
             localStorage.setItem('redirectURL', '" + server + reverse('data_import_url') + "'); \

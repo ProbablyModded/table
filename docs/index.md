@@ -1,8 +1,8 @@
 <h1 align="center">
   <br>
-  <a href="https://tandoor.dev"><img src="https://github.com/vabene1111/recipes/raw/develop/docs/logo_color.svg" height="256px" width="256px"></a>
+  <a href="../"><img src="table_logo.svg" height="180px" width="640px" alt="Table"></a>
   <br>
-  Tandoor Recipes
+  Table
   <br>
 </h1>
 
@@ -15,15 +15,11 @@
 <a href="https://discord.gg/RhzBrfWgtp" target="_blank" rel="noopener noreferrer"><img src="https://badgen.net/badge/icon/discord?icon=discord&label" ></a>
 <a href="https://hub.docker.com/r/vabene1111/recipes" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/docker/pulls/vabene1111/recipes" ></a>
 <a href="https://github.com/vabene1111/recipes/releases/latest" rel="noopener noreferrer"><img src="https://img.shields.io/github/v/release/vabene1111/recipes" ></a>
-<a href="https://app.tandoor.dev/e/demo-auto-login/" rel="noopener noreferrer"><img src="https://img.shields.io/badge/demo-available-success" ></a>
 </p>
 
 <p align="center">
-<a href="https://tandoor.dev" target="_blank" rel="noopener noreferrer">Website</a> •
-<a href="https://docs.tandoor.dev/install/docker/" target="_blank" rel="noopener noreferrer">Installation</a> •
-<a href="https://docs.tandoor.dev/" target="_blank" rel="noopener noreferrer">Docs</a> •
-<a href="https://app.tandoor.dev/e/demo-auto-login/" target="_blank" rel="noopener noreferrer">Demo</a> •
-<a href="https://community.tandoor.dev" target="_blank" rel="noopener noreferrer">Community</a> •
+<a href="install/docker.md" rel="noopener noreferrer">Installation</a> •
+<a href="../" rel="noopener noreferrer">Docs</a> •
 <a href="https://discord.gg/RhzBrfWgtp" target="_blank" rel="noopener noreferrer">Discord</a>
 </p>
 
@@ -51,7 +47,7 @@
 
 - 📱  Optimized for use on **mobile** devices
 - 🌍 Localized in many **languages** thanks to the awesome community
-- 📥️ **Import your collection** from many other [recipe managers](https://docs.tandoor.dev/features/import_export/)
+- 📥️ **Import your collection** from many other [recipe managers](features/import_export.md)
 - ➕ Many more like **recipe scaling, image compression, printing views and supermarkets**
 
 This application is meant for people with a collection of recipes they want to share with family and friends or simply
@@ -60,14 +56,14 @@ a public page.
 
 ## Your Feedback
 
-Share some information on how you use Tandoor to help me improve the application [Google Survey](https://forms.gle/qNfLK2tWTeWHe9Qd7)
+Share some information on how you use Table to help improve the application [Google Survey](https://forms.gle/qNfLK2tWTeWHe9Qd7)
 
 ## Get in touch
 
 <table>
   <tr>
-    <td><a href="https://community.tandoor.dev">Community</a></td>
-    <td>Get support, share best practices, discuss feature ideas, and meet other Tandoor users.</td>
+    <td>Community</td>
+    <td>Get support, share best practices, discuss feature ideas, and meet other Table users.</td>
   </tr>
 
   <tr>

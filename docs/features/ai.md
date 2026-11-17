@@ -1,5 +1,5 @@
-Tandoor has several AI based features. To allow maximum flexibility, you can configure different AI providers and select them based on the task you want to perform.
-To prevent accidental cost escalation Tandoor has a robust system of tracking and limiting AI costs.
+Table has several AI based features. To allow maximum flexibility, you can configure different AI providers and select them based on the task you want to perform.
+To prevent accidental cost escalation Table has a robust system of tracking and limiting AI costs.
 
 ## Where AI is used
 AI is currently used for a few focused tasks:
@@ -12,14 +12,14 @@ All AI calls are routed through LiteLLM, so any provider supported by LiteLLM (o
 
 ## Default Configuration
 By default the AI features are enabled for every space. Each space has a spending limit of roughly 1 USD per month.
-This can be changed using the [configuration variables](https://docs.tandoor.dev/system/configuration/#ai-integration)
+This can be changed using the [configuration variables](/system/configuration/#ai-integration)
 
 You can change these settings any time using the django admin. If you do not care about AI cost you can enter a very high limit or disable cost tracking for your providers.
-The limit resets on the first of every month. 
+The limit resets on the first of every month.
 
 ## Configure AI Providers
-When AI support is enabled for a space every user in a space can configure AI providers. 
-The models shown in the editor have been tested and work with Tandoor. Most other models that can parse images/files and return text should also work. 
+When AI support is enabled for a space every user in a space can configure AI providers.
+The models shown in the editor have been tested and work with Table. Most other models that can parse images/files and return text should also work.
 
 Superusers also have the ability to configure global AI providers that every space can use.
 
@@ -28,7 +28,7 @@ To use AI on a self-hosted instance, you need to:
 
 1. Enable AI in your space (or set defaults via environment variables)
 2. Create at least one AI Provider
-3. Pick that provider when using an AI feature 
+3. Pick that provider when using an AI feature
 
 If you want a provider to be available in every space, create a global AI Provider as a superuser. Otherwise create a space-specific provider.
 
@@ -51,7 +51,7 @@ Examples for commonly used providers. For model naming, auth, and base URL detai
 Name: OpenAI gpt5.2-mini
 Model name: gpt5.2-mini
 API key: <your OpenAI API key>
-URL: 
+URL:
 Log credit cost: enabled
 ```
 
@@ -78,7 +78,7 @@ Log credit cost: enabled
 ```
 
 ### Requirements for models
-Tandoor expects structured JSON responses from every AI call, so your model must support JSON mode or reliably return JSON.
+Table expects structured JSON responses from every AI call, so your model must support JSON mode or reliably return JSON.
 For image/PDF import the provider must support vision inputs.
 
 <!-- prettier-ignore -->
@@ -88,7 +88,7 @@ For image/PDF import the provider must support vision inputs.
 
 ## Troubleshooting
 
-- **JSON mode is required**: if the model ignores `response_format`, Tandoor will fail to parse the response and the request will error.
+- **JSON mode is required**: if the model ignores `response_format`, Table will fail to parse the response and the request will error.
 - **Vision support matters**: image/PDF import uses `image_url`. Models without vision support will fail. PDF handling depends on the provider; some only accept images.
 - **Timeouts**: AI calls are synchronous. Slow models can hit reverse proxy or application server timeouts. Increase timeouts if your provider is slow.
 - **Rate limits**: `AI_RATELIMIT` throttles AI endpoints (`60/hour` by default). For batch usage, raise this limit.

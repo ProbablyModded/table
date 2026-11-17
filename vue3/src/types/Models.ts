@@ -1098,7 +1098,7 @@ registerModel(TSearchFields)
 
 
 /**
- * Many of Tandoors models and model API endpoints share the same interfaces
+ * Many of Table's models and model API endpoints share the same interfaces
  * The GenericModel class allows interaction with these models in a standardized manner
  */
 export class GenericModel {

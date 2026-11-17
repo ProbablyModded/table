@@ -2,7 +2,7 @@ import {createApp} from "vue";
 import {createRouter, createWebHistory} from 'vue-router'
 import {createPinia} from 'pinia'
 // @ts-ignore
-import App from './Tandoor.vue'
+import App from './Table.vue'
 
 import vuetify from "@/vuetify";
 import mavonEditor from 'mavon-editor'
@@ -12,7 +12,8 @@ import {createRulesPlugin} from 'vuetify/labs/rules'
 
 import {setupI18n} from "@/i18n";
 import MealPlanPage from "@/pages/MealPlanPage.vue";
-import {TANDOOR_PLUGINS, TandoorPlugin} from "@/types/Plugins.ts";
+import {TABLE_PLUGINS} from "@/types/Plugins.ts";
+import {useUserPreferenceStore} from "@/stores/UserPreferenceStore.ts";
 
 let routes = [
     {path: '/', component: () => import("@/pages/StartPage.vue"), name: 'StartPage'},
@@ -38,7 +39,7 @@ let routes = [
     {path: '/recipe/import', component: () => import("@/pages/RecipeImportPage.vue"), name: 'RecipeImportPage', meta: {title: 'Import'}},
 
     {path: '/recipe/:id', component: () => import("@/pages/RecipeViewPage.vue"), name: 'RecipeViewPage', props: true, meta: {title: 'Recipe'}},
-    {path: '/view/recipe/:id', redirect: {name: 'RecipeViewPage'}}, // old Tandoor v1 url pattern
+    {path: '/view/recipe/:id', redirect: {name: 'RecipeViewPage'}}, // legacy v1 URL pattern
 
     {path: '/list/:model?', component: () => import("@/pages/ModelListPage.vue"), props: true, name: 'ModelListPage'},
     {path: '/edit/:model/:id?', component: () => import("@/pages/ModelEditPage.vue"), props: true, name: 'ModelEditPage', meta: {title: 'Edit'}},
@@ -48,8 +49,13 @@ let routes = [
 
     {path: '/ingredient-editor', component: () => import("@/pages/IngredientEditorPage.vue"), name: 'IngredientEditorPage', meta: {title: 'Ingredient Editor'}},
     {path: '/property-editor', component: () => import("@/pages/PropertyEditorPage.vue"), name: 'PropertyEditorPage', meta: {title: 'Property_Editor'}},
-    {path: '/pantry', component: () => import("@/pages/PantryPage.vue"), name: 'PantryPage', meta: {title: 'Pantry'}},
-
+    {
+        path: '/pantry',
+        component: () => import("@/pages/PantryPage.vue"),
+        name: 'PantryPage',
+        meta: {title: 'Pantry'},
+        beforeEnter: () => useUserPreferenceStore().deviceSettings.general_showPantry ? true : {name: 'StartPage'},
+    },
     {path: '/space-setup', component: () => import("@/pages/SpaceSetupPage.vue"), name: 'SpaceSetupPage'},
 
     {path: '/:pathMatch(.*)*', component: () => import("@/pages/404Page.vue"), name: '404Page', meta: {title: 'NotFound'}},
@@ -72,7 +78,7 @@ let settings = {
 }
 
 // load plugin routes into routing table
-TANDOOR_PLUGINS.forEach(plugin => {
+TABLE_PLUGINS.forEach(plugin => {
     routes = routes.concat(plugin.routes)
 
     if(plugin.settingRoutes){

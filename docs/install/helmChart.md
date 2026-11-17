@@ -8,7 +8,7 @@ Assumptions:
 1. You have a running postgres database you can access.
 2. The initial version of this chart does not include a LB. It assume you will point to the service that will be create by using either an Ingress manifest or a httproute.
 
-Example config values.yaml. Please see helm-chart repo for the last [version](https://github.com/csg33k/helm-charts/blob/main/charts/tandoor/values.yaml).
+Example config values.yaml. Please see helm-chart repo for the last [version](https://github.com/csg33k/helm-charts/blob/main/charts/table/values.yaml).
 
 Basic minimal example:
 
@@ -23,10 +23,10 @@ Change to latest version if out of date.
 #global:
 #  create_namespace: false
 #  image: vabene1111/recipes
-#  tandoor_version: 2.3
+#  table_version: 2.3
 
 # Environment variables
-env: 
+env:
 ## Values below will get you to a basic working installation
   - name: DB_ENGINE
     value: django.db.backends.postgresql
@@ -51,7 +51,7 @@ env:
       secretKeyRef:
         name: recipes-secrets
         key: password
-## I skipped email support but feel free to add it as well. 
+## I skipped email support but feel free to add it as well.
 
 # Persistent Volume Claims, is not strictly required but it's highly recommended
 # to create a few volumes to persist your data. Otherwise those files would reboot
@@ -77,14 +77,14 @@ extraResources:
     type: Opaque
     stringData:
       password: superSecretDBPass
-      secret-key: ## output of openssl rand -base64 32 | tr -d '/+=' | head -c 32 
+      secret-key: ## output of openssl rand -base64 32 | tr -d '/+=' | head -c 32
       username: db_username
 ```
 
 Install the chart:
 
 ```sh
-helm install recipe-manager -n food oci://ghcr.io/csg33k/helm-charts/tandoor --version 0.0.1 -f myvalues.yaml 
+helm install recipe-manager -n food oci://ghcr.io/csg33k/helm-charts/table --version 0.0.1 -f myvalues.yaml
 ```
 
 Once that is complete all you need is to setup your Ingress / httproute. Everyone does this differently but if you have an Gateway already setup setting up a route is as easy as:

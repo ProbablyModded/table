@@ -4,7 +4,7 @@
 
 ## Connectors
 
-Connectors are a powerful add-on component to TandoorRecipes.
+Connectors are a powerful add-on component to Table.
 They allow for certain actions to be translated to api calls to external services.
 
 <!-- prettier-ignore -->
@@ -12,7 +12,7 @@ They allow for certain actions to be translated to api calls to external service
     In order for this application to push data to external providers it needs to store authentication information.
     Please use read only/separate accounts or app passwords wherever possible.
 
-for the configuration please see [Configuration](https://docs.tandoor.dev/system/configuration/#connectors)
+for the configuration please see [Configuration](/system/configuration/#connectors)
 
 ## Current Connectors
 
@@ -21,15 +21,15 @@ for the configuration please see [Configuration](https://docs.tandoor.dev/system
 The current HomeAssistant connector supports the following features:
 1. Push newly created shopping list items.
 2. Pushes all shopping list items if a recipe is added to the shopping list.
-3. Removed todo's from HomeAssistant IF they are unchanged and are removed through TandoorRecipes.
+3. Removed todo's from HomeAssistant IF they are unchanged and are removed through Table.
 
 #### How to configure:
 
 Step 1:
 1. Generate a HomeAssistant Long-Lived Access Tokens
-![Profile Page](https://github.com/TandoorRecipes/recipes/assets/7824786/15ebeec5-5be3-48db-97d1-c698405db533)
+![Profile Page](https://github.com/Table/recipes/assets/7824786/15ebeec5-5be3-48db-97d1-c698405db533)
 2. Get/create a todo list entry you want to sync too.
-![Todos Viewer](https://github.com/TandoorRecipes/recipes/assets/7824786/506c4c34-3d40-48ae-a80c-e50374c5c618)
+![Todos Viewer](https://github.com/Table/recipes/assets/7824786/506c4c34-3d40-48ae-a80c-e50374c5c618)
 3. Create a Home Assistant connector and fill in the required fields:
 
 - **URL:** Enter your Home Assistant URL **including the `/api` suffix**.

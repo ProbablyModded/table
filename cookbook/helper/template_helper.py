@@ -124,7 +124,7 @@ def render_instructions(step):  # TODO deduplicate markdown cleanup code
     }
 
     # do a first, strict round of cleaning
-    # breaks blockquotes and after testing does not seem to be neccessary https://github.com/TandoorRecipes/recipes/pull/4736
+    # breaks blockquotes and after testing does not seem to be necessary
     #instructions = bleach.clean(instructions, allowed_tags, allowed_attributes)
 
     # parse markdown

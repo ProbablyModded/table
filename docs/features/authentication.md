@@ -2,7 +2,7 @@ Besides the normal django username and password authentication this application 
 methods of central account management and authentication.
 
 ## 3rd Party Clients
-To login from a third party client (e.g. mobile apps) you need to obtain a session token. 
+To login from a third party client (e.g. mobile apps) you need to obtain a session token.
 
 1. POST username/password as a JSON body to https://recipes.your.domain/_allauth/app/v1/auth/login
 2. If the login was successful you will receive a JSON response like this. If the email was not yet confirmed or MFA is added in the future, there might be intermediate steps.
@@ -29,15 +29,15 @@ To login from a third party client (e.g. mobile apps) you need to obtain a sessi
         "is_authenticated": true,
         "session_token": "TOKEN"
     }
-} 
+}
 ```
-3. Use the session token the `X-Session-Token` header for your requests to the Tandoor API. 
+3. Use the session token the `X-Session-Token` header for your requests to the Table API.
 
-Refer to the [Allauth documentation](https://docs.allauth.org/en/latest/) or look at Tandoors implementation for examples on how to implement the different authentication
-functions if you want to use them in your client. 
+Refer to the [Allauth documentation](https://docs.allauth.org/en/latest/) or look at Tables implementation for examples on how to implement the different authentication
+functions if you want to use them in your client.
 
-You can also create an ApiToken trough the API and use that for subsequent requests but using the session token is preferred as it allows to deauthenticate using session management or 
-password changes. 
+You can also create an ApiToken trough the API and use that for subsequent requests but using the session token is preferred as it allows to deauthenticate using session management or
+password changes.
 
 ## Allauth
 [Django Allauth](https://docs.allauth.org/en/latest/) is an awesome project that
@@ -50,12 +50,12 @@ They basically explain everything in their documentation, but the following is a
 !!! warning "Public Providers"
     If you choose Google, Github or any other publicly available service as your authentication provider anyone
     with an account on that site can create an account on your installation.
-    A new account does not have any permission but you should still consider if you want anyone to be able to use your instance. 
+    A new account does not have any permission but you should still consider if you want anyone to be able to use your instance.
 
 Choose a provider from the [list](https://docs.allauth.org/en/latest/socialaccount/providers/index.html) and install it using the environment variable `SOCIAL_PROVIDERS` as shown
 in the example below.
 
-When at least one social provider is set up, the social login sign in buttons should appear on the login page. 
+When at least one social provider is set up, the social login sign in buttons should appear on the login page.
 The example below enables Nextcloud and the generic OpenID Connect providers.
 
 ```ini
@@ -119,7 +119,7 @@ Use the superuser account to grant permissions to the newly created users, or en
 
 Keycloak is a popular IAM solution and integration is straight forward thanks to Django Allauth. This example can also be used as reference for other third-party authentication solutions, as documented by Allauth.
 
-At Keycloak, create a new client and assign a `Client-ID`, this client comes with a `Secret-Key`. Both values are required later on. Make sure to define the correct Redirection-URL for the service, for example `https://tandoor.example.com/*`. Depending on your Keycloak setup, you need to assign roles and groups to grant access to the service.
+At Keycloak, create a new client and assign a `Client-ID`, this client comes with a `Secret-Key`. Both values are required later on. Make sure to define the correct Redirection-URL for the service, for example `https://table.example.com/*`. Depending on your Keycloak setup, you need to assign roles and groups to grant access to the service.
 
 To enable Keycloak as a sign in option, set those variables to define the social provider and specify its configuration:
 
@@ -132,7 +132,7 @@ You are now able to sign in using Keycloak after a restart of the service.
 
 ### Example: Social Login with Invite-Based Space Access
 
-To set up Tandoor with social login as the primary method and control space access via invite links:
+To set up Table with social login as the primary method and control space access via invite links:
 
 ```ini
 SOCIAL_PROVIDERS=allauth.socialaccount.providers.openid_connect
@@ -156,7 +156,7 @@ With this configuration:
     Anyone who can authenticate with your social provider can create an account. They will not have
     access to any space unless you send them an invite link or set `SOCIAL_DEFAULT_ACCESS=1`.
     To truly restrict who can create accounts, configure access controls at your identity provider
-    (e.g., limit which users or groups can access the Tandoor application in Authentik/Keycloak).
+    (e.g., limit which users or groups can access the Table application in Authentik/Keycloak).
 
 
 ### Session Management
@@ -199,10 +199,10 @@ Administrators can view additional diagnostics on the **System** page (`/system/
     (e.g., `allauth.socialaccount.providers.openid_connect`) and that `SOCIALACCOUNT_PROVIDERS` contains
     valid configuration for that provider. Restart the container after changes.
 
-**Login succeeds at provider but fails returning to Tandoor**
-:   Check that the redirect URI configured at your provider matches your Tandoor URL exactly.
+**Login succeeds at provider but fails returning to Table**
+:   Check that the redirect URI configured at your provider matches your Table URL exactly.
     For OpenID Connect providers, the callback URL is typically
-    `https://your-tandoor-url/accounts/oidc/login/callback/` (or the provider-specific path).
+    `https://your-table-url/accounts/oidc/login/callback/` (or the provider-specific path).
     Also verify that the `client_id` and `secret` in `SOCIALACCOUNT_PROVIDERS` match the provider configuration.
 
 **403 Forbidden from the provider's userinfo endpoint**

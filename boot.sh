@@ -1,8 +1,13 @@
 #!/bin/sh
+
+if [ "${TABLE_BUNDLED_POSTGRES:-0}" = "1" ] && [ "${TABLE_POSTGRES_STARTED:-0}" != "1" ]; then
+    exec /opt/recipes/boot-all-in-one.sh
+fi
+
 source venv/bin/activate
 
 # these are envsubst in the nginx config, make sure they default to something sensible when unset
-export TANDOOR_PORT="${TANDOOR_PORT:-80}"
+export TABLE_PORT="${TABLE_PORT:-80}"
 export MEDIA_ROOT=${MEDIA_ROOT:-/opt/recipes/mediafiles};
 export STATIC_ROOT=${STATIC_ROOT:-/opt/recipes/staticfiles};
 
@@ -18,7 +23,7 @@ display_warning() {
 }
 
 # prepare nginx config
-envsubst '$MEDIA_ROOT $STATIC_ROOT $TANDOOR_PORT' < /opt/recipes/http.d/Recipes.conf.template > /opt/recipes/http.d/Recipes.conf
+envsubst '$MEDIA_ROOT $STATIC_ROOT $TABLE_PORT' < /opt/recipes/http.d/Recipes.conf.template > /opt/recipes/http.d/Recipes.conf
 
 # start nginx early to display error pages with writable location as non-root
 echo "Starting nginx"
@@ -33,7 +38,7 @@ if [ -f "${SECRET_KEY_FILE}" ]; then
 fi
 
 if [ -z "${SECRET_KEY}" ]; then
-    display_warning "The environment variable 'SECRET_KEY' (or 'SECRET_KEY_FILE' that points to an existing file) is not set but REQUIRED for running Tandoor!"
+    display_warning "The environment variable 'SECRET_KEY' (or 'SECRET_KEY_FILE' that points to an existing file) is not set but REQUIRED for running Table!"
 fi
 
 if [ -f "${AUTH_LDAP_BIND_PASSWORD_FILE}" ]; then
@@ -66,7 +71,7 @@ if [ "${DB_ENGINE}" == 'django.db.backends.postgresql' ] || [ "${DATABASE_URL}" 
   fi
 
   if [ -z "${POSTGRES_PASSWORD}" ]; then
-      display_warning "The environment variable 'POSTGRES_PASSWORD' (or 'POSTGRES_PASSWORD_FILE' that points to an existing file) is not set but REQUIRED for running Tandoor!"
+      display_warning "The environment variable 'POSTGRES_PASSWORD' (or 'POSTGRES_PASSWORD_FILE' that points to an existing file) is not set but REQUIRED for running Table!"
   fi
 
   while pg_isready --host=${POSTGRES_HOST} --port=${POSTGRES_PORT} --user=${POSTGRES_USER} -q; status=$?; attempt=$((attempt+1)); [ $status -ne 0 ] && [ $attempt -le $max_attempts ]; do
@@ -107,4 +112,4 @@ echo "Starting gunicorn"
 # --umask parameter isn't respected when gunicorn is running in foreground, needed for when users change to non root users
 # use /tmp as directory since that is writable as a non-root user
 # https://github.com/benoitc/gunicorn/issues/2245
-umask 0 && exec gunicorn --bind unix:/tmp/tandoor.sock --workers $GUNICORN_WORKERS --threads $GUNICORN_THREADS --timeout ${GUNICORN_TIMEOUT:-30} --access-logfile - --error-logfile - --log-level $GUNICORN_LOG_LEVEL recipes.wsgi
+umask 0 && exec gunicorn --bind unix:/tmp/table.sock --workers $GUNICORN_WORKERS --threads $GUNICORN_THREADS --timeout ${GUNICORN_TIMEOUT:-30} --access-logfile - --error-logfile - --log-level $GUNICORN_LOG_LEVEL recipes.wsgi

@@ -2,15 +2,15 @@
     This guide was contributed by the community and is neither officially supported, nor updated or tested. Since I cannot test it myself, feedback and improvements are always very welcome.
 
 
-!!! danger "Tandoor 2 Compatibility"
-    This guide has not been verified/tested for Tandoor 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
+!!! danger "Table 2 Compatibility"
+    This guide has not been verified/tested for Table 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
 
 # Ubuntu Installation on Windows (WSL) and Docker Desktop
 
 Install Docker from https://docs.docker.com/desktop/install/windows-install/
 Be sure to select the Use WSL 2 instead of Hyper-V option on the configuration page when prompted
 
-Follow the instructions to install Tandoor on Docker. Tandoor installation instructions using Docker is gotten from https://docs.tandoor.dev/install/docker/
+Follow the instructions to install Table on Docker. Table installation instructions using Docker is gotten from /install/docker/
 
 You may get the error below if you are using Docker Desktop:
 /usr/bin/docker-credential-desktop.exe: Invalid argument
@@ -28,7 +28,7 @@ fixing permissions on existing directory /var/lib/postgresql/data ... 2023-03-01
 
 This indicates that the postgresql user 'postgres' does not have the necessary permissions to 
 change the permissions of the /var/lib/postgresql/data directory.
-Note: This issue does not occuer in the Powershell terminal, so it might be easier to install Tandoor in powershell and continue development using WSL.
+Note: This issue does not occuer in the Powershell terminal, so it might be easier to install Table in powershell and continue development using WSL.
 Steps to fix this error:
 Since the permissions have to be changed within the docker container, we will need to create a file that runs as soon as the container starts up. This container will change the permissions of the /var/lib/postgresql/data directory before the db_recipes-1 container is started up. This container sets up the database to accept connections.
 Docker allows us to set up an entrypoint in the docker-compose.yml file. This is where we will set the commands to change the permissions of the postgres user.

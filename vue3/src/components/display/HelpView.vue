@@ -36,30 +36,20 @@
 
                 <v-window v-model="window">
                     <v-window-item value="start">
-                        <h2>Welcome to Tandoor 2</h2>
-                        <p class="mt-3">Tandoor is one of the most most powerful recipe management suits available. It has constantly been improved since its first
-                            version in 2018.
-                            This knowledgebase explains all important features and concepts. Explore it to find out how Tandoor can help you improve your daily cooking
+                        <h2>Welcome to Table</h2>
+                        <p class="mt-3">Table is a recipe management space for keeping your household's recipes, meal plans, and shopping lists together.
+                            This knowledgebase explains the important features and concepts. Explore it to see how Table can help you improve your daily cooking
                             routine or search
                             for specific features to help you understand them.</p>
 
-                        <v-btn class="mt-2" color="primary" href="https://tandoor.dev" target="_blank" prepend-icon="fa-solid fa-globe">
-                            Website
-                        </v-btn>
-                        <v-btn class="mt-2 ms-2" color="info" href="https://github.com/TandoorRecipes/recipes" target="_blank" prepend-icon="fa-solid fa-code-branch">GitHub
+                        <v-btn class="mt-2" color="primary" :to="{name: 'StartPage'}" prepend-icon="fa-solid fa-house">
+                            Open Table
                         </v-btn>
 
                         <v-alert class="mt-3" border="start" variant="tonal" color="success"
                                  v-if="(!useUserPreferenceStore().serverSettings.hosted && !useUserPreferenceStore().activeSpace.demo)">
                             <v-alert-title>Did you know?</v-alert-title>
-                            Tandoor is Open Source and available to anyone for free to host on their own server. Thousands of hours have been spend
-                            making Tandoor what it is today. You can help make Tandoor even better by contributing or helping financing the effort.
-                            <br/>
-                            <v-btn class="mt-2" color="secondary" href="https://docs.tandoor.dev/contribute/contribute/" target="_blank" prepend-icon="fa-solid fa-code-branch">
-                                Contribute
-                            </v-btn>
-                            <v-btn class="mt-2 ms-2" color="success" href="https://github.com/sponsors/vabene1111" target="_blank" prepend-icon="fa-solid fa-dollar-sign">Sponsor
-                            </v-btn>
+                            Table is Open Source and can be hosted on your own server.
                         </v-alert>
 
                     </v-window-item>
@@ -83,7 +73,7 @@
 
                     </v-window-item>
                     <v-window-item value="recipes">
-                        <p class="mt-3">Recipes are the foundation of your Tandoor space. A Recipe has one or more steps that contain ingredients, instructions and other
+                        <p class="mt-3">Recipes are the foundation of your Table space. A Recipe has one or more steps that contain ingredients, instructions and other
                             information.
                             Ingredients in turn consist of an amount, a unit and a food, allowing recipes to be scaled, nutrition's to be calculated and shopping to be organized.
                         </p>
@@ -105,12 +95,12 @@
 
                     </v-window-item>
                     <v-window-item value="import">
-                        <p class="mt-3">The Recipe importer is one of the most powerful features of Tandoor and allows you to quickly add recipes in multiple different ways.
+                        <p class="mt-3">The Recipe importer allows you to quickly add recipes in multiple different ways.
                         </p>
 
                         <p class="mt-3">The easiest is to import from a URL. If that is not enough you can also import from an Image or PDF file using AI.
                         </p>
-                        <p class="mt-3">If you already have an existing Recipe database in another format there is also a good chance Tandoor will have an
+                        <p class="mt-3">If you already have an existing recipe database in another format there is also a good chance Table will have an
                             importer for that program.
                         </p>
                         <p class="mt-3"></p>
@@ -119,11 +109,11 @@
 
                     </v-window-item>
                     <v-window-item value="ai">
-                        <p class="mt-3">Tandoor has several functions that allow you to use AI to automatically perform certain tasks like importing recipes from a PDFs or images.
+                        <p class="mt-3">Table has several functions that allow you to use AI to automatically perform certain tasks like importing recipes from PDFs or images.
                         </p>
 
                         <p class="mt-3" v-if="useUserPreferenceStore().serverSettings.hosted">
-                            To use AI you must first configure an AI Provider. This can also be done globally for all spaces by the person operating your Tandoor Server.
+                            To use AI you must first configure an AI Provider. This can also be done globally for all spaces by the person operating your Table server.
                         </p>
                         <p class="mt-3" v-if="!useUserPreferenceStore().serverSettings.hosted">
                             Some AI Providers are available globally for every space to use. You can also configure additional AI Providers for your space only.
@@ -153,7 +143,7 @@
                             They are also essential for the calculation of Properties.
                         </p>
 
-                        <p class="mt-3">Setting a base unit allows you to name your Unit however you want (e.g. grams, g, G, gram) while allowing Tandoor
+                        <p class="mt-3">Setting a base unit allows you to name your Unit however you want (e.g. grams, g, G, gram) while allowing Table
                             to automatically convert between the units in the same system (weight/volume, e.g. from g to kg or from cup to pint).
                         </p>
                         <p class="mt-3">Additionally you can use custom unit conversion to convert between volume and weight through the specific density
@@ -172,7 +162,7 @@
 
                     </v-window-item>
                     <v-window-item value="food">
-                        <p class="mt-3">Foods have multiple uses in Tandoor. Their most important task is to be part of recipe ingredients together with an amount and
+                        <p class="mt-3">Foods have multiple uses in Table. Their most important task is to be part of recipe ingredients together with an amount and
                             a unit.
                         </p>
 
@@ -224,15 +214,15 @@
                         </p>
 
                         <p class="mt-3">You first need to create the Property Types that you need (e.g. Carbohydrates, Sugar, Price, Points, ..).
-                            Setting the FDC ID for a Property Type allows Tandoor to connect your custom Property Type to a property in the FDC database.
-                            You can then go to a Food, set its FDC ID and Tandoor can automatically pull the properties you want from the FDC database.
+                            Setting the FDC ID for a Property Type allows Table to connect your custom Property Type to a property in the FDC database.
+                            You can then go to a Food, set its FDC ID and Table can automatically pull the properties you want from the FDC database.
                         </p>
                         <p class="mt-3">When adding a Property to the Recipe it will just be statically displayed in the Recipe view.
-                            Adding properties to a Foods will allow Tandoor to calculate the properties for all the Ingredients in a Recipe based
+                            Adding properties to a Foods will allow Table to calculate the properties for all the Ingredients in a Recipe based
                             on the Foods and their respective Units and Amounts.
                         </p>
 
-                        <p class="mt-3">Food Properties are entered based on a certain amount of food (often 100 g). Unit Conversions allow Tandoor to
+                        <p class="mt-3">Food Properties are entered based on a certain amount of food (often 100 g). Unit Conversions allow Table to
                             calculate the property amount if a Food is given in a different unit (e.g. 1kg or 1 cup).
                         </p>
 
@@ -263,7 +253,7 @@
                         <p class="mt-3">There are two ways to search for Recipes.
                         </p>
 
-                        <p class="mt-3">The global quick search can be opened from any page in Tandoor by pressing the search icon in the top right corner.
+                        <p class="mt-3">The global quick search can be opened from any page in Table by pressing the search icon in the top right corner.
                             Here you can quickly search through your recipes and open them.
                         </p>
                         <p class="mt-3">
@@ -375,14 +365,9 @@
                     <v-window-item value="translations">
                         <div class="d-flex align-center justify-space-between">
                             <h2>{{ $t('Translations') }}</h2>
-                            <v-btn variant="tonal" color="primary" href="https://translate.tandoor.dev" target="_blank" prepend-icon="fa-solid fa-language">
-                                {{ $t('help_translate') }}
-                            </v-btn>
                         </div>
                         <p class="mt-3">
-                            Tandoor is translated by volunteers using
-                            <a href="https://translate.tandoor.dev" target="_blank">Weblate</a>.
-                            Languages with at least {{ minCoverage }}% frontend translation are available in the language picker.
+                            Table is translated by volunteers. Languages with at least {{ minCoverage }}% frontend translation are available in the language picker.
                         </p>
 
                         <v-table density="compact" class="mt-4">
@@ -431,16 +416,7 @@
                                             </v-progress-linear>
                                         </div>
                                     </td>
-                                    <td>
-                                        <v-btn
-                                            size="x-small"
-                                            variant="text"
-                                            icon="fa-solid fa-pen"
-                                            :href="weblateUrl(lang.filename)"
-                                            target="_blank"
-                                            :aria-label="'Translate ' + lang.name"
-                                        ></v-btn>
-                                    </td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </v-table>
@@ -491,11 +467,6 @@ const mobileMenuItems = ref([
     {title: t('Meal_Plan'), props: {prependIcon: '$mealplan'}, value: 'meal_plan'},
     {title: t('Translations'), props: {prependIcon: 'fa-solid fa-language'}, value: 'translations'}
 ])
-
-// Weblate directory names use underscore format (nb_NO, zh_Hant)
-function weblateUrl(filename: string): string {
-    return `https://translate.tandoor.dev/projects/tandoor/-/${filename}/`
-}
 
 function barColor(pct: number): string {
     if (pct >= 80) return 'success'

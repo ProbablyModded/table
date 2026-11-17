@@ -27,5 +27,6 @@ export type DeviceSettings = {
     start_showMealPlan: boolean,
 
     general_tableItemsPerPage: number
+    general_showPantry: boolean
     general_closedHelpAlerts: String[]
 }

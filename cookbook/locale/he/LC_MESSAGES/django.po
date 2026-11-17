@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-02-01 16:03+0000\n"
 "Last-Translator: timycool <tal.sitton04@gmail.com>\n"
-"Language-Team: Hebrew <http://translate.tandoor.dev/projects/tandoor/recipes-"
+"Language-Team: Hebrew <http://weblate.org/projects/table/recipes-"
 "backend/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -538,7 +538,7 @@ msgid "You have been invited by "
 msgstr ""
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
+msgid " to join their Table Recipes space "
 msgstr ""
 
 #: .\cookbook\serializer.py:1842
@@ -556,12 +556,12 @@ msgstr "ההזמנה תקפה עד "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes הוא מנהל מתכונים בקוד פתוח. ניתן למצוא אותנו ב-GitHub. "
+"Table Recipes הוא מנהל מתכונים בקוד פתוח. ניתן למצוא אותנו ב-GitHub. "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
+msgid "Table Recipes Invite"
 msgstr ""
 
 #: .\cookbook\serializer.py:2057
@@ -846,8 +846,8 @@ msgstr "ההרשמה סגורה"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "אנו מצטערים, אך ההרשמה כרגע סגורה."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
 msgstr ""
 
 #: .\cookbook\templates\index.html:28
@@ -1390,10 +1390,10 @@ msgstr "מערכת"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
@@ -1992,7 +1992,7 @@ msgid ""
 msgstr ""
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
 
 #: .\cookbook\views\api.py:3386

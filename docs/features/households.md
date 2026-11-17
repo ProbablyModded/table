@@ -4,7 +4,7 @@
 
 Households are a way to group users together within a Space so they can automatically share meal plans and shopping lists with each other, without needing to manually share them one by one.
 
-For example, if a family of 4 all use the same Tandoor Space, they can be placed in one Household. Everyone in that Household will then see the same shared meal plan and shopping list by default.
+For example, if a family of 4 all use the same Table Space, they can be placed in one Household. Everyone in that Household will then see the same shared meal plan and shopping list by default.
 
 ## Why use Households?
 
@@ -14,7 +14,7 @@ Households solve this by letting an admin group users together once, instead of 
 
 ## How to create a Household
 
-1. Log in to your Tandoor instance.
+1. Log in to your Table instance.
 2. Go to **Settings**.
 3. Look for the **Household** section.
 4. Click **Create Household** and give it a name (for example, "Smith Family" or "Flat 3B").
@@ -30,5 +30,5 @@ New users are often prompted to set up or join a Household during the initial we
 
 ## Notes
 
-- Households are separate from **Spaces**. A Space is the overall Tandoor instance/workspace, while a Household is a smaller group of users *within* a Space (like a family living together).
+- Households are separate from **Spaces**. A Space is the overall Table instance/workspace, while a Household is a smaller group of users *within* a Space (like a family living together).
 - If you are the only user in your Space, you may not need to configure a Household, though the app may still prompt you to create a default one during setup.

@@ -1,7 +1,7 @@
 import {RouteRecordRaw} from "vue-router";
 import {Component} from "vue";
 
-export type TandoorPlugin = {
+export type TablePlugin = {
     name: string,
     basePath: string,
     defaultLocale: any,
@@ -23,13 +23,13 @@ export type TandoorPlugin = {
 }
 
 export type PluginModule = {
-  plugin: TandoorPlugin
+  plugin: TablePlugin
 }
 
 const pluginModules = import.meta.glob('@/plugins/*/plugin.ts', { eager: true })
-export let TANDOOR_PLUGINS = [] as TandoorPlugin[]
+export let TABLE_PLUGINS = [] as TablePlugin[]
 Object.values(pluginModules).forEach(module => {
     if(!module.plugin.disabled){
-        TANDOOR_PLUGINS.push(module.plugin)
+        TABLE_PLUGINS.push(module.plugin)
     }
 })

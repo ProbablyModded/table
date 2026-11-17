@@ -102,7 +102,7 @@ msgid "end"
 msgstr ""
 
 #: .\recipes\plugins\enterprise_plugin\templates\enterprise_social_public_view.html:15
-msgid "Tandoor Recipe Manager"
+msgid "Table Recipe Manager"
 msgstr ""
 
 #: .\recipes\settings.py:618 .\recipes\settings.py:641

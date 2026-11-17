@@ -1,10 +1,10 @@
 # How to migrate from sqlite3 database to postgresql 
-This migration was written while using the unraid template (docker) for TandoorRecipes, version 1.3.0.
+This migration was written while using the unraid template (docker) for Table, version 1.3.0.
 While some commands are unraid specific, it should in general work for any setup.
 
 1. Make a backup of your `/mnt/user/appdata/recipes` dir.
 
-2. Without changing any settings, get a shell into the TandoorRecipes docker through the Web-UI or by running `docker exec -it TandoorRecipes /bin/sh`
+2. Without changing any settings, get a shell into the Table docker through the Web-UI or by running `docker exec -it Table /bin/sh`
 ```cmd
 cd /opt/recipes
 ./venv/bin/python manage.py export -a > /data/dump.json
@@ -16,26 +16,26 @@ I used the `postgresql14` template.
 
 ```cmd
 psql -U postgres
-postgres=# create database tandoor;
-postgres=# create user tandoor with encrypted password 'yoursupersecretpassworddontusethisone';
-postgres=# grant all privileges on database tandoor to tandoor;
+postgres=# create database table;
+postgres=# create user table with encrypted password 'yoursupersecretpassworddontusethisone';
+postgres=# grant all privileges on database table to table;
 ```
 
-4. Now its time to change some enviourment variables in TandoorRecipes template:
+4. Now its time to change some enviourment variables in Table template:
 ```env
 DB_ENGINE=django.db.backends.postgresql  # Database Engine, previous value: `django.db.backends.sqlite3`
 POSTGRES_HOST=<Your unraid host ip>  # PostgreSQL Host
 POSTGRES_PORT=5432  # PostgreSQL Host
-POSTGRES_USER=tandoor  # PostgreSQL User
+POSTGRES_USER=table  # PostgreSQL User
 POSTGRES_PASSWORD=yoursupersecretpassworddyoudidntcopy  # PostgreSQL Password
-POSTGRES_DB=tandoor  # Database, previous value: `/data/recipes.db`
+POSTGRES_DB=table  # Database, previous value: `/data/recipes.db`
 ```
 
 5. Save it, and start the container once.
 
 It will perform all database migrations once for the postgresql database.
 
-6. Get a shell into the docker through the WEB-UI or by running `docker exec -it TandoorRecipes /bin/sh`
+6. Get a shell into the docker through the WEB-UI or by running `docker exec -it Table /bin/sh`
 ```cmd
 cd /opt/recipes
 ./venv/bin/python manage.py import /data/dump.json

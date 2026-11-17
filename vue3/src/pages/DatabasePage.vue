@@ -42,7 +42,8 @@
             </v-col>
         </v-row>
         <v-row dense>
-            <database-link-col :to="{name: 'PantryPage'}"
+            <database-link-col v-if="useUserPreferenceStore().deviceSettings.general_showPantry"
+                               :to="{name: 'PantryPage'}"
                                prepend-icon="$pantry"
                                :title="$t('Pantry')"
                                :subtitle="$t('PantryHelp')">
@@ -82,7 +83,7 @@
             </v-row>
         </template>
 
-        <template v-for="p in TANDOOR_PLUGINS" :key="p.name">
+        <template v-for="p in TABLE_PLUGINS" :key="p.name">
             <component :is="p.databasePageComponent" v-if="p.databasePageComponent"></component>
         </template>
 
@@ -128,7 +129,7 @@
 
 import DatabaseModelCol from "@/components/display/DatabaseModelCol.vue";
 import DatabaseLinkCol from "@/components/display/DatabaseLinkCol.vue";
-import {TANDOOR_PLUGINS} from "@/types/Plugins.ts";
+import {TABLE_PLUGINS} from "@/types/Plugins.ts";
 import {useUserPreferenceStore} from "@/stores/UserPreferenceStore.ts";
 </script>
 

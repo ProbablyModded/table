@@ -6,7 +6,7 @@ from pathlib import Path
 
 from recipes.settings import BASE_DIR
 
-TANDOOR_CLIENT_API_PATH = os.path.join(BASE_DIR, "vue3/src/openapi")
+TABLE_CLIENT_API_PATH = os.path.join(BASE_DIR, "vue3/src/openapi")
 ALLAUTH_CLIENT_API_PATH = os.path.join(BASE_DIR, "vue3/src/authapi")
 
 
@@ -20,7 +20,7 @@ def clean_old_file():
             path.unlink()
 
 
-os.chdir(TANDOOR_CLIENT_API_PATH)
+os.chdir(TABLE_CLIENT_API_PATH)
 clean_old_file()
 # generate base API client for all models
 subprocess.run('openapi-generator-cli generate -g typescript-fetch -i http://127.0.0.1:8000/openapi/ -t templates  --global-property apiDocs=false,modelDocs=false', shell=True,

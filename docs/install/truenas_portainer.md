@@ -1,12 +1,12 @@
 !!! info "Community Contributed"
     This guide was contributed by the community and is neither officially supported, nor updated or tested.
 
-!!! danger "Tandoor 2 Compatibility"
-    This guide has not been verified/tested for Tandoor 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
+!!! danger "Table 2 Compatibility"
+    This guide has not been verified/tested for Table 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
 
-This guide is to assist those installing Tandoor Recipes on Truenas Core using Docker and or Portainer
+This guide is to assist those installing Table Recipes on Truenas Core using Docker and or Portainer
 
-Docker install instructions adapted from [PhasedLogix IT Services's guide](https://getmethegeek.com/blog/2021-01-07-add-docker-capabilities-to-truenas-core/). Portainer install instructions adopted from the [Portainer Official Documentation](https://docs.portainer.io/start/install-ce/server/docker/linux). Tandoor installation on Portainer provided by users `Szeraax` and `TransatlanticFoe` on Discord (Thank you two!)
+Docker install instructions adapted from [PhasedLogix IT Services's guide](https://getmethegeek.com/blog/2021-01-07-add-docker-capabilities-to-truenas-core/). Portainer install instructions adopted from the [Portainer Official Documentation](https://docs.portainer.io/start/install-ce/server/docker/linux). Table installation on Portainer provided by users `Szeraax` and `TransatlanticFoe` on Discord (Thank you two!)
 
 ## **Instructions**
 
@@ -74,7 +74,7 @@ Basic guide to setup Docker and Portainer TrueNAS Core.
 	-Select "Get Started" to use the Enviroment Portainer is running in
 ![Screenshot of Enviroment Wizard](https://2914113074-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiZWHJxqQsgWYd9sI88sO%2Fuploads%2Fsig45vFliINvOKGKVStk%2F2.15-install-server-setup-wizard.png?alt=media&token=cd21d9e8-0632-40db-af9a-581365f98209)
 
-### 3. Install Tandoor Recipes VIA Portainer Web Editor
+### 3. Install Table Recipes VIA Portainer Web Editor
 -From the menu select Stacks, click Add stack, give the stack a descriptive name then select Web editor.
 ![Screenshot of Stack List](https://2914113074-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiZWHJxqQsgWYd9sI88sO%2Fuploads%2FnBx62EIPhmUy1L0S1iKI%2F2.15-docker_add_stack_web_editor.gif?alt=media&token=c45c0151-9c15-4d79-b229-1a90a7a86b84)
 -Use the below code and input it into the Web Editor:
@@ -96,8 +96,8 @@ services:
       - stack.env
     volumes:
       - staticfiles:/opt/recipes/staticfiles
-      # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes-vs-bind-mounts
-      - nginx_config:/opt/recipes/nginx/conf.d 
+      # Do not make this a bind mount, see /install/docker/#volumes-vs-bind-mounts
+      - nginx_config:/opt/recipes/nginx/conf.d
       - ./mediafiles:/opt/recipes/mediafiles
     depends_on:
       - db_recipes
@@ -112,7 +112,7 @@ services:
     depends_on:
       - web_recipes
     volumes:
-      # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes-vs-bind-mounts
+      # Do not make this a bind mount, see /install/docker/#volumes-vs-bind-mounts
       - nginx_config:/etc/nginx/conf.d:ro
       - staticfiles:/static
       - ./mediafiles:/media
@@ -129,9 +129,9 @@ volumes:
 	-`SECRET_KEY` needs to be replaced with a new key. This can be generated from websites like [Djecrety](https://djecrety.ir/)
 	-`TIMEZONE` needs to be replaced with the appropriate code for your timezone. Accepted values can be found at [TimezoneDB](https://timezonedb.com/time-zones)
 	-`POSTGRES_USER` and `POSTGRES_PASSWORD` needs to be replaced with your username and password from [PostgreSQL](https://www.postgresql.org/) !!!NOTE Do not sign in using social media. You need to sign up using Email and Password.
--After those veriables are changed, you may press the `Deploy the Stack` button at the bottom of the page. This will create the needed containers to run Tandoor Recipes.
+-After those veriables are changed, you may press the `Deploy the Stack` button at the bottom of the page. This will create the needed containers to run Table Recipes.
 
 ### 4. Login and Setup your new server!
-- You need to access your Tandoor Server through its Webpage: `https://localhost:xxxx` replacing `localhost` with the IP of the VM running Docker and `xxxx` with the port you chose in the Web Editor for `nginx_recipes` above. In this case, `12008`. 
+- You need to access your Table Server through its Webpage: `https://localhost:xxxx` replacing `localhost` with the IP of the VM running Docker and `xxxx` with the port you chose in the Web Editor for `nginx_recipes` above. In this case, `12008`.
 !!! While the containers are starting and doing whatever they need to do, you might still get HTTP errors e.g. 500 or 502. Just be patient and try again in a moment
--You will now need to set up the Tandoor Server through the WebGUI.
+-You will now need to set up the Table Server through the WebGUI.

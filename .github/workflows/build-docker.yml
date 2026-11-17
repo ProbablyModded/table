@@ -6,7 +6,6 @@ jobs:
   build-container:
     name: Build ${{ matrix.name }} Container
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'TandoorRecipes'
     continue-on-error: ${{ matrix.continue-on-error }}
     permissions:
       contents: read
@@ -69,8 +68,7 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: |
-            vabene1111/recipes
-            ghcr.io/TandoorRecipes/recipes
+            ghcr.io/${{ github.repository_owner }}/table
           flavor: |
             latest=false
             suffix=${{ matrix.suffix }}
@@ -109,7 +107,7 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_RELEASE_WEBHOOK }}
         uses: Ilshidur/action-discord@0.4.0
         with:
-          args: '🚀 Version {{ VERSION }} of tandoor has been released 🥳 Check it out https://github.com/vabene1111/recipes/releases/tag/{{ VERSION }}'
+          args: '🚀 Version {{ VERSION }} of Table has been released 🥳'
 
   notify-beta:
     name: Notify Beta
@@ -123,4 +121,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_BETA_WEBHOOK }}
         uses: Ilshidur/action-discord@0.4.0
         with:
-          args: '🚀 The Tandoor 2 Image has been updated! 🥳'
+          args: '🚀 The Table 2 Image has been updated! 🥳'

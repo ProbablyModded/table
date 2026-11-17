@@ -9,9 +9,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-05-02 22:56+0000\n"
-"Last-Translator: Tandoor Translate user 403 <mirunaku@users.noreply."
-"translate.tandoor.dev>\n"
-"Language-Team: Estonian <http://translate.tandoor.dev/projects/tandoor/"
+"Last-Translator: Table Translate user 403 <mirunaku@users.noreply."
+"weblate.org>\n"
+"Language-Team: Estonian <http://weblate.org/projects/table/"
 "recipes-backend/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -552,8 +552,8 @@ msgid "You have been invited by "
 msgstr "Teid on kutsunud "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " liituma nende Tandoor Recipes ruumiga "
+msgid " to join their Table Recipes space "
+msgstr " liituma nende Table Recipes ruumiga "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -570,13 +570,13 @@ msgstr "Kutse kestab kuni "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes on avatud lähtekoodiga retseptihaldur. Vaata seda GitHubist "
+"Table Recipes on avatud lähtekoodiga retseptihaldur. Vaata seda GitHubist "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor Recipes kutse"
+msgid "Table Recipes Invite"
+msgstr "Table Recipes kutse"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -883,9 +883,9 @@ msgstr "Registreerimine on suletud"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Vabandame, kuid registreerumine on hetkel suletud."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Tandoor Recipe haldur"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Table Recipe haldur"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1563,20 +1563,20 @@ msgstr "Süsteem"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes on avatud lähtekoodiga tasuta tarkvararakendus. See "
+"        Table Recipes on avatud lähtekoodiga tasuta tarkvararakendus. See "
 "on leitav\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHubist</"
+"        <a href=\"https://github.com/Table/recipes\">GitHubist</"
 "a>.\n"
 "        Muudatuste logid on leitavad <a href=\"https://github.com/"
-"TandoorRecipes/recipes/releases\">siit</a>.\n"
+"Table/recipes/releases\">siit</a>.\n"
 "    "
 
 #: .\cookbook\templates\system.html:30
@@ -2268,8 +2268,8 @@ msgstr ""
 "oma brauseri printimisfunktsiooni (Ctrl+P)."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "See funktsioon ei ole Tandoori pilveversioonis veel saadaval!"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "See funktsioon ei ole Tablei pilveversioonis veel saadaval!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"

@@ -47,7 +47,7 @@
 
                     <template #append>
                         <v-list-item-action class="flex-column align-end">
-                            <v-rating density="comfortable" size="x-small" color="tandoor" v-model="c.rating" half-increments readonly
+                            <v-rating density="comfortable" size="x-small" color="table" v-model="c.rating" half-increments readonly
                                       v-if="c.rating != undefined" style="overflow: hidden"></v-rating>
                             <v-spacer></v-spacer>
                             <v-tooltip location="top" :text="DateTime.fromJSDate(c.createdAt).toLocaleString(DateTime.DATETIME_MED)" v-if="c.createdAt != undefined">

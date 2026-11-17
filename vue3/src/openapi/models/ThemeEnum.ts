@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Tandoor
- * Tandoor API Docs
+ * Table
+ * Table API Docs
  *
  * The version of the OpenAPI document: 0.0.0
  * 
@@ -14,21 +14,21 @@
 
 
 /**
- * * `TANDOOR` - Tandoor
+ * * `TANDOOR` - Table
  * * `BOOTSTRAP` - Bootstrap
  * * `DARKLY` - Darkly
  * * `FLATLY` - Flatly
  * * `SUPERHERO` - Superhero
- * * `TANDOOR_DARK` - Tandoor Dark (INCOMPLETE)
+ * * `TANDOOR_DARK` - Table Dark (INCOMPLETE)
  * @export
  */
 export const ThemeEnum = {
-    Tandoor: 'TANDOOR',
+    Table: 'TANDOOR',
     Bootstrap: 'BOOTSTRAP',
     Darkly: 'DARKLY',
     Flatly: 'FLATLY',
     Superhero: 'SUPERHERO',
-    TandoorDark: 'TANDOOR_DARK'
+    TableDark: 'TANDOOR_DARK'
 } as const;
 export type ThemeEnum = typeof ThemeEnum[keyof typeof ThemeEnum];
 

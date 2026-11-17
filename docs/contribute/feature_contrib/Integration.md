@@ -3,7 +3,7 @@
 # Setup
 There are 5 files you need to configure in order create a new integration
 1. Create a new integration class in `/cookbook/integration/`
-2. Include integration in `/cookbook/forms.py` 
+2. Include integration in `/cookbook/forms.py`
 3. Add the new integration class import and include in the 'if' chain in `/cookbook/views/import_export.py`
 4. Add your integration to the documentation at `/docs/features/import_export.md`
 5. Include integration and docs link in `/vue3/src/utils/integration_utils.ts`
@@ -24,20 +24,20 @@ from cookbook.models import  Ingredient, Keyword, NutritionInformation, Recipe, 
 
 
 class YourIntegrationName(Integration):
-    
+
     def get_recipe_from_file(self, file) -> Recipe:
         #Import Recipe Logic - convert information from file into Recipe() object
         pass
-    
+
     def import_file_name_filter(self, file) -> bool:
         #check file extension, return True if extension is correct
         pass
-    
+
     def get_file_from_recipe(self, recipe) -> tuple[str,str]:
         #Export Recipe Logic - convert from Recipe() object to a writable string in your integration's format
         # return 'Filename.extension', 'file string'
         pass
-        
+
     def get_files_from_recipes(self, recipes, el, cookie) -> list[list[str,bytes]]:
         # 'el' and 'cookie' are passed through by the calling function 'do_export'
         export_zip_stream = BytesIO()
@@ -57,11 +57,11 @@ class YourIntegrationName(Integration):
             el.save()
 
         export_zip_obj.close()
-        
+
         # returns a [[file name, zip stream data]]
         # self.get_export_file_name is an inherited from the Integration class and doesn't require definition
         return [[self.get_export_file_name(), export_zip_stream.getvalue()]]
-    
+
 ```
 
 ## 2. including in Forms.py
@@ -110,7 +110,7 @@ Additionally add your integration to the table at the top of the document, marki
 ## 5. Add to Vue Integration Utils
 In the `/vue3/src/utils/integration_utils.ts` find `export const INTEGRATIONS: Array<Integration>` and in the long list add:
 ```typo3_typoscript
-{id: 'YOURINTEGRATION', name: "Your Integration", import: true, export: false, helpUrl: 'https://docs.tandoor.dev/features/import_export/#yourintegration'},
+{id: 'YOURINTEGRATION', name: "Your Integration", import: true, export: false, helpUrl: '/features/import_export/#yourintegration'},
 ```
 be sure to change 'true' or 'false' value for the import and export options to the correct values for your integration. 'true' indicates that it should be listed in the menu for imports or exports respectively.
 
@@ -120,10 +120,10 @@ be sure to change 'true' or 'false' value for the import and export options to t
 
 # Integration Test Setup
 ## File Structure and Files
-Tandoor uses Pytest to implement its testing features. To add tests and test documents navigate to 
+Table uses Pytest to implement its testing features. To add tests and test documents navigate to
 ```
 cookbook/tests/other/
-``` 
+```
 There you can create a test file `test_yourintegration.py`. It is very important that it starts with "test_" as that is how pytest knows to run it as a test.
 
 For the text files that you will want to parse and test for your integration you can put them at:
@@ -154,7 +154,7 @@ def test_yourintegration(u1_s1):
     request = RequestFactory()
     request.user = user
     request.space = space
-    
+
     with scope(space=space):
         integration_object = YourIntegrationClass(request, "export")
         with open("cookbook/test/other/test_data/your_integration/recipe_file.txt", "rb") as file:
@@ -163,7 +163,7 @@ def test_yourintegration(u1_s1):
         buffer = BytesIO(recipe_bytes)
         buffer.name = recipe_name
         recipe_object = integration_object.get_recipe_from_file(buffer)
-        # all of your test function logic inside this with clause 
+        # all of your test function logic inside this with clause
 ```
 though it is not important for you to understand, the u1_s1 is a pytest fixture that can be passed into your tests. By adding it as an argument for the test, pytest will fill that fixture in and you can use it to get a test user using the `auth.get_user()` method
 
@@ -189,8 +189,8 @@ If your recipe name is dependent on the filename you can access the file name wi
 filename = file.name
 ```
 
-### Managing the Tandoor 'Recipe' Object
-The `Recipe` class has many properties, and it is recommended to view all of them [here](https://github.com/TandoorRecipes/recipes/blob/develop/cookbook/models.py) in order to determine specifically how your integration will organize its data into the `Recipe` object data structure. The important ones to know are:
+### Managing the Table 'Recipe' Object
+The `Recipe` class has many properties, and it is recommended to view all of them [here](https://github.com/Table/recipes/blob/develop/cookbook/models.py) in order to determine specifically how your integration will organize its data into the `Recipe` object data structure. The important ones to know are:
 ```python
 name = models.CharField(max_length=128)
 description = models.CharField(max_length=512, blank=True, null=True)
@@ -212,16 +212,16 @@ from cookbook.models import Recipe
 
 def get_recipe_from_file(self, file)-> Recipe:
     #opening the file and parsing it
-    
+
     recipe_object = Recipe.objects.create(
         name = your_recipe_name,
         created_by = self.request.user,
         internal = True,
         space = self.request.space,
     )
-    
+
     #translating the parsed file into th recipe object
-    
+
     return recipe_object
 ```
 Both `created_by` and `space` require the request object from the webpage or API that initiated the request, the `Integration` parent class handles both of those and they can be retrieved through the `self.request` property. The `name` allows the recipe to be identifiable from the other recipes, making it uniquely identifiable from other newly instantiated `Recipe` objects. lasty `True` is the default value for `internal` only change it to false if that is what you intend.
@@ -233,16 +233,16 @@ from cookbook.models import Recipe
 
 def get_recipe_from_file(self, file)-> Recipe:
     #opening the file and parsing it
-    
+
     recipe_object = Recipe.objects.create(
         name = your_recipe_name,
         created_by = self.request.user,
         internal = True,
         space = self.request.space,
     )
-    
+
     # Integration logic, making many changes to the recipe_object
-    
+
     recipe_object.description = "A yummy treat for any day!"
     recipe_object.save()
     return recipe_object
@@ -253,12 +253,12 @@ The 3 main models other than `Recipe` you will need to use are the `Step`, `Ingr
 
 (Note that the `Recipe` object is not a `Json` object, the below is just a representation of the data)
 ```json
-{Recipe: 
-    [{"steps": 
+{Recipe:
+    [{"steps":
         [{Step: [
             {"ingredients": [
-                {Ingredient: 
-                  {"food": 
+                {Ingredient:
+                  {"food":
                     {Food:
                       [{"name": "food name"},
                         {Unit: {"name": "unit name"}},
@@ -267,7 +267,7 @@ The 3 main models other than `Recipe` you will need to use are the `Step`, `Ingr
             {"instruction": "recipe step text"}
         ]}]},
     {"keywords": [
-        {Keyword: 
+        {Keyword:
           {"name": "keyword name"}
         }]}]}
 ```
@@ -278,29 +278,29 @@ from cookbook.models import Recipe, Keyword, Step, Ingredient, Food, Unit
 
 def get_recipe_from_file(self, file)-> Recipe:
     #opening the file and parsing it
-    
+
     recipe_object = Recipe.objects.create(
         name = your_recipe_name,
         created_by = self.request.user,
         internal = True,
         space = self.request.space,)
-    
+
     #logic for creating a list of keywords
 
     for keyword in parsed_file.keywords:
         recipe_object.keywords.add(
             Keyword.objects.get_or_create(
-                space=self.request.space, 
+                space=self.request.space,
                 name=keyword)[0])
-    
+
     i = 0
     for line in parsed_file:
         #logic for creating a list of ingredients
         #logic for instructions
         step = Step.objects.create(
-            instruction=line.instruction_string, 
-            order=i, 
-            space=self.request.space, 
+            instruction=line.instruction_string,
+            order=i,
+            space=self.request.space,
             show_ingredients_table=self.request.user.userpreference.show_step_ingredients)
         for ingredient in line.ingredients:
             step.ingredients.add(

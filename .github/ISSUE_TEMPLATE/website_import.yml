@@ -10,8 +10,8 @@ body:
   - type: input
     id: version
     attributes:
-      label: Tandoor Version
-      description: "What version of Tandoor are you using? (can be found on the system page since v0.8.4)"
+      label: Table Version
+      description: "What version of Table are you using? (can be found on the system page since v0.8.4)"
     validations:
       required: true
   - type: input
@@ -32,5 +32,5 @@ body:
     id: logs
     attributes:
       label: Response / message shown
-      description: Please copy and paste any relevant logs or responses / messages which are shown in Tandoor. This will be automatically formatted into code, so no need for backticks.
+      description: Please copy and paste any relevant logs or responses / messages which are shown in Table. This will be automatically formatted into code, so no need for backticks.
       render: shell

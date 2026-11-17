@@ -2,30 +2,30 @@ There are several questions and issues that come up from time to time, here are 
 please note that the existence of some questions is due the application not being perfect in some parts.
 Many of those shortcomings are planned to be fixed in future release but simply could not be addressed yet due to time limits.
 
-## Is there a Tandoor app?
-Tandoor can be installed as a progressive web app (PWA) on mobile and desktop devices. The PWA stores recently accessed recipes locally for offline use.
+## Is there a Table app?
+Table can be installed as a progressive web app (PWA) on mobile and desktop devices. The PWA stores recently accessed recipes locally for offline use.
 
 ### Mobile browsers
 
 #### Safari (iPhone/iPad)
-Open Tandoor, click Safari's share button, select `Add to Home Screen`
+Open Table, click Safari's share button, select `Add to Home Screen`
 
 #### Chrome/Chromium
-Open Tandoor, click the `add Tandoor to the home screen` message that pops up at the bottom of the screen
+Open Table, click the `add Table to the home screen` message that pops up at the bottom of the screen
 
 #### Firefox for Android
-Open Tandoor, click on the `⋮` menu icon, then on `Install`
+Open Table, click on the `⋮` menu icon, then on `Install`
 
 ### Desktop browsers
 
 #### Google Chrome
-Open Tandoor, open the menu behind the three vertical dots at the top right, select `Install Tandoor Recipes...`
+Open Table, open the menu behind the three vertical dots at the top right, select `Install Table Recipes...`
 
 #### Microsoft Edge
-Open Tandoor, open the menu behind the three horizontal dots at the top right, select `Apps > Install Tandoor Recipes`
+Open Table, open the menu behind the three horizontal dots at the top right, select `Apps > Install Table Recipes`
 
-## Why is Tandoor not working correctly?
-If you just set up your Tandoor instance and you're having issues like;
+## Why is Table not working correctly?
+If you just set up your Table instance and you're having issues like;
 
 - Links not working
 - CSRF errors
@@ -40,24 +40,24 @@ Navigate to `/system/` and review the headers listed in the DEBUG section.  At a
 
 | Header      | Requirement |
 | :---        |    :----   |
-| HTTP_HOST:mydomain.tld      | The host domain must match the url that you are using to open Tandoor.  |
-| HTTP_X_FORWARDED_HOST:mydomain.tld      | The host domain must match the url that you are using to open Tandoor.  |
-| HTTP_X_FORWARDED_PROTO:http(s)      | The protocol must match the url you are using to open Tandoor.  There must be exactly one protocol listed.  |
-| HTTP_X_SCRIPT_NAME:/subfolder      | If you are hosting Tandoor at a subfolder instead of a subdomain this header must exist. |
+| HTTP_HOST:mydomain.tld      | The host domain must match the url that you are using to open Table.  |
+| HTTP_X_FORWARDED_HOST:mydomain.tld      | The host domain must match the url that you are using to open Table.  |
+| HTTP_X_FORWARDED_PROTO:http(s)      | The protocol must match the url you are using to open Table.  There must be exactly one protocol listed.  |
+| HTTP_X_SCRIPT_NAME:/subfolder      | If you are hosting Table at a subfolder instead of a subdomain this header must exist. |
 
 
 ## Why am I getting a 403 error when trying to log in?
 
-Starting with version 2.6.1, Tandoor includes login rate limiting to protect against brute-force attacks.
-This requires Tandoor to determine your client IP address from the `X-Forwarded-For` header set by
+Starting with version 2.6.1, Table includes login rate limiting to protect against brute-force attacks.
+This requires Table to determine your client IP address from the `X-Forwarded-For` header set by
 reverse proxies in front of the application.
 
-Tandoor's built-in nginx is always counted as one trusted proxy, so the default setting of
+Table's built-in nginx is always counted as one trusted proxy, so the default setting of
 `ALLAUTH_TRUSTED_PROXY_COUNT=1` works for most setups. If you are running additional reverse proxies
 (Traefik, Caddy, nginx proxy manager, etc.) and experience 403 errors on login, increase this value
-to match your total number of proxies (including Tandoor's built-in nginx).
+to match your total number of proxies (including Table's built-in nginx).
 
-For example, if you run one external reverse proxy in front of Tandoor:
+For example, if you run one external reverse proxy in front of Table:
 ```
 ALLAUTH_TRUSTED_PROXY_COUNT=2
 ```
@@ -81,18 +81,18 @@ If removed, the nginx webserver needs to be replaced by something else that serv
 `GUNICORN_MEDIA` needs to be enabled to allow media serving by the application container itself.
 
 ## Why am I getting an error stating database files are incompatible with server?
-Your version of Postgres has been upgraded.  See [Updating PostgreSQL](https://docs.tandoor.dev/system/updating/#postgresql)
+Your version of Postgres has been upgraded.  See [Updating PostgreSQL](/system/updating/#postgresql)
 
 
 ## Why does the Text/Markdown preview look different than the final recipe?
 
-Tandoor has always rendered the recipe instructions markdown on the server. This also allows tandoor to implement things like ingredient templating and scaling in text.
+Table has always rendered the recipe instructions markdown on the server. This also allows table to implement things like ingredient templating and scaling in text.
 To make editing easier a markdown editor was added to the frontend with integrated preview as a temporary solution. Since the markdown editor uses a different
 specification than the server the preview is different to the final result. It is planned to improve this in the future.
 
 The markdown renderer follows this markdown specification https://daringfireball.net/projects/markdown/
 
-## Why is Tandoor not working on my Raspberry Pi?
+## Why is Table not working on my Raspberry Pi?
 
 Please refer to [here](install/docker.md#setup-issues-on-raspberry-pi).
 
@@ -107,12 +107,12 @@ If you use an external auth provider or proxy authentication make sure to specif
 environment configuration.
 
 ## What are spaces?
-Spaces are is a type of feature used to separate one installation of Tandoor into several parts.
+Spaces are is a type of feature used to separate one installation of Table into several parts.
 In technical terms it is a multi-tenant system.
 
 You can compare a space to something like google drive or dropbox.
 There is only one installation of the Dropbox system, but it handles multiple users without them noticing each other.
-For Tandoor that means all people that work together on one recipe collection can be in one space.
+For Table that means all people that work together on one recipe collection can be in one space.
 If you want to host the collection of your friends, family, or neighbor you can create a separate space for them (through the admin interface).
 
 Sharing between spaces is currently not possible but is planned for future releases.
@@ -133,13 +133,13 @@ To create a superuser you need to
 
 
 ## Why cant I get support for my manual setup?
-Even tough I would love to help everyone get tandoor up and running I have only so much time
+Even tough I would love to help everyone get table up and running I have only so much time
 that I can spend on this project besides work, family and other life things.
 Due to the countless problems that can occur when manually installing I simply do not have
 the time to help solving each one.
 
-You can install Tandoor manually but please do not expect me or anyone to help you with that. 
-As a general advice: If you do it manually do NOT change anything at first and slowly work yourself 
+You can install Table manually but please do not expect me or anyone to help you with that.
+As a general advice: If you do it manually do NOT change anything at first and slowly work yourself
 to your dream setup.
 
 ## How can I upgrade postgres (major versions)?
@@ -149,10 +149,10 @@ Postgres requires manual intervention when updating from one major version to an
 2. stop the DB / down the container
 3. move your postgres directory in order to keep it as a backup (e.g. `mv postgres postgres_old`)
 4. update postgres to the new major version (for Docker just change the version number and pull)
-5. start the db / up the container (do not start tandoor as it will automatically perform the database migrations which will conflict with loading the dump)
+5. start the db / up the container (do not start table as it will automatically perform the database migrations which will conflict with loading the dump)
 6. if not using docker, you might need to create the same postgres user you had in the old database
 7. load the postgres dump (for Docker `'/usr/local/bin/docker-compose exec -T <postgres_container_name> psql -U <postgres_user_name> <postgres_database_name> < /path/to/dump.sql`)
 
-If anything fails, go back to the old postgres version and data directory and try again. 
+If anything fails, go back to the old postgres version and data directory and try again.
 
-There are many articles and tools online that might provide a good starting point to help you upgrade [1](https://thomasbandt.com/postgres-docker-major-version-upgrade), [2](https://github.com/tianon/docker-postgres-upgrade), [3](https://github.com/vabene1111/DockerPostgresBackups). 
+There are many articles and tools online that might provide a good starting point to help you upgrade [1](https://thomasbandt.com/postgres-docker-major-version-upgrade), [2](https://github.com/tianon/docker-postgres-upgrade), [3](https://github.com/vabene1111/DockerPostgresBackups).

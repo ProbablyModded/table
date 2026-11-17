@@ -1,4 +1,4 @@
-The telegram bot is meant to simplify certain interactions with Tandoor.
+The telegram bot is meant to simplify certain interactions with Table.
 It is currently very basic but might be expanded in the future.
 
 !!! warning "Experimental"

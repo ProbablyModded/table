@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2022-07-12 19:20+0200\n"
 "PO-Revision-Date: 2022-10-01 16:38+0000\n"
 "Last-Translator: wella <wella.design@gmail.com>\n"
-"Language-Team: Indonesian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Indonesian <http://weblate.org/projects/table/"
 "recipes-backend/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -697,7 +697,7 @@ msgid "You have been invited by "
 msgstr ""
 
 #: .\cookbook\serializer.py:1082
-msgid " to join their Tandoor Recipes space "
+msgid " to join their Table Recipes space "
 msgstr ""
 
 #: .\cookbook\serializer.py:1083
@@ -715,11 +715,11 @@ msgstr ""
 
 #: .\cookbook\serializer.py:1086
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
 
 #: .\cookbook\serializer.py:1089
-msgid "Tandoor Recipes Invite"
+msgid "Table Recipes Invite"
 msgstr ""
 
 #: .\cookbook\serializer.py:1209
@@ -1148,7 +1148,7 @@ msgid "GitHub"
 msgstr ""
 
 #: .\cookbook\templates\base.html:328
-msgid "Translate Tandoor"
+msgid "Translate Table"
 msgstr ""
 
 #: .\cookbook\templates\base.html:332
@@ -2432,7 +2432,7 @@ msgstr ""
 
 #: .\cookbook\views\api.py:1303 .\cookbook\views\data.py:28
 #: .\cookbook\views\edit.py:120 .\cookbook\views\new.py:90
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
 
 #: .\cookbook\views\api.py:1325

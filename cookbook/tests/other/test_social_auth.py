@@ -8,7 +8,7 @@ from django.utils import timezone
 from django_scopes import scopes_disabled
 
 from cookbook.helper.AllAuthCustomAdapter import AllAuthCustomAdapter
-from cookbook.helper.social_adapter import TandoorSocialAccountAdapter, _mask_email
+from cookbook.helper.social_adapter import TableSocialAccountAdapter, _mask_email
 from cookbook.models import InviteLink, Space, UserSpace
 
 pytestmark = pytest.mark.django_db
@@ -298,7 +298,7 @@ def test_on_authentication_error_stores_errors(rf, tmp_path, settings):
     import cookbook.helper.social_adapter as sa
     sa._ERROR_FILE = str(tmp_path / 'errors.json')
 
-    adapter = TandoorSocialAccountAdapter()
+    adapter = TableSocialAccountAdapter()
     request = rf.get('/fake/')
 
     class FakeProvider:
@@ -324,7 +324,7 @@ def test_on_authentication_error_caps_at_50(rf, tmp_path):
     import cookbook.helper.social_adapter as sa
     sa._ERROR_FILE = str(tmp_path / 'errors.json')
 
-    adapter = TandoorSocialAccountAdapter()
+    adapter = TableSocialAccountAdapter()
     request = rf.get('/fake/')
 
     class FakeProvider:
@@ -344,7 +344,7 @@ def test_on_authentication_error_includes_chained_cause(rf, tmp_path):
     import cookbook.helper.social_adapter as sa
     sa._ERROR_FILE = str(tmp_path / 'errors.json')
 
-    adapter = TandoorSocialAccountAdapter()
+    adapter = TableSocialAccountAdapter()
     request = rf.get('/fake/')
 
     class FakeProvider:

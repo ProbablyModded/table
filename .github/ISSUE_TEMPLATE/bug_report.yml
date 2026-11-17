@@ -10,15 +10,15 @@ body:
   - type: input
     id: version
     attributes:
-      label: Tandoor Version
-      description: "What version of Tandoor are you using? (can be found on the system page since v0.8.4)"
+      label: Table Version
+      description: "What version of Table are you using? (can be found on the system page since v0.8.4)"
     validations:
       required: true
   - type: dropdown
     id: setup
     attributes:
       label: Setup
-      description: "How is your Tandoor instance set up?"
+      description: "How is your Table instance set up?"
       options:
         - Docker / Docker-Compose
         - Unraid
@@ -32,7 +32,7 @@ body:
     id: reverse-proxy
     attributes:
       label: "Reverse Proxy"
-      description: "What reverse proxy do you use with Tandoor?"
+      description: "What reverse proxy do you use with Table?"
       options:
         - No reverse proxy
         - jwilder's nginx proxy

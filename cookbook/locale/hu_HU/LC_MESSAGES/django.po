@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-10-03 11:45+0000\n"
 "Last-Translator: Péter <kovpeti@yahoo.com>\n"
-"Language-Team: Hungarian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Hungarian <http://weblate.org/projects/table/"
 "recipes-backend/hu/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
@@ -573,8 +573,8 @@ msgid "You have been invited by "
 msgstr "Önt meghívta "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " hogy csatlakozzon a Tandoor Receptek helyhez "
+msgid " to join their Table Recipes space "
+msgstr " hogy csatlakozzon a Table Receptek helyhez "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -593,13 +593,13 @@ msgstr "A meghívó a következő időpontig érvényes "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"A Tandoor Receptek egy nyílt forráskódú receptkezelő. Nézze meg a GitHubon "
+"A Table Receptek egy nyílt forráskódú receptkezelő. Nézze meg a GitHubon "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor receptek meghívó"
+msgid "Table Recipes Invite"
+msgstr "Table receptek meghívó"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -904,11 +904,11 @@ msgstr "Regisztráció lezárva"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Sajnáljuk, de a regisztráció jelenleg zárva van."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
+#: .\cookbook\templates\frontend\table.html:15
 #, fuzzy
-#| msgid "Tandoor Recipes Invite"
-msgid "Tandoor Recipe Manager"
-msgstr "Tandoor Recept Kezelő meghívó"
+#| msgid "Table Recipes Invite"
+msgid "Table Recipe Manager"
+msgstr "Table Recept Kezelő meghívó"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1632,10 +1632,10 @@ msgstr "Rendszer"
 #| "    "
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
@@ -2400,8 +2400,8 @@ msgstr ""
 "használd a böngésződ nyomtatási funkcióját (Ctrl+P)."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "Ez a funkció még nem érhető el a tandoor hosztolt verziójában!"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "Ez a funkció még nem érhető el a table hosztolt verziójában!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2729,14 +2729,14 @@ msgstr "Új bevásárló lista"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Tandoor fordítása"
+#~ msgid "Translate Table"
+#~ msgstr "Table fordítása"
 
 #~ msgid "Log out"
 #~ msgstr "Kijelentkezés"
 
 #~ msgid "You are using the free version of Tandor"
-#~ msgstr "Ön a Tandoor ingyenes verzióját használja"
+#~ msgstr "Ön a Table ingyenes verzióját használja"
 
 #~ msgid "Upgrade Now"
 #~ msgstr "Frissítés most"

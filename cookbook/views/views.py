@@ -52,7 +52,7 @@ def index(request, path=None, resource=None):
         request.session.modified = True
         process_invite_token(request.user, value)
 
-    return render(request, 'frontend/tandoor.html', {})
+    return render(request, 'frontend/table.html', {})
 
 
 def redirect_recipe_view(request, pk):
@@ -316,7 +316,7 @@ def setup(request):
 
                         create_space_for_user(user, name=None)
 
-                        EmailAddress.objects.create(user=user, email=f'{user.username}@default-adminmail.tandoor', primary=True, verified=True)
+                        EmailAddress.objects.create(user=user, email=f'{user.username}@default-adminmail.table', primary=True, verified=True)
 
                         messages.add_message(request, messages.SUCCESS, _('User has been created, please login!'))
                         return HttpResponseRedirect(reverse('index'))
@@ -496,8 +496,8 @@ def test2(request):
         return HttpResponseRedirect(reverse('index'))
 
 
-def tandoor_frontend(request):
-    return render(request, 'frontend/tandoor.html', {})
+def table_frontend(request):
+    return render(request, 'frontend/table.html', {})
 
 
 def get_orphan_files(delete_orphans=False):

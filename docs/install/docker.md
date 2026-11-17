@@ -1,8 +1,8 @@
 !!! success "Recommended Installation"
-    Setting up this application using Docker is recommended. This does not mean that other options are bad, but its the only method 
-    that is officially maintained and gets regularly tested. 
+    Setting up this application using Docker is recommended. This does not mean that other options are bad, but its the only method
+    that is officially maintained and gets regularly tested.
 
-This guide shows you some basic setups using Docker and docker compose. For configuration options see the [configuration page](https://docs.tandoor.dev/system/configuration/).
+This guide shows you some basic setups using Docker and docker compose. For configuration options see the [configuration page](/system/configuration/).
 
 ## **Versions**
 
@@ -49,8 +49,13 @@ The main, and also recommended, installation option for this application is Dock
     ```shell
     wget https://raw.githubusercontent.com/vabene1111/recipes/develop/.env.template -O .env
     ```
-3. **Edit it accordingly** (you NEED to set `SECRET_KEY`, `ALLOWED_HOSTS` and `POSTGRES_PASSWORD`), see [configuration page](https://docs.tandoor.dev/system/configuration/).
+3. **Edit it accordingly** (you NEED to set `SECRET_KEY`, `ALLOWED_HOSTS` and `POSTGRES_PASSWORD`), see [configuration page](/system/configuration/).
 4. Start your container using `docker-compose up -d`.
+
+### **Single container (Table + PostgreSQL)**
+
+For a simple personal installation, Table can initialize and run PostgreSQL in
+the same container. See the [single-container guide](docker/single-container.md).
 
 ### **Plain**
 
@@ -128,20 +133,20 @@ Keep in mind, that the port configured for the service `web_recipes` should be t
 
 The main goal of [DockSTARTer](https://dockstarter.com/) is to make it quick and easy to get up and running with Docker.
 You may choose to rely on DockSTARTer for various changes to your Docker system or use DockSTARTer as a stepping stone and learn to do more advanced configurations.
-Follow the guide for installing DockSTARTer and then run `ds` then select 'Configuration' and 'Select Apps' to get Tandoor up and running quickly and easily.
+Follow the guide for installing DockSTARTer and then run `ds` then select 'Configuration' and 'Select Apps' to get Table up and running quickly and easily.
 
 
 !!!note
-    DockSTARTer might not be updated for Tandoor 2 configurations
+    DockSTARTer might not be updated for Table 2 configurations
 
 ## **Additional Information**
 
 ### **Nginx Config**
-Starting with Tandoor 2 the Docker container includes a nginx service. Its default configuration is pulled from the [http.d](https://github.com/TandoorRecipes/recipes/tree/develop/http.d) folder
-in the repository. 
+Starting with Table 2 the Docker container includes a nginx service. Its default configuration is pulled from the [http.d](https://github.com/Table/recipes/tree/develop/http.d) folder
+in the repository.
 
-You can setup a volume to link to the ```/opt/recipes/http.d``` folder inside your container to change the configuration. Keep in mind that you will not receive any updates on the configuration 
-if you manually change it/bind the folder as a volume. 
+You can setup a volume to link to the ```/opt/recipes/http.d``` folder inside your container to change the configuration. Keep in mind that you will not receive any updates on the configuration
+if you manually change it/bind the folder as a volume.
 
 
 ### **Required Headers**
@@ -174,19 +179,19 @@ ProxyPassReverse / http://localhost:8080/ # replace port
 ### **Setup issues on Raspberry Pi**
 
 !!! danger
-    Tandoor 2 does no longer build images for arm/v7 architectures. You can certainly get Tandoor working there but it has simply been to much effort to maintain these architectures over the past years
-    to justify the continued support of this mostly deprecated platform. 
+    Table 2 does no longer build images for arm/v7 architectures. You can certainly get Table working there but it has simply been to much effort to maintain these architectures over the past years
+    to justify the continued support of this mostly deprecated platform.
 
 !!!info
     Always wait at least 2-3 minutes after the very first start, since migrations will take some time!
 
 
-If you're having issues with installing Tandoor on your Raspberry Pi or similar device,
+If you're having issues with installing Table on your Raspberry Pi or similar device,
 follow these instructions:
 
-- Stop all Tandoor containers (`docker-compose down`)
+- Stop all Table containers (`docker-compose down`)
 - Delete local database folder (usually 'postgresql' in the same folder as your 'docker-compose.yml' file)
-- Start Tandoor containers again (`docker-compose up -d`)
+- Start Table containers again (`docker-compose up -d`)
 - Wait for at least 2-3 minutes and then check if everything is working now (migrations can take quite some time!)
 - If not, check logs of the web_recipes container with `docker logs <container_name>` and make sure that all migrations are indeed already done
 
@@ -219,10 +224,10 @@ location /static/ {
 
 }
 ```
-### Tandoor 1 vs Tandoor 2
-Tandoor 1 includes gunicorn, a python WSGI server that handles python code well but is not meant to serve mediafiles. Thus, it has always been recommended to set up a nginx webserver 
-(not just a reverse proxy) in front of Tandoor to handle mediafiles. The gunicorn server by default is exposed on port 8080.
+### Table 1 vs Table 2
+Table 1 includes gunicorn, a python WSGI server that handles python code well but is not meant to serve mediafiles. Thus, it has always been recommended to set up a nginx webserver
+(not just a reverse proxy) in front of Table to handle mediafiles. The gunicorn server by default is exposed on port 8080.
 
-Tandoor 2 now bundles nginx inside the container and exposes port 80 where mediafiles are handled by nginx and all the other requests are (mostly) passed to gunicorn.
+Table 2 now bundles nginx inside the container and exposes port 80 where mediafiles are handled by nginx and all the other requests are (mostly) passed to gunicorn.
 
-A [GitHub Issue](https://github.com/TandoorRecipes/recipes/issues/3851) has been created to allow for discussions and FAQ's on this issue while this change is fresh. It will later be updated in the docs here if necessary. 
+A [GitHub Issue](https://github.com/Table/recipes/issues/3851) has been created to allow for discussions and FAQ's on this issue while this change is fresh. It will later be updated in the docs here if necessary.

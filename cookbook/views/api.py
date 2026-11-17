@@ -123,7 +123,7 @@ from cookbook.serializer import (AccessTokenSerializer, AutomationSerializer, Au
                                  AiProviderSerializer, AiLogSerializer, FoodBatchUpdateSerializer, GenericModelReferenceSerializer, ShoppingListSerializer,
                                  IngredientParserRequestSerializer, IngredientParserResponseSerializer, HouseholdSerializer, UserSpaceBatchUpdateSerializer
                                  )
-from cookbook.version_info import TANDOOR_VERSION
+from cookbook.version_info import TABLE_VERSION
 from cookbook.views.import_export import get_integration
 from recipes import settings
 from recipes.settings import DRF_THROTTLE_RECIPE_URL_IMPORT, FDC_API_KEY, AI_RATELIMIT, AI_ALLOWED_URLS
@@ -1146,7 +1146,7 @@ class FoodViewSet(LoggingMixin, TreeMixin, DeleteRelationMixing):
                 {
                     'msg':
                         'API Key Rate Limit reached/exceeded, see https://api.data.gov/docs/rate-limits/ for more information. \
-                                Configure your key in Tandoor using environment FDC_API_KEY variable.'
+                                Configure your key in Table using the FDC_API_KEY environment variable.'
                 },
                 status=429,
                 json_dumps_params={'indent': 4})
@@ -2684,14 +2684,14 @@ class RecipeUrlImportView(APIView):
                         response['duplicates'] = Recipe.objects.filter(space=request.space, source_url=url.strip()).values('id', 'name').all()
                     return Response(RecipeFromSourceResponseSerializer(context={'request': request}).to_representation(response), status=status.HTTP_200_OK)
 
-                tandoor_url = None
+                table_url = None
                 if re.match(r'^(.)*/recipe/[0-9]+/\?share=[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', url):
-                    tandoor_url = url.replace('/recipe/', '/api/recipe/')
+                    table_url = url.replace('/recipe/', '/api/recipe/')
                 elif re.match(r'^(.)*/view/recipe/[0-9]+/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', url):
-                    tandoor_url = (url.replace('/view/recipe/', '/api/recipe/').replace(re.split('/recipe/[0-9]+', url)[1], '') + '?share=' +
+                    table_url = (url.replace('/view/recipe/', '/api/recipe/').replace(re.split('/recipe/[0-9]+', url)[1], '') + '?share=' +
                                    re.split('/recipe/[0-9]+', url)[1].replace('/', ''))
-                if tandoor_url:
-                    recipe_json = safe_request('GET', tandoor_url).json()
+                if table_url:
+                    recipe_json = safe_request('GET', table_url).json()
                     recipe_json = clean_dict(recipe_json, 'id')
                     serialized_recipe = RecipeExportSerializer(data=recipe_json, context={'request': request})
                     if serialized_recipe.is_valid():
@@ -3157,7 +3157,7 @@ class FdcSearchView(APIView):
                     {
                         'msg':
                             'API Key Rate Limit reached/exceeded, see https://api.data.gov/docs/rate-limits/ for more information. \
-                                Configure your key in Tandoor using environment FDC_API_KEY variable.'
+                                Configure your key in Table using the FDC_API_KEY environment variable.'
                     },
                     status=429,
                     json_dumps_params={'indent': 4})
@@ -3344,7 +3344,7 @@ class ServerSettingsViewSet(viewsets.GenericViewSet):
         s['hosted'] = settings.HOSTED
         s['debug'] = settings.DEBUG
         s['email'] = settings.EMAIL_HOST != ''
-        s['version'] = TANDOOR_VERSION
+        s['version'] = TABLE_VERSION
         s['unauthenticated_theme_from_space'] = settings.UNAUTHENTICATED_THEME_FROM_SPACE
         s['force_theme_from_space'] = settings.FORCE_THEME_FROM_SPACE
         s['enable_signup'] = settings.ENABLE_SIGNUP
@@ -3470,7 +3470,7 @@ def get_recipe_file(request, pk):
 def sync_all(request):
     if request.space.demo or settings.HOSTED:
         messages.add_message(request, messages.ERROR,
-                             _('This feature is not yet available in the hosted version of tandoor!'))
+                             _('This feature is not yet available in the hosted version of Table!'))
         return redirect('index')
 
     if not has_group_permission(request, ['user']):
@@ -3526,12 +3526,12 @@ def share_link(request, pk):
 
 def meal_plans_to_ical(queryset, filename):
     cal = Calendar()
-    cal.add('prodid', f'-//Tandoor Recipes//')
+    cal.add('prodid', f'-//Table//')
     cal.add('version', '2.0')
 
     for p in queryset:
         event = Event()
-        event['uid'] = f'mealplan-{p.id}@tandoor.recipes'
+        event['uid'] = f'mealplan-{p.id}@table.app'
 
         start_date_time = p.from_date
         end_date_time = p.to_date if p.to_date else p.from_date

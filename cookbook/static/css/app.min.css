@@ -20,7 +20,7 @@
 }
 
 
-.spinner-tandoor {
+.spinner-table {
     animation: rotation 3s infinite linear;
     content: url("../assets/spinner.svg");
     width: auto;

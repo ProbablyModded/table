@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2024-09-23 21:58+0000\n"
 "Last-Translator: Emmker <emmker@gmail.com>\n"
-"Language-Team: Greek <http://translate.tandoor.dev/projects/tandoor/recipes-"
+"Language-Team: Greek <http://weblate.org/projects/table/recipes-"
 "backend/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -565,8 +565,8 @@ msgid "You have been invited by "
 msgstr "Έχετε προσκληθεί από "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " για να συνδεθείτε στό χώρο συνταγών του Tandoor "
+msgid " to join their Table Recipes space "
+msgstr " για να συνδεθείτε στό χώρο συνταγών του Table "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -586,14 +586,14 @@ msgstr "Η πρόσκληση είναι σε ισχύ μέχρι "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Το Tandoor Recipes είναι ένας διαχειριστής συνταγών ανοιχτού κώδικα. Ρίξτε "
+"Το Table Recipes είναι ένας διαχειριστής συνταγών ανοιχτού κώδικα. Ρίξτε "
 "μια ματιά στο GitHub "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Πρόσκληση στο Tandoor Recipes"
+msgid "Table Recipes Invite"
+msgstr "Πρόσκληση στο Table Recipes"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -904,11 +904,11 @@ msgstr "Οι εγγραφές έκλεισαν"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Λυπούμαστε, αλλά οι εγγραφές έχουν ήδη κλείσει."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
+#: .\cookbook\templates\frontend\table.html:15
 #, fuzzy
-#| msgid "Tandoor Recipes Invite"
-msgid "Tandoor Recipe Manager"
-msgstr "Πρόσκληση στο Tandoor Recipes"
+#| msgid "Table Recipes Invite"
+msgid "Table Recipe Manager"
+msgstr "Πρόσκληση στο Table Recipes"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1450,10 +1450,10 @@ msgstr "Σύστημα"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
@@ -2060,7 +2060,7 @@ msgid ""
 msgstr ""
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
 
 #: .\cookbook\views\api.py:3386
@@ -2335,14 +2335,14 @@ msgstr "Χρήστες με του οποίους θα γίνει κοινοπο
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Μεταφράστε το Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Μεταφράστε το Table"
 
 #~ msgid "Log out"
 #~ msgstr "Αποσύνδεση"
 
 #~ msgid "You are using the free version of Tandor"
-#~ msgstr "Χρησιμοποιείται την δωρεάν έκδοση του Tandoor"
+#~ msgstr "Χρησιμοποιείται την δωρεάν έκδοση του Table"
 
 #~ msgid "Upgrade Now"
 #~ msgstr "Αναβαθμιστείτε τώρα"

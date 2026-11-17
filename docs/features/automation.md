@@ -4,7 +4,7 @@
      issues while working on them, I might change how they work breaking existing automations.
      I will try to avoid this and am pretty confident it won't happen.
 
-Automations allow Tandoor to automatically perform certain tasks, especially when importing recipes, that
+Automations allow Table to automatically perform certain tasks, especially when importing recipes, that
 would otherwise have to be done manually. Currently, the following automations are supported.
 
 ## Unit, Food, Keyword Alias
@@ -63,7 +63,7 @@ Also instead of just replacing a single occurrence of the matched pattern it wil
 
 ## Never Unit
 
-Some ingredients have a pattern of AMOUNT and FOOD, if the food has multiple words (e.g. egg yolk) this can cause Tandoor
+Some ingredients have a pattern of AMOUNT and FOOD, if the food has multiple words (e.g. egg yolk) this can cause Table
 to detect the word "egg" as a unit. This automation will detect the word 'egg' as something that should never be considered
 a unit.
 

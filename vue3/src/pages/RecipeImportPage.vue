@@ -492,7 +492,7 @@
                                 <ol>
                                     <li>1. {{ $t('BookmarkletHelp1') }}</li>
                                     <li>
-                                        <v-btn :href="bookmarkletContent" color="primary">{{ $t('ImportIntoTandoor') }}</v-btn>
+                                        <v-btn :href="bookmarkletContent" color="primary">{{ $t('ImportIntoTable') }}</v-btn>
                                     </li>
                                     <li>2. {{ $t('BookmarkletHelp2') }}</li>
                                     <li>3. {{ $t('BookmarkletHelp3') }}</li>
@@ -657,8 +657,8 @@ const {getFullUrl} = useDjangoUrls()
 
 const bookmarkletContent = computed(() => {
     return 'javascript:(function(){' +
-        'if(window.bookmarkletTandoor!==undefined){' +
-        'bookmarkletTandoor();' +
+        'if(window.bookmarkletTable!==undefined){' +
+        'bookmarkletTable();' +
         '} else {' +
         `localStorage.setItem("importURL", "${getFullUrl('/api/bookmarklet-import/')}");` +
         `localStorage.setItem("redirectURL", "${getFullUrl('/recipe/import/')}");` +

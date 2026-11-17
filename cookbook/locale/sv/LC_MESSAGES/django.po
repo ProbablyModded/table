@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-05-26 14:46+0000\n"
 "Last-Translator: Gisli Jonsson <gisli.broncomedia@gmail.com>\n"
-"Language-Team: Swedish <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Swedish <http://weblate.org/projects/table/"
 "recipes-backend/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -549,8 +549,8 @@ msgid "You have been invited by "
 msgstr "Du har bjudits in av "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " för att ansluta till deras Tandoor recept utrymme "
+msgid " to join their Table Recipes space "
+msgstr " för att ansluta till deras Table recept utrymme "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -569,13 +569,13 @@ msgstr "Inbjudningen är giltig till "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor recept är en recept-hanterar med öppen källkod. Se mer på GitHub "
+"Table recept är en recept-hanterar med öppen källkod. Se mer på GitHub "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor recept inbjudan"
+msgid "Table Recipes Invite"
+msgstr "Table recept inbjudan"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -881,9 +881,9 @@ msgstr "Registreringen är stängd"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Vi beklagar, men registreringen är för närvarande stängd."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Recepthanteraren Tandoor"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Recepthanteraren Table"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1546,15 +1546,15 @@ msgstr "System"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes är ett gratisprogram med öppen källkod. Den finns "
+"        Table Recipes är ett gratisprogram med öppen källkod. Den finns "
 "på\n"
 "         <a href=\"https://github.com/vabene1111/recipes\">GitHub</a>.\n"
 "         Ändringsloggar finns <a href=\"https://github.com/vabene1111/"
@@ -2202,9 +2202,9 @@ msgid ""
 msgstr "PDF-export saknas. Använd Ctrl+P för att skriva ut recept som PDF."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr ""
-"Denna funktion är ännu inte tillgänglig i den hostade versionen av tandoor!"
+"Denna funktion är ännu inte tillgänglig i den hostade versionen av table!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2512,8 +2512,8 @@ msgstr "Se dina inköpslistor"
 #~ msgid "GitHub"
 #~ msgstr "Github"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Översätt Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Översätt Table"
 
 #~ msgid "Batch edit Category"
 #~ msgstr "Kategori av mängdredering"

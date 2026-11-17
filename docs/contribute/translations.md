@@ -1,17 +1,17 @@
-Translations are managed on [translate.tandoor.dev](https://translate.tandoor.dev/), a self hosted instance of [Weblate](https://weblate.org/de/).
+Translations are managed on [weblate.org](https://weblate.org/), a self hosted instance of [Weblate](https://weblate.org/de/).
 
 You can simply register an account and then follow these steps to add translations:
 
 1. After registering, you are asked to select your languages. This is optional but allows weblate to only show you relevant translations.
 2. In the navigation click on `Projects` and then `Browse all projects`.
-3. Select Tandoor and on the top-right hand corner, select `Watch project Tandoor` (click on `Not watching`).
+3. Select Table and on the top-right hand corner, select `Watch project Table` (click on `Not watching`).
 4. Go back to the dashboard. It now shows you the relevant translations for your languages. Click on the pencil icon to get started.
 
 <!-- prettier-ignore -->
 !!! info "Creating a new language"
-     To create a new language you must first select Tandoor (the project) and then a component.
+     To create a new language you must first select Table (the project) and then a component.
      Here you will have the option to add the language. Afterwards you can also simply add it to the other components as well.
-     Once a new language is (partially) finished let me know on GitHub so I can add it to the language-switcher in Tandoor itself.
+     Once a new language is (partially) finished let me know on GitHub so I can add it to the language-switcher in Table itself.
 
 There is also [a lot of documentation](https://docs.weblate.org/en/latest/user/translating.html) available from Weblate directly.
 

@@ -1,16 +1,16 @@
-site_name: Tandoor Recipes
-site_description: Tandoor Recipe Documentation
-site_author: vabene1111
-repo_url: https://github.com/vabene1111/recipes
-edit_uri: https://github.com/vabene1111/recipes/tree/develop/docs
+site_name: Table
+site_description: Table recipe documentation
+site_author: Table contributors
+repo_url: https://github.com/
+edit_uri: ""
 extra_css:
   - stylesheets/extra.css
 
 theme:
   name: material
   repo: fontawesome/brands/github
-  logo: logo_color.svg
-  favicon: logo_color.svg
+  logo: table_logo.svg
+  favicon: table_logo.svg
   palette:
     scheme: slate
     primary: custom
@@ -31,6 +31,7 @@ nav:
   - Home: 'index.md'
   - Installation:
       - Docker: install/docker.md
+      - Single container (Table + PostgreSQL): install/docker/single-container.md
       - Unraid: install/unraid.md
       - Synology: install/synology.md
       - Kubernetes: install/kubernetes.md

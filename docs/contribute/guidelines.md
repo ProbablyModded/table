@@ -10,11 +10,11 @@ If you want to contribute bug fixes or small tweaks then your pull requests are 
 
 ## License
 
-Contributing to Tandoor requires signing a Contributor License Agreement. You can review the CLA [here](https://cla-assistant.io/TandoorRecipes/recipes).
+Contributing to Table requires signing a Contributor License Agreement. You can review the CLA [here](https://cla-assistant.io/Table/recipes).
 
 ## Linting & Formatting
 
-Tandoor uses a number of libraries to maintain style and formatting consistency.
+Table uses a number of libraries to maintain style and formatting consistency.
 To contribute to the project you are required to use the following packages with the project defined configurations:
 
 - flake8
@@ -35,7 +35,7 @@ To contribute to the project you are required to use the following packages with
 Django uses pytest-django to implement a full suite of testing. If you make any functional changes, please implement the appropriate
 tests.
 
-Tandoor is also actively soliciting contributors willing to setup vue3 testing. If you have knowledge in this area it would be greatly appreciated.
+Table is also actively soliciting contributors willing to setup vue3 testing. If you have knowledge in this area it would be greatly appreciated.
 
 ## API Client
 
@@ -43,7 +43,7 @@ Tandoor is also actively soliciting contributors willing to setup vue3 testing. 
 !!! note "JAVA required"
      The OpenAPI Generator is a Java project. You must have the java binary executable available on your PATH for this to work.
 
-Tandoor uses [django-rest-framework](https://www.django-rest-framework.org/) for API implementation. Making contributions that impact the API requires an understanding of
+Table uses [django-rest-framework](https://www.django-rest-framework.org/) for API implementation. Making contributions that impact the API requires an understanding of
 ViewSets and Serializers.
 
 The API Client is generated automatically from the OpenAPI interface provided by the Django REST framework.

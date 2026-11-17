@@ -55,7 +55,7 @@ for p in settings.PLUGINS:
             print(f'ERROR failed loading urls for plugin <{p["name"]}>')
             traceback.format_exc()
 
-# include cookbook urls last because it has a catchall view to the tandoor frontend
+# include cookbook urls last because it has a catchall view to the main frontend
 urlpatterns.append(
     path('', include('cookbook.urls')),
 )

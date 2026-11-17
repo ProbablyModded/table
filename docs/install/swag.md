@@ -1,8 +1,8 @@
 !!! danger
         Please refer to the [official documentation](https://github.com/linuxserver/docker-swag#usage) for the container setup. This example shows just one setup that may or may not differ from yours in significant ways. This tutorial does not cover security measures, backups, and many other things that you might want to consider.
 
-!!! danger "Tandoor 2 Compatibility"
-    This guide has not been verified/tested for Tandoor 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
+!!! danger "Table 2 Compatibility"
+    This guide has not been verified/tested for Table 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@
 
 ## Installation
 
-### Download and edit Tandoor configuration
+### Download and edit Table configuration
 
 ```
 cd /opt

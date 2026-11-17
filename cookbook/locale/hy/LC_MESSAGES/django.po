@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2023-01-08 17:55+0000\n"
 "Last-Translator: Joachim Weber <joachim.weber@gmx.de>\n"
-"Language-Team: Armenian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Armenian <http://weblate.org/projects/table/"
 "recipes-backend/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
@@ -569,7 +569,7 @@ msgid "You have been invited by "
 msgstr ""
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
+msgid " to join their Table Recipes space "
 msgstr ""
 
 #: .\cookbook\serializer.py:1842
@@ -587,11 +587,11 @@ msgstr ""
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
+msgid "Table Recipes Invite"
 msgstr ""
 
 #: .\cookbook\serializer.py:2057
@@ -894,8 +894,8 @@ msgstr ""
 msgid "We are sorry, but the sign up is currently closed."
 msgstr ""
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
 msgstr ""
 
 #: .\cookbook\templates\index.html:28
@@ -1497,10 +1497,10 @@ msgstr "Համակարգ"
 #| "    "
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
@@ -2141,7 +2141,7 @@ msgstr ""
 #: .\cookbook\views\api.py:3365
 #, fuzzy
 #| msgid "This feature is not available in the demo version!"
-msgid "This feature is not yet available in the hosted version of tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
 msgstr "Այս հատկությունը հասանելի չէ փորձնական տարբերակում։"
 
 #: .\cookbook\views\api.py:3386

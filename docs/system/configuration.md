@@ -101,10 +101,10 @@ Configuration options for serving related services.
 !!! warning
     Changed in version 2.3 to no longer configure the port of gunicorn but the port of the internal nginx
 
-Port where Tandoor exposes its internal web server.
+Port where Table exposes its internal web server.
 
 ```
-TANDOOR_PORT=80
+TABLE_PORT=80
 ```
 
 
@@ -265,7 +265,7 @@ they might be unstable/beta or they have performance/security implications.
 #### Captcha
 
 If you allow signing up to your instance you might want to use a captcha to prevent spam.
-Tandoor supports HCAPTCHA which is supposed to be a privacy-friendly captcha provider.
+Table supports HCAPTCHA which is supposed to be a privacy-friendly captcha provider.
 See [HCAPTCHA website](https://www.hcaptcha.com/) for more information and to acquire your sitekey and secret.
 
 ```
@@ -330,7 +330,7 @@ There are some rate limits that can be configured.
 ### Authentication
 
 All configurable variables regarding authentication.
-You can find some examples on the [dedicated docs page](https://docs.tandoor.dev/features/authentication/).
+You can find some examples on the [dedicated docs page](/features/authentication/).
 
 #### Default Permissions
 
@@ -384,12 +384,12 @@ SOCIALACCOUNT_PROVIDERS='{"openid_connect":{"APPS":[{"provider_id":"myidp","name
 
 > default `1`
 
-Tandoor uses IP-based rate limiting on login, signup, and password reset to prevent brute-force attacks.
-Because Tandoor's built-in nginx proxies to the application server via a unix socket, the application
+Table uses IP-based rate limiting on login, signup, and password reset to prevent brute-force attacks.
+Because Table's built-in nginx proxies to the application server via a unix socket, the application
 cannot see client IP addresses directly and must read them from the `X-Forwarded-For` header.
 
-This setting tells Tandoor how many reverse proxies sit between the client and the application server.
-The default value of `1` accounts for Tandoor's built-in nginx and works for most deployments. If you
+This setting tells Table how many reverse proxies sit between the client and the application server.
+The default value of `1` accounts for Table's built-in nginx and works for most deployments. If you
 run additional reverse proxies, increase this value to match your total proxy count so that rate limiting
 uses the real client IP instead of a proxy IP.
 
@@ -470,7 +470,7 @@ EMAIL_HOST_PASSWORD_FILE=/run/secrets/email_password.txt
 Optional settings (only copy the ones you need)
 
 ```
-# prefix used for account related emails (default "[Tandoor Recipes] ")
+# prefix used for account related emails (default "[Table Recipes] ")
 ACCOUNT_EMAIL_SUBJECT_PREFIX=
 ```
 
@@ -509,12 +509,12 @@ S3_REGION_NAME= # default none, set your region might be required
 S3_QUERYSTRING_AUTH=1 # default true, set to 0 to serve media from a public bucket without signed urls
 S3_QUERYSTRING_EXPIRE=3600 # number of seconds querystring are valid for
 S3_ENDPOINT_URL= # when using a custom endpoint like minio
-S3_CUSTOM_DOMAIN= # when using a CDN/proxy to S3 (see https://github.com/TandoorRecipes/recipes/issues/1943)
+S3_CUSTOM_DOMAIN= # when using a CDN/proxy to S3 (see https://github.com/Table/recipes/issues/1943)
 ```
 
 #### AI Integration
 
-Most AI features are configured through the AI Provider settings in the Tandoor web interface. Some defaults can be set for new spaces on your instance.
+Most AI features are configured through the AI Provider settings in the Table web interface. Some defaults can be set for new spaces on your instance.
 
 Enables AI features for spaces by default
 ```
@@ -555,7 +555,7 @@ FDC_API_KEY=DEMO_KEY
 - `DISABLE_EXTERNAL_CONNECTORS` is a global switch to disable External Connectors entirely.
 - `EXTERNAL_CONNECTORS_QUEUE_SIZE` is the amount of changes that are kept in memory if the worker cannot keep up.
 
-(External) Connectors are used to sync the status from Tandoor to other services. More info can be found [here](https://docs.tandoor.dev/features/connectors/).
+(External) Connectors are used to sync the status from Table to other services. More info can be found [here](/features/connectors/).
 
 ```env
 DISABLE_EXTERNAL_CONNECTORS=0  # Default 0 (false), set to 1 (true) to disable connectors
@@ -690,7 +690,7 @@ TZ=Europe/Berlin
 #### Default Theme
 > default `0` - options `1-X` (space ID)
 
-Tandoors appearance can be changed on a user and space level but unauthenticated users always see the tandoor default style.
+Tables appearance can be changed on a user and space level but unauthenticated users always see the table default style.
 With this setting you can specify the ID of a space of which the appearance settings should be applied if a user is not logged in.
 
 ```

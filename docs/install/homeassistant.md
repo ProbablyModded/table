@@ -1,19 +1,19 @@
 !!! info "Community Contributed"
     This guide was contributed by the community and is neither officially supported, nor updated or tested. 
     Many thanks to [alexbelgium](https://github.com/alexbelgium) for making implementing everything required to have 
-    Tandoor run in HA.
+    Table run in HA.
 
-!!! danger "Tandoor 2 Compatibility"
-    This guide has not been verified/tested for Tandoor 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
+!!! danger "Table 2 Compatibility"
+    This guide has not been verified/tested for Table 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
 
-![Addon version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Ftandoor_recipes%2Fconfig.json) ![Last update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Ftandoor_recipes%2Fupdater.json) ![aarch64][aarch64-badge] ![amd64][amd64-badge] ![armv7][armv7-badge]
+![Addon version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Ftable_recipes%2Fconfig.json) ![Last update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Ftable_recipes%2Fupdater.json) ![aarch64][aarch64-badge] ![amd64][amd64-badge] ![armv7][armv7-badge]
 
 ### Introduction
 [Home Assistant (HA)](https://www.home-assistant.io/) is a free and open-source software for home automation designed to be a central control system for smart home devices with a focus on local control and privacy. It can be accessed through a web-based user interface by using companion apps for Android and iOS, or by voice commands via a supported virtual assistant such as Google Assistant or Amazon Alexa.
 
 It can be [installed](https://www.home-assistant.io/installation/) as a standalone Operating System on a dedicated system, making it easy to deploy and maintain through Over The Air updates. It can also be installed as Docker container.
 
-In addition to its large depth of native functions, modular addons can be added to expand its functions. An addon for Tandoor Recipes was created, allowing to store the server on the Home Assistant devices and access the user interface either through direct web access or securely through the native Home Assistant app.
+In addition to its large depth of native functions, modular addons can be added to expand its functions. An addon for Table Recipes was created, allowing to store the server on the Home Assistant devices and access the user interface either through direct web access or securely through the native Home Assistant app.
 
 ### Installation
 
@@ -26,7 +26,7 @@ In addition to its large depth of native functions, modular addons can be added 
 
 ### Configuration
 
-The following environment variable are configurable from the addon options. Please see the [Docker documentation](https://docs.tandoor.dev/install/docker/) for more information on how they should be filled.
+The following environment variable are configurable from the addon options. Please see the [Docker documentation](/install/docker/) for more information on how they should be filled.
 
 ```yaml
 Required :
@@ -46,7 +46,7 @@ Optional :
 
 The alexbelgium's repo incorporates a script that aligns every 3 days the addon to the containers released. Just wait a few hours for HA to refreshes its repo list and the uodate will be proposed automatically in your HA system.
 
-It is recommended to frequently backup. All data is stored outside of the addon, the main location `/config/addons_config/tandoor_recipes`, so be sure to backup this folder in addition to the addon itself when updating. If you have selected mariadb as database option, don't forget to also backup it.
+It is recommended to frequently backup. All data is stored outside of the addon, the main location `/config/addons_config/table_recipes`, so be sure to backup this folder in addition to the addon itself when updating. If you have selected mariadb as database option, don't forget to also backup it.
 
 ### Support
 
@@ -54,7 +54,7 @@ Issues related to the addon itself should be reported on the [maintainer repo][r
 
 Issues related to HA should be reported on the [HA Community Forum][forum].
 
-Issues related to Tandoor recipes should be reported on this github repo.
+Issues related to Table recipes should be reported on this github repo.
 
 [aarch64-badge]: https://img.shields.io/badge/aarch64-yes-green.svg?logo=arm
 [amd64-badge]: https://img.shields.io/badge/amd64-yes-green.svg?logo=amd

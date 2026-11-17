@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-06-30 10:54+0000\n"
-"Last-Translator: SerhiiOS <serhios@users.noreply.translate.tandoor.dev>\n"
-"Language-Team: Ukrainian <http://translate.tandoor.dev/projects/tandoor/"
+"Last-Translator: SerhiiOS <serhios@users.noreply.weblate.org>\n"
+"Language-Team: Ukrainian <http://weblate.org/projects/table/"
 "recipes-backend/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -553,8 +553,8 @@ msgid "You have been invited by "
 msgstr "Вас було запрошено "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " долучитись до їхнього Tandoor Рецепти простору "
+msgid " to join their Table Recipes space "
+msgstr " долучитись до їхнього Table Рецепти простору "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -573,14 +573,14 @@ msgstr "Запрощення дійсне до "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Рецепти — це менеджер рецептів з відкритим кодом. Перегляньте його "
+"Table Рецепти — це менеджер рецептів з відкритим кодом. Перегляньте його "
 "на GitHub. "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor Рецепти запрошення"
+msgid "Table Recipes Invite"
+msgstr "Table Рецепти запрошення"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -888,9 +888,9 @@ msgstr "Реєстрація закрита"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "На жаль, реєстрація наразі закрита."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Tandoor: Менеджер рецептів"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Table: Менеджер рецептів"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1569,19 +1569,19 @@ msgstr "Система"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes — це безкоштовний додаток із відкритим вихідним "
+"        Table Recipes — це безкоштовний додаток із відкритим вихідним "
 "кодом. Його можна знайти на\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
 "        Список змін (Changelogs) доступний <a href=\"https://github.com/"
-"TandoorRecipes/recipes/releases\">тут</a>.\n"
+"Table/recipes/releases\">тут</a>.\n"
 "    "
 
 #: .\cookbook\templates\system.html:30
@@ -2270,8 +2270,8 @@ msgstr ""
 "(Ctrl+P), щоб зберегти рецепти у форматі PDF."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "Ця функція ще не доступна в хостинговій версії Tandoor!"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "Ця функція ще не доступна в хостинговій версії Table!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2582,8 +2582,8 @@ msgstr "Перегляньте ваші листи покупок"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Переклад Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Переклад Table"
 
 #~ msgid "Log out"
 #~ msgstr "Вийти"

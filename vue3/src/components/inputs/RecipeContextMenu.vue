@@ -16,7 +16,7 @@
                 <v-list-item :to="{ name: 'PropertyEditorPage', query: {recipe: recipe.id} }" prepend-icon="fa-solid fa-table" link>
                     {{ $t('Property_Editor') }}
                 </v-list-item>
-                <v-list-item prepend-icon="$pantry" @click="addToPantry()" :loading="pantryLoading" link>
+                <v-list-item v-if="useUserPreferenceStore().deviceSettings.general_showPantry" prepend-icon="$pantry" @click="addToPantry()" :loading="pantryLoading" link>
                     {{ $t('Pantry') }}
                 </v-list-item>
                 <v-list-item prepend-icon="fa-solid fa-share-nodes" link>
@@ -54,6 +54,7 @@ import {ErrorMessageType, useMessageStore} from "@/stores/MessageStore.ts";
 import {useRouter} from "vue-router";
 import {useFileApi} from "@/composables/useFileApi.ts";
 import {useI18n} from "vue-i18n";
+import {useUserPreferenceStore} from "@/stores/UserPreferenceStore.ts";
 import PantryBookingDialog from "@/components/dialogs/PantryBookingDialog.vue";
 
 const router = useRouter()

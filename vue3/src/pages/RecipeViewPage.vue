@@ -5,9 +5,6 @@
 
            <recipe-view v-model="recipe" :servings="servings"></recipe-view>
 
-            <div class="mt-2" v-if="isShared && Object.keys(recipe).length > 0">
-                <import-tandoor-dialog></import-tandoor-dialog>
-            </div>
         </v-defaults-provider>
 
     </v-container>
@@ -22,7 +19,6 @@ import {useDisplay} from "vuetify";
 import {useTitle, useUrlSearchParams} from "@vueuse/core";
 import {ErrorMessageType, useMessageStore} from "@/stores/MessageStore";
 import {useUserPreferenceStore} from "@/stores/UserPreferenceStore";
-import ImportTandoorDialog from "@/components/dialogs/ImportTandoorDialog.vue";
 
 const props = defineProps({
     id: {type: String, required: true}

@@ -48,7 +48,7 @@ export default defineConfig(async ({command, mode, isSsrBuild, isPreview}) => {
             rollupOptions: {
                 // overwrite default .html entry
                 input: [
-                    'src/apps/tandoor/main.ts',
+                    'src/apps/table/main.ts',
                 ].concat(buildInputs),
             },
         },
@@ -194,7 +194,7 @@ async function collectBuildInputs() {
             }
         }
 
-        console.log('Tandoor Plugin build inputs: ', buildInputs)
+        console.log('Table plugin build inputs: ', buildInputs)
         return buildInputs
     } catch (err) {
         return []

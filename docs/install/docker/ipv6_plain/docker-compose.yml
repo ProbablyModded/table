@@ -12,7 +12,7 @@ services:
       timeout: 1s
       retries: 12
     networks:
-      tandoor:
+      table:
         ipv6_address: ${IPV6_PREFIX:?NO_IPV6_PREFIX}::2
   web_recipes:
     image: vabene1111/recipes
@@ -21,14 +21,14 @@ services:
       - ./.env
     volumes:
       - staticfiles:/opt/recipes/staticfiles
-      # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes-vs-bind-mounts
+      # Do not make this a bind mount, see /install/docker/#volumes-vs-bind-mounts
       - nginx_config:/opt/recipes/nginx/conf.d
       - ${MEDIA_FILES_DIR:-./mediafiles}:/opt/recipes/mediafiles
     depends_on:
       db_recipes:
         condition: service_healthy
     networks:
-      tandoor:
+      table:
         ipv6_address: ${IPV6_PREFIX:?NO_IPV6_PREFIX}::3
 
   nginx_recipes:
@@ -41,21 +41,21 @@ services:
     depends_on:
       - web_recipes
     volumes:
-      # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes-vs-bind-mounts
+      # Do not make this a bind mount, see /install/docker/#volumes-vs-bind-mounts
       - nginx_config:/etc/nginx/conf.d:ro
       - staticfiles:/static:ro
       - ${MEDIA_FILES_DIR:-./mediafiles}:/media:ro
     networks:
-      tandoor:
+      table:
         ipv6_address: ${IPV6_PREFIX:?NO_IPV6_PREFIX}::4
 volumes:
   nginx_config:
   staticfiles:
 
 networks:
-  tandoor:
+  table:
     enable_ipv6: true
-    name: ${NETWORK_NAME:-tandoor}
+    name: ${NETWORK_NAME:-table}
     driver: bridge
     ipam:
       driver: default

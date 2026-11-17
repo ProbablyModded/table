@@ -31,7 +31,7 @@
                 <v-card :variant="cardVariant(index)" v-for="(item, index) in searchResults" hover class="mt-1" @click="selectedResult = index" :key="index">
                     <v-card-title @click="goToSelectedRecipe(index)">
                         <v-avatar v-if="item.image" :image="item.image"></v-avatar>
-                        <v-avatar v-else-if="item.recipeId !== undefined" color="tandoor">{{ item.name.charAt(0) }}</v-avatar>
+                        <v-avatar v-else-if="item.recipeId !== undefined" color="table">{{ item.name.charAt(0) }}</v-avatar>
                         <v-icon :icon="item.icon" v-if="item.icon"></v-icon>
                         {{ item.name }}
                     </v-card-title>

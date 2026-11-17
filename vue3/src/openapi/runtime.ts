@@ -3,8 +3,8 @@
 import {getCookie} from "@/utils/cookie"; // MANUAL: CSRF cookie reader
 
 /**
- * Tandoor
- * Tandoor API Docs
+ * Table
+ * Table API Docs
  *
  * The version of the OpenAPI document: 0.0.0
  * 

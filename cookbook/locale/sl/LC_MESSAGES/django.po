@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2026-06-24 18:06+0200\n"
 "PO-Revision-Date: 2026-07-04 07:49+0000\n"
 "Last-Translator: \"Matjaž T.\" <matjaz@moj-svet.si>\n"
-"Language-Team: Slovenian <http://translate.tandoor.dev/projects/tandoor/"
+"Language-Team: Slovenian <http://weblate.org/projects/table/"
 "recipes-backend/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -552,8 +552,8 @@ msgid "You have been invited by "
 msgstr "Povabil/a te je "
 
 #: .\cookbook\serializer.py:1840
-msgid " to join their Tandoor Recipes space "
-msgstr " da se pridružiš njihovemu prostoru Tandoor Recipes "
+msgid " to join their Table Recipes space "
+msgstr " da se pridružiš njihovemu prostoru Table Recipes "
 
 #: .\cookbook\serializer.py:1842
 msgid "Click the following link to activate your account: "
@@ -572,13 +572,13 @@ msgstr "Vabilo velja do "
 
 #: .\cookbook\serializer.py:1848
 msgid ""
-"Tandoor Recipes is an Open Source recipe manager. Check it out on GitHub "
+"Table Recipes is an Open Source recipe manager. Check it out on GitHub "
 msgstr ""
-"Tandoor Recipes je odprtokodni upravitelj receptov. Preverite na GitHubu "
+"Table Recipes je odprtokodni upravitelj receptov. Preverite na GitHubu "
 
 #: .\cookbook\serializer.py:1851
-msgid "Tandoor Recipes Invite"
-msgstr "Tandoor Recepti vabilo"
+msgid "Table Recipes Invite"
+msgstr "Table Recepti vabilo"
 
 #: .\cookbook\serializer.py:2057
 msgid "Existing shopping list to update"
@@ -883,9 +883,9 @@ msgstr "Registracije zaprte"
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Žal nam je, vendar so registracije trenutno zaprte."
 
-#: .\cookbook\templates\frontend\tandoor.html:15
-msgid "Tandoor Recipe Manager"
-msgstr "Urejevalnik Tandoor Recepti"
+#: .\cookbook\templates\frontend\table.html:15
+msgid "Table Recipe Manager"
+msgstr "Urejevalnik Table Recepti"
 
 #: .\cookbook\templates\index.html:28
 msgid "Search recipe ..."
@@ -1562,19 +1562,19 @@ msgstr "Sistem"
 #: .\cookbook\templates\system.html:24
 msgid ""
 "\n"
-"        Tandoor Recipes is an open source free software application. It can "
+"        Table Recipes is an open source free software application. It can "
 "be found on\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
-"        Changelogs can be found <a href=\"https://github.com/TandoorRecipes/"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
+"        Changelogs can be found <a href=\"https://github.com/Table/"
 "recipes/releases\">here</a>.\n"
 "    "
 msgstr ""
 "\n"
-"        Tandoor Recipes je odprtokodna brezplačna programska oprema. Najdete "
+"        Table Recipes je odprtokodna brezplačna programska oprema. Najdete "
 "jo na\n"
-"        <a href=\"https://github.com/TandoorRecipes/recipes\">GitHub</a>.\n"
+"        <a href=\"https://github.com/Table/recipes\">GitHub</a>.\n"
 "        Dnevnike sprememb najdete <a href=\"https://github.com/"
-"TandoorRecipes/recipes/releases\">tukaj</a>.\n"
+"Table/recipes/releases\">tukaj</a>.\n"
 "    "
 
 #: .\cookbook\templates\system.html:30
@@ -2257,8 +2257,8 @@ msgstr ""
 "funkcijo tiskanja v brskalniku (Ctrl+P)."
 
 #: .\cookbook\views\api.py:3365
-msgid "This feature is not yet available in the hosted version of tandoor!"
-msgstr "Ta funkcija še ni na voljo v gostujoči različici tandoorja!"
+msgid "This feature is not yet available in the hosted version of table!"
+msgstr "Ta funkcija še ni na voljo v gostujoči različici tableja!"
 
 #: .\cookbook\views\api.py:3386
 msgid "Sync successful!"
@@ -2578,8 +2578,8 @@ msgstr "Oglejte si nakupovalne sezname"
 #~ msgid "GitHub"
 #~ msgstr "GitHub"
 
-#~ msgid "Translate Tandoor"
-#~ msgstr "Prevedi Tandoor"
+#~ msgid "Translate Table"
+#~ msgstr "Prevedi Table"
 
 #~ msgid "Log out"
 #~ msgstr "Odjavi se"

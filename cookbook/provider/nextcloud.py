@@ -33,17 +33,17 @@ class Nextcloud(Provider):
         client = Nextcloud.get_client(monitor.storage)
 
         if DEBUG:
-            print(f'TANDOOR_PROVIDER_DEBUG checking path  {monitor.path} with client {client}')
+                print(f'TABLE_PROVIDER_DEBUG checking path  {monitor.path} with client {client}')
 
         files = client.list(monitor.path)
 
         if DEBUG:
-            print(f'TANDOOR_PROVIDER_DEBUG file list  {files}')
+                print(f'TABLE_PROVIDER_DEBUG file list  {files}')
 
         import_count = 0
         for file in files:
             if DEBUG:
-                print(f'TANDOOR_PROVIDER_DEBUG importing file {file}')
+                print(f'TABLE_PROVIDER_DEBUG importing file {file}')
             path = monitor.path + '/' + file
             if not Recipe.objects.filter(file_path__iexact=path, space=monitor.space).exists() and not RecipeImport.objects.filter(file_path=path, space=monitor.space).exists():
                 name = os.path.splitext(file)[0]

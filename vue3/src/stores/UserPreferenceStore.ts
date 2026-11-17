@@ -251,6 +251,7 @@ export const useUserPreferenceStore = defineStore('user_preference_store', () =>
             start_showMealPlan: true,
 
             general_tableItemsPerPage: 10,
+            general_showPantry: true,
             general_closedHelpAlerts: [],
         }
     }

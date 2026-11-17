@@ -3,8 +3,8 @@
     This page especially contains some setups that might help you if you really want to go down a certain path but none
     of the examples are supported (as I simply am not able to give you support for them).
 
-!!! danger "Tandoor 2 Compatibility"
-    This guide has not been verified/tested for Tandoor 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
+!!! danger "Table 2 Compatibility"
+    This guide has not been verified/tested for Table 2, which now integrates a nginx service inside the default docker container and exposes its service on port 80 instead of 8080.
 
 ## Apache + Traefik + Sub-Path
 
@@ -62,62 +62,62 @@ I left out the TLS config in this example for simplicity.
 
 ## Docker + Apache + Sub-Path
 
-The following could prove to be useful if you are not using Traefik, but instead run Apache as your reverse proxy to route all calls for a shared (sub)domain to a sub path, e.g. https://mydomain.tld/tandoor
+The following could prove to be useful if you are not using Traefik, but instead run Apache as your reverse proxy to route all calls for a shared (sub)domain to a sub path, e.g. https://mydomain.tld/table
 
 As a side note, I am using [Blocky](https://0xerr0r.github.io/blocky/) + [Consul](https://hub.docker.com/r/hashicorp/consul) + [Registrator](https://hub.docker.com/r/gliderlabs/registrator) as a DNS solution.
 
 The relevant Apache config:
 ```
-    <Location /tandoor>
+    <Location /table>
         # in case you want to restrict access to specific IP addresses:
         Require local
         Require forward-dns [myhomedomain.useyourdomain.com]
         Require ip [anylocalorremoteipyouwanttowhitelist]
 
-        # The following assumes that tandoor.service.consul.local resolves to the IP address of the Docker container.
-        ProxyPass http://tandoor.service.consul.local:8080/tandoor
-        ProxyPassReverse http://tandoor.service.consul.local:8080/tandoor
-        RequestHeader add X-Script-Name /tandoor
+        # The following assumes that table.service.consul.local resolves to the IP address of the Docker container.
+        ProxyPass http://table.service.consul.local:8080/table
+        ProxyPassReverse http://table.service.consul.local:8080/table
+        RequestHeader add X-Script-Name /table
         RequestHeader set X-Forwarded-Proto "https"
         ProxyPreserveHost On
     </Location>
-    <Location /tandoor/static>
+    <Location /table/static>
         Require local
         Require forward-dns [myhomedomain.useyourdomain.com]
         Require ip [anylocalorremoteipyouwanttowhitelist]
 
-        ProxyPass http://tandoor.service.consul.local:8080/tandoor/tandoor/static
-        ProxyPassReverse http://tandoor.service.consul.local:8080/tandoor/static
-        RequestHeader add X-Script-Name /tandoor
+        ProxyPass http://table.service.consul.local:8080/table/table/static
+        ProxyPassReverse http://table.service.consul.local:8080/table/static
+        RequestHeader add X-Script-Name /table
         RequestHeader set X-Forwarded-Proto "https"
         ProxyPreserveHost On
     </Location>
 ```
 and the relevant section from the docker-compose.yml:
 ```
-   tandoor:
+   table:
      restart: always
-     container_name: tandoor
+     container_name: table
      image: vabene1111/recipes
      environment:
-       - SCRIPT_NAME=/tandoor
-       - STATIC_URL=/tandoor/static/
-       - MEDIA_URL=/tandoor/media/
+       - SCRIPT_NAME=/table
+       - STATIC_URL=/table/static/
+       - MEDIA_URL=/table/media/
        - GUNICORN_MEDIA=0
-       - SECRET_KEY=${YOUR_TANDOOR_SECRET_KEY}
+       - SECRET_KEY=${YOUR_TABLE_SECRET_KEY}
        - POSTGRES_HOST=postgres.service.consul.local
        - POSTGRES_PORT=${POSTGRES_PORT}
-       - POSTGRES_USER=${YOUR_TANDOOR_POSTGRES_USER}
-       - POSTGRES_PASSWORD=${YOUR_TANDOOR_POSTGRES_PASSWORD}
-       - POSTGRES_DB=${YOUR_TANDOOR_POSTGRES_DB}
+       - POSTGRES_USER=${YOUR_TABLE_POSTGRES_USER}
+       - POSTGRES_PASSWORD=${YOUR_TABLE_POSTGRES_PASSWORD}
+       - POSTGRES_DB=${YOUR_TABLE_POSTGRES_DB}
      labels:
         # The following is relevant only if you are using Registrator and Consul
-       - "SERVICE_NAME=tandoor"
+       - "SERVICE_NAME=table"
      volumes:
-       - ${YOUR_DOCKER_VOLUME_BASE_DIR}/tandoor/static:/opt/recipes/staticfiles:rw
-       # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes- vs-bind-mounts
-       - tandoor_nginx_config:/opt/recipes/nginx/conf.d
-       - ${YOUR_DOCKER_VOLUME_BASE_DIR}}/tandoor/media:/opt/recipes/mediafiles:rw
+       - ${YOUR_DOCKER_VOLUME_BASE_DIR}/table/static:/opt/recipes/staticfiles:rw
+       # Do not make this a bind mount, see /install/docker/#volumes- vs-bind-mounts
+       - table_nginx_config:/opt/recipes/nginx/conf.d
+       - ${YOUR_DOCKER_VOLUME_BASE_DIR}}/table/media:/opt/recipes/mediafiles:rw
      depends_on:
         # You will have to set up postgres accordingly
        - postgres
@@ -210,4 +210,4 @@ conditional:
 
 ## WSL
 
-If you want to install Tandoor on the Windows Subsystem for Linux you can find a detailed post here: <https://github.com/TandoorRecipes/recipes/issues/1733>.
+If you want to install Table on the Windows Subsystem for Linux you can find a detailed post here: <https://github.com/Table/recipes/issues/1733>.

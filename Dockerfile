@@ -1,11 +1,15 @@
 FROM python:3.14-alpine3.24
 
+ARG TABLE_BUNDLED_POSTGRES=0
+
 #Install all dependencies.
 RUN apk add --no-cache postgresql-libs postgresql-client gettext zlib libjpeg libwebp libxml2-dev libxslt-dev openldap git libgcc libstdc++ nginx tini envsubst nodejs npm
+RUN if [ "$TABLE_BUNDLED_POSTGRES" = "1" ]; then apk add --no-cache postgresql18 su-exec; fi
 
 #Print all logs without buffering it.
 ENV PYTHONUNBUFFERED=1 \
-    DOCKER=true
+    DOCKER=true \
+    TABLE_BUNDLED_POSTGRES=${TABLE_BUNDLED_POSTGRES}
 
 #This port will be used by gunicorn.
 EXPOSE 80 8080
@@ -31,7 +35,7 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev zlib-de
 COPY . ./
 
 RUN <<EOF
-    # delete default nginx config and link it to tandoors config
+    # delete default nginx config and link it to Table's config
     rm -rf /etc/nginx/http.d
     ln -s /opt/recipes/http.d /etc/nginx/http.d
     # allow all write/read but set sticky bit to restrict non-root to only create files (conf templating in boot.sh)
@@ -41,7 +45,7 @@ RUN <<EOF
     ln -sf /dev/stderr /var/log/nginx/error.log
 EOF
 
-# commented for now https://github.com/TandoorRecipes/recipes/issues/3478
+# commented for now until the healthcheck is finalized
 #HEALTHCHECK --interval=30s \
 #            --timeout=5s \
 #            --start-period=10s \
@@ -53,5 +57,5 @@ RUN /opt/recipes/venv/bin/python version.py
 # delete git repositories to reduce image size
 RUN find . -type d -name ".git" | xargs rm -rf
 
-RUN chmod +x boot.sh
+RUN chmod +x boot.sh boot-all-in-one.sh
 ENTRYPOINT ["/sbin/tini", "--", "/opt/recipes/boot.sh"]
