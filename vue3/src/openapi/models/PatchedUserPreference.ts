@@ -244,6 +244,18 @@ export interface PatchedUserPreference {
      */
     showStepIngredients?: boolean;
     /**
+     * Show meal plans on the start page across devices.
+     * @type {boolean}
+     * @memberof PatchedUserPreference
+     */
+    showMealplanOnStart?: boolean;
+    /**
+     * Show Pantry in navigation and recipe actions across devices.
+     * @type {boolean}
+     * @memberof PatchedUserPreference
+     */
+    showPantry?: boolean;
+    /**
      * 
      * @type {boolean}
      * @memberof PatchedUserPreference
@@ -299,6 +311,8 @@ export function PatchedUserPreferenceFromJSONTyped(json: any, ignoreDiscriminato
         'shoppingAddOnhand': json['shopping_add_onhand'] == null ? undefined : json['shopping_add_onhand'],
         'leftHanded': json['left_handed'] == null ? undefined : json['left_handed'],
         'showStepIngredients': json['show_step_ingredients'] == null ? undefined : json['show_step_ingredients'],
+        'showMealplanOnStart': json['show_mealplan_on_start'] == null ? undefined : json['show_mealplan_on_start'],
+        'showPantry': json['show_pantry'] == null ? undefined : json['show_pantry'],
         'foodChildrenExist': json['food_children_exist'] == null ? undefined : json['food_children_exist'],
     };
 }
@@ -340,6 +354,8 @@ export function PatchedUserPreferenceToJSONTyped(value?: Omit<PatchedUserPrefere
         'shopping_add_onhand': value['shoppingAddOnhand'],
         'left_handed': value['leftHanded'],
         'show_step_ingredients': value['showStepIngredients'],
+        'show_mealplan_on_start': value['showMealplanOnStart'],
+        'show_pantry': value['showPantry'],
     };
 }
 

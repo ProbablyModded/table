@@ -5,11 +5,16 @@
 
         <language-select></language-select>
 
-        <v-label>{{$t('Nav_Color')}}</v-label>
-        <v-color-picker v-model="useUserPreferenceStore().userSettings.navBgColor" mode="hex" :modes="['hex']" show-swatches :swatches="[['#ddbf86'],['#b98766'],['#b55e4f'],['#82aa8b'],['#385f84']]"></v-color-picker>
+        <theme-gallery v-model="useUserPreferenceStore().userSettings.theme"></theme-gallery>
 
-        <v-select :label="$t('Theme')" class="mt-4" v-model="useUserPreferenceStore().userSettings.theme" :items="[{title: 'Table', value: 'TANDOOR'}, {title: 'Table Dark', value: 'TANDOOR_DARK'}, ]">
-        </v-select>
+        <v-expansion-panels class="mt-5" variant="accordion">
+            <v-expansion-panel :title="$t('CustomNavigationColor')">
+                <v-expansion-panel-text>
+                    <v-label>{{$t('Nav_Color')}}</v-label>
+                    <v-color-picker v-model="useUserPreferenceStore().userSettings.navBgColor" mode="hex" :modes="['hex']" show-swatches :swatches="[['#1877f2'],['#b87b54'],['#c47893'],['#5d9f8a'],['#626b78']]"></v-color-picker>
+                </v-expansion-panel-text>
+            </v-expansion-panel>
+        </v-expansion-panels>
 
         <v-checkbox :label="$t('Show_Logo')" :hint="$t('Show_Logo_Help')" persistent-hint v-model="useUserPreferenceStore().userSettings.navShowLogo"></v-checkbox>
         <v-checkbox :label="$t('Sticky_Nav')" :hint="$t('Sticky_Nav_Help')" persistent-hint v-model="useUserPreferenceStore().userSettings.navSticky"></v-checkbox>
@@ -48,6 +53,7 @@ import {ErrorMessageType, useMessageStore} from "@/stores/MessageStore";
 import {useI18n} from "vue-i18n";
 import {useUserPreferenceStore} from "@/stores/UserPreferenceStore";
 import LanguageSelect from "@/components/inputs/LanguageSelect.vue";
+import ThemeGallery from "@/components/settings/ThemeGallery.vue";
 
 const {t} = useI18n()
 

@@ -129,7 +129,7 @@ function addPropertiesFoodUnit(){
     console.log('ADDING UNIT', !editingObj.value.propertiesFoodUnit)
     if (isFood.value && !editingObj.value.propertiesFoodUnit) {
         console.log('ADDING UNIT ACTUALLY')
-        editingObj.value.propertiesFoodUnit = (useUserPreferenceStore().defaultUnitObj != null) ? useUserPreferenceStore().defaultUnitObj! : {name: 'g'} as Unit
+        editingObj.value.propertiesFoodUnit = (useUserPreferenceStore().defaultUnitObj != null) ? useUserPreferenceStore().defaultUnitObj! : {name: 'cup'} as Unit
     }
 }
 

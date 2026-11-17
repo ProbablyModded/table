@@ -6,6 +6,7 @@ import {aliases, fa} from 'vuetify/iconsets/fa'
 import {createVuetify} from 'vuetify'
 import {DateTime} from "luxon";
 import * as vuetifyLocales from "vuetify/locale";
+import {TABLE_VUETIFY_THEMES} from "@/types/tableThemes";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -45,47 +46,9 @@ export default createVuetify({
         messages: vuetifyLocales,
     },
     theme: {
-        defaultTheme: 'light',
+        defaultTheme: 'SOCIAL',
         themes: {
-            light: {
-                colors: {
-                    background: '#f5efea',
-                    table: '#ddbf86',
-                    primary: '#b98766',
-                    secondary: '#b55e4f',
-                    success: '#82aa8b',
-                    info: '#385f84',
-                    warning: '#eaaa21',
-                    error: '#a7240e',
-
-                    save: '#82aa8b',
-                    create: '#82aa8b',
-                    edit: '#385f84',
-                    delete: '#a7240e',
-                    cancel: '#eaaa21',
-
-                    recipeImagePlaceholderBg: '#ffffff',
-                },
-            },
-            dark: {
-                colors: {
-                    table: '#ddbf86',
-                    primary: '#b98766',
-                    secondary: '#b55e4f',
-                    success: '#82aa8b',
-                    info: '#385f84',
-                    warning: '#eaaa21',
-                    error: '#a7240e',
-
-                    save: '#82aa8b',
-                    create: '#82aa8b',
-                    edit: '#385f84',
-                    delete: '#a7240e',
-                    cancel: '#eaaa21',
-
-                    recipeImagePlaceholderBg: '#212121',
-                },
-            },
+            ...TABLE_VUETIFY_THEMES,
         },
     },
     icons: {

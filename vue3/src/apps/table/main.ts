@@ -55,7 +55,7 @@ let routes = [
         component: () => import("@/pages/PantryPage.vue"),
         name: 'PantryPage',
         meta: {title: 'Pantry'},
-        beforeEnter: () => useUserPreferenceStore().deviceSettings.general_showPantry ? true : {name: 'StartPage'},
+        beforeEnter: () => useUserPreferenceStore().userSettings.showPantry !== false ? true : {name: 'StartPage'},
     },
     {path: '/space-setup', component: () => import("@/pages/SpaceSetupPage.vue"), name: 'SpaceSetupPage'},
 

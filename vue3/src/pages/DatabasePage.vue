@@ -42,7 +42,7 @@
             </v-col>
         </v-row>
         <v-row dense>
-            <database-link-col v-if="useUserPreferenceStore().deviceSettings.general_showPantry"
+            <database-link-col v-if="useUserPreferenceStore().userSettings.showPantry !== false"
                                :to="{name: 'PantryPage'}"
                                prepend-icon="$pantry"
                                :title="$t('Pantry')"

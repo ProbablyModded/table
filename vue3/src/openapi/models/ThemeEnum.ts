@@ -14,21 +14,53 @@
 
 
 /**
- * * `TANDOOR` - Table
+ * * `SOCIAL` - Social
+ * * `TABLE` - Table
+ * * `ROSE` - Rosewater
+ * * `PEACH` - Peach Fizz
+ * * `LEMON` - Lemon Cream
+ * * `MINT` - Mint Leaf
+ * * `SKY` - Sky Wash
+ * * `LAVENDER` - Lavender Milk
+ * * `BLUSH` - Blush Clay
+ * * `SAGE` - Soft Sage
+ * * `BUTTER` - Buttercream
+ * * `POWDER` - Powder Blue
+ * * `LILAC` - Lilac
+ * * `SAND` - Sandstone
+ * * `GREY` - Grey
+ * * `TABLE_DARK` - Table Night
+ * * `TANDOOR` - Table (legacy)
  * * `BOOTSTRAP` - Bootstrap
  * * `DARKLY` - Darkly
  * * `FLATLY` - Flatly
  * * `SUPERHERO` - Superhero
- * * `TANDOOR_DARK` - Table Dark (INCOMPLETE)
+ * * `TANDOOR_DARK` - Table Dark (legacy)
  * @export
  */
 export const ThemeEnum = {
-    Table: 'TANDOOR',
+    Social: 'SOCIAL',
+    Table: 'TABLE',
+    Rose: 'ROSE',
+    Peach: 'PEACH',
+    Lemon: 'LEMON',
+    Mint: 'MINT',
+    Sky: 'SKY',
+    Lavender: 'LAVENDER',
+    Blush: 'BLUSH',
+    Sage: 'SAGE',
+    Butter: 'BUTTER',
+    Powder: 'POWDER',
+    Lilac: 'LILAC',
+    Sand: 'SAND',
+    Grey: 'GREY',
+    TableDark: 'TABLE_DARK',
+    TableLegacy: 'TANDOOR',
     Bootstrap: 'BOOTSTRAP',
     Darkly: 'DARKLY',
     Flatly: 'FLATLY',
     Superhero: 'SUPERHERO',
-    TableDark: 'TANDOOR_DARK'
+    LegacyDark: 'TANDOOR_DARK'
 } as const;
 export type ThemeEnum = typeof ThemeEnum[keyof typeof ThemeEnum];
 

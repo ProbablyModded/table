@@ -1,50 +1,11 @@
 <template>
-    <v-container>
+    <v-container class="recipe-import-shell">
         <v-row>
             <v-col>
 
 
-                <v-stepper v-model="stepper">
+                <v-stepper v-model="stepper" class="table-import-stepper">
                     <template v-slot:default="{ prev, next }">
-                        <v-stepper-header>
-                            <v-stepper-item :title="$t('Type')" value="type" icon=" "></v-stepper-item>
-                            <v-divider></v-divider>
-
-                            <template v-if="['url','ai', 'source'].includes(importType)">
-                                <v-stepper-item :title="$t('Import')" value="url" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <template v-if="importResponse.duplicates && importResponse.duplicates.length > 0">
-                                    <v-stepper-item :title="$t('Duplicate')" value="duplicates" icon=" "></v-stepper-item>
-                                    <v-divider></v-divider>
-                                </template>
-                                <v-stepper-item :title="$t('Image')" value="image_chooser" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <v-stepper-item :title="$t('Keywords')" value="keywords_chooser" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <v-stepper-item :title="$t('Steps')" value="step_editor" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <v-stepper-item :title="$t('Save')" value="confirm" icon=" "></v-stepper-item>
-                            </template>
-                            <template v-if="importType == 'app'">
-                                <v-stepper-item :title="$t('App')" value="app" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <v-stepper-item :title="$t('File')" value="file" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <v-stepper-item :title="$t('Import')" value="import_log" icon=" "></v-stepper-item>
-                            </template>
-
-                            <template v-if="importType == 'bookmarklet'">
-                                <v-stepper-item :title="$t('Bookmarklet')" value="bookmarklet" icon=" "></v-stepper-item>
-                            </template>
-
-                            <template v-if="importType == 'url-list'">
-                                <v-stepper-item :title="$t('UrlList')" value="url_list_input" icon=" "></v-stepper-item>
-                                <v-divider></v-divider>
-                                <v-stepper-item :title="$t('Import')" value="url_list_import" icon=" "></v-stepper-item>
-                            </template>
-
-                        </v-stepper-header>
-
                         <v-stepper-window>
                             <v-stepper-window-item value="type">
                                 <v-row>
@@ -1007,5 +968,60 @@ function resetImporter() {
 </script>
 
 <style scoped>
+
+.recipe-import-shell {
+    max-width: 1360px;
+    padding-block: 22px 48px;
+}
+
+.table-import-stepper {
+    overflow: visible;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.table-import-stepper :deep(.v-stepper-window) {
+    margin: 0;
+    padding: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(var(--v-theme-primary), .12);
+    border-radius: 30px;
+    background: rgb(var(--v-theme-surface));
+    box-shadow: 0 26px 68px rgba(27, 35, 48, .14);
+}
+
+.table-import-stepper :deep(.v-stepper-window-item) {
+    padding: 10px;
+}
+
+.table-import-stepper :deep(.v-card) {
+    border-radius: 24px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.table-import-stepper :deep(.v-card:hover) {
+    border-color: rgba(var(--v-theme-primary), .42);
+    box-shadow: 0 16px 34px rgba(27, 35, 48, .1);
+    transform: translateY(-2px);
+}
+
+.table-import-stepper :deep(.v-stepper-actions) {
+    padding: 22px 8px 6px;
+}
+
+@media (max-width: 700px) {
+    .recipe-import-shell {
+        padding: 10px 8px 32px;
+    }
+
+    .table-import-stepper :deep(.v-stepper-window) {
+        padding: 4px;
+        border-radius: 22px;
+    }
+
+    .table-import-stepper :deep(.v-stepper-window-item) {
+        padding: 4px;
+    }
+}
 
 </style>

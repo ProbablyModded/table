@@ -8,7 +8,7 @@
                             {{ $t('InventoryBookingHelp') }}
                         </div>
                     </template>
-                    <template #append v-if="useUserPreferenceStore().deviceSettings.general_showPantry">
+                    <template #append v-if="useUserPreferenceStore().userSettings.showPantry !== false">
                         <v-btn class="float-right" icon="$pantry" color="create" :to="{name: 'PantryPage'}">
                         </v-btn>
                     </template>
@@ -182,7 +182,7 @@
                     <v-btn color="info" class="mt-2" prepend-icon="fa-solid fa-boxes-stacked" block @click="bookingConfirmDialog = false; resetForm(true, true)">
                         {{ $t('InventoryBooking') }}
                     </v-btn>
-                    <v-btn v-if="useUserPreferenceStore().deviceSettings.general_showPantry" color="primary" class="mt-2" prepend-icon="$pantry" block :to="{name: 'PantryPage'}">{{ $t('Pantry') }}</v-btn>
+                    <v-btn v-if="useUserPreferenceStore().userSettings.showPantry !== false" color="primary" class="mt-2" prepend-icon="$pantry" block :to="{name: 'PantryPage'}">{{ $t('Pantry') }}</v-btn>
                     <v-btn class="mt-2" block @click="bookingConfirmDialog = false; resetForm(true, true)">{{ $t('Close') }}</v-btn>
                 </p>
             </v-card-text>

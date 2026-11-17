@@ -1,22 +1,27 @@
 <template>
     <v-app class="table-app">
-        <v-app-bar color="table" flat density="comfortable" v-if="!useUserPreferenceStore().isAuthenticated && !useUserPreferenceStore().isPrintMode">
-            <router-link :to="{name: 'StartPage'}" aria-label="Table">
-                <v-img src="../../assets/table_logo.svg" width="140px" class="ms-2"></v-img>
+        <v-app-bar color="primary" class="table-topbar" flat density="comfortable" v-if="!store.isAuthenticated && !store.isPrintMode">
+            <router-link :to="{name: 'StartPage'}" aria-label="Table" class="table-brand-link">
+                <v-avatar color="white" size="38" class="table-brand-mark">
+                    <v-icon icon="fa-solid fa-table-cells-large" color="primary" size="20"></v-icon>
+                </v-avatar>
+                <span class="table-brand-word">Table</span>
             </router-link>
         </v-app-bar>
-        <v-app-bar :color="useUserPreferenceStore().activeSpace.navBgColor ? useUserPreferenceStore().activeSpace.navBgColor : useUserPreferenceStore().userSettings.navBgColor"
-                   flat density="comfortable" v-if="useUserPreferenceStore().isAuthenticated && !useUserPreferenceStore().isPrintMode"
-                   :absolute="!useUserPreferenceStore().userSettings.navSticky"
-                   :scroll-behavior="useUserPreferenceStore().userSettings.navSticky ? 'elevate' : ''">
-            <router-link :to="{ name: 'StartPage', params: {} }">
-                <v-img src="../../assets/table_logo.svg" width="140px" class="ms-2"
-                       v-if="useUserPreferenceStore().userSettings.navShowLogo && !useUserPreferenceStore().activeSpace.navLogo"></v-img>
-                    <v-img :src="useUserPreferenceStore().activeSpace.navLogo.preview" width="140px" class="ms-2"
-                       v-if="useUserPreferenceStore().userSettings.navShowLogo && useUserPreferenceStore().activeSpace.navLogo != undefined"></v-img>
-                    <span class="table-brand-name ms-3" v-if="useUserPreferenceStore().userSettings.navShowLogo && !useUserPreferenceStore().activeSpace.navLogo">
-                        {{ useUserPreferenceStore().activeSpace.appName || useUserPreferenceStore().activeSpace.name || 'Table' }}
-                    </span>
+        <v-app-bar :color="navBarColor"
+                   class="table-topbar" flat density="comfortable" v-if="store.isAuthenticated && !store.isPrintMode"
+                   :absolute="!store.userSettings.navSticky"
+                   :scroll-behavior="store.userSettings.navSticky ? 'elevate' : ''">
+            <router-link :to="{ name: 'StartPage', params: {} }" class="table-brand-link">
+                <div v-if="store.userSettings.navShowLogo && activeNavLogo" class="table-custom-logo">
+                    <v-img :src="activeNavLogo" width="118" height="34" contain></v-img>
+                </div>
+                <template v-else-if="store.userSettings.navShowLogo">
+                    <v-avatar color="white" size="38" class="table-brand-mark">
+                        <v-icon icon="fa-solid fa-table-cells-large" color="primary" size="20"></v-icon>
+                    </v-avatar>
+                    <span class="table-brand-word">{{ brandName }}</span>
+                </template>
             </router-link>
 
             <v-spacer></v-spacer>
@@ -31,7 +36,7 @@
                 </v-menu>
             </v-btn>
 
-            <v-avatar color="primary" class="me-2 cursor-pointer d-print-none">{{ useUserPreferenceStore().userSettings.user.displayName.charAt(0) }}
+            <v-avatar color="secondary" class="me-2 cursor-pointer d-print-none table-user-avatar">{{ store.userSettings.user.displayName.charAt(0) }}
                 <v-menu activator="parent">
 
                     <v-list density="compact">
@@ -71,17 +76,19 @@
         </v-main>
 
         <!-- completely hide in print mode because setting d-print-node keeps layout -->
-        <v-navigation-drawer v-if="lgAndUp && useUserPreferenceStore().isAuthenticated && !useUserPreferenceStore().isPrintMode">
-            <v-list>
-                <menu-user-info></menu-user-info>
-                <v-divider></v-divider>
+        <v-navigation-drawer class="table-sidebar" width="264" elevation="10" v-if="lgAndUp && store.isAuthenticated && !store.isPrintMode">
+            <v-list class="table-sidebar-list" nav>
+                <div class="table-sidebar-profile">
+                    <menu-user-info></menu-user-info>
+                </div>
+                <v-list-subheader class="table-nav-label">{{ $t('YourKitchen') }}</v-list-subheader>
                 <component :is="item.component" :="item" :key="item.title" v-for="item in useNavigation().getNavigationDrawer()"></component>
 
                 <navigation-drawer-context-menu></navigation-drawer-context-menu>
             </v-list>
 
             <template #append>
-                <v-list nav>
+                <v-list nav class="table-sidebar-footer">
                     <v-list-item prepend-icon="fas fa-sliders" :title="$t('Settings')" :to="{ name: 'SettingsPage', params: {} }"></v-list-item>
                     <v-list-item prepend-icon="fa-solid fa-heart" link>
                         Table {{ useUserPreferenceStore().serverSettings.version }}
@@ -92,7 +99,7 @@
 
         </v-navigation-drawer>
 
-        <v-bottom-navigation grow v-if="useUserPreferenceStore().isAuthenticated && !lgAndUp && !useUserPreferenceStore().isPrintMode">
+        <v-bottom-navigation grow v-if="store.isAuthenticated && !lgAndUp && !store.isPrintMode">
             <v-btn value="recent" :to="{ name: 'StartPage', params: {} }">
                 <v-icon icon="fa-fw fas fa-book "/>
             </v-btn>
@@ -133,7 +140,7 @@ import {toVuetifyLocale} from "@/vuetify"
 import VSnackbarQueued from "@/components/display/VSnackbarQueued.vue";
 import {useUserPreferenceStore} from "@/stores/UserPreferenceStore";
 import NavigationDrawerContextMenu from "@/components/display/NavigationDrawerContextMenu.vue";
-import {nextTick, onMounted} from "vue";
+import {computed, nextTick, onMounted} from "vue";
 import {isSpaceAboveLimit} from "@/utils/logic_utils";
 import {useTitle} from "@vueuse/core";
 import HelpDialog from "@/components/dialogs/HelpDialog.vue";
@@ -146,6 +153,11 @@ import {ErrorMessageType, useMessageStore} from "@/stores/MessageStore.ts";
 
 const {lgAndUp} = useDisplay()
 const {t} = useI18n()
+const store = useUserPreferenceStore()
+
+const brandName = computed(() => store.activeSpace.appName || store.activeSpace.name || 'Table')
+const activeNavLogo = computed(() => store.activeSpace.navLogo?.preview || '')
+const navBarColor = computed(() => store.activeSpace.navBgColor || store.userSettings.navBgColor || 'primary')
 
 const title = useTitle()
 const router = useRouter()
@@ -499,35 +511,36 @@ a:hover {
 
 /* Table 1.0 visual system */
 :root {
-    --table-ink: #2e2925;
-    --table-muted: #756b63;
-    --table-surface: rgba(255, 252, 248, 0.88);
-    --table-surface-strong: #fffdfb;
-    --table-border: rgba(122, 89, 63, 0.14);
-    --table-shadow: 0 18px 48px rgba(76, 47, 29, 0.1);
-    --table-radius: 22px;
+    --table-ink: rgb(var(--v-theme-on-background));
+    --table-muted: rgba(var(--v-theme-on-background), .66);
+    --table-surface: rgba(var(--v-theme-surface), .94);
+    --table-surface-strong: rgb(var(--v-theme-surface));
+    --table-border: rgba(var(--v-theme-primary), .13);
+    --table-shadow: 0 24px 64px rgba(25, 35, 55, .13);
+    --table-radius: 28px;
 }
 
 .table-app {
     font-family: "Avenir Next", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: var(--table-ink);
+    color: rgb(var(--v-theme-on-background));
     background:
-        radial-gradient(circle at 8% 0%, rgba(217, 130, 91, 0.14), transparent 26rem),
-        radial-gradient(circle at 92% 14%, rgba(130, 170, 139, 0.16), transparent 28rem),
-        #f8f4ef;
+        radial-gradient(circle at 8% 0%, rgba(var(--v-theme-primary), .13), transparent 26rem),
+        radial-gradient(circle at 92% 14%, rgba(var(--v-theme-secondary), .12), transparent 28rem),
+        rgb(var(--v-theme-background));
 }
 
+.v-theme--TABLE_DARK.table-app,
 .v-theme--dark.table-app {
     --table-ink: #f7efe8;
     --table-muted: #c0b3aa;
-    --table-surface: rgba(43, 35, 31, 0.88);
-    --table-surface-strong: #2b231f;
-    --table-border: rgba(255, 230, 210, 0.13);
-    --table-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+    --table-surface: rgba(var(--v-theme-surface), .94);
+    --table-surface-strong: rgb(var(--v-theme-surface));
+    --table-border: rgba(var(--v-theme-primary), .18);
+    --table-shadow: 0 24px 64px rgba(0, 0, 0, .28);
     background:
-        radial-gradient(circle at 8% 0%, rgba(217, 130, 91, 0.12), transparent 26rem),
-        radial-gradient(circle at 92% 14%, rgba(130, 170, 139, 0.1), transparent 28rem),
-        #1f1a18;
+        radial-gradient(circle at 8% 0%, rgba(var(--v-theme-primary), .12), transparent 26rem),
+        radial-gradient(circle at 92% 14%, rgba(var(--v-theme-secondary), .1), transparent 28rem),
+        rgb(var(--v-theme-background));
 }
 
 .table-main {
@@ -543,27 +556,104 @@ a:hover {
     pointer-events: none;
     content: '';
     opacity: 0.35;
-    background-image: linear-gradient(rgba(122, 89, 63, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(122, 89, 63, 0.035) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(var(--v-theme-primary), .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--v-theme-primary), .04) 1px, transparent 1px);
     background-size: 34px 34px;
     mask-image: linear-gradient(to bottom, black, transparent 75%);
 }
 
 .table-app .v-app-bar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16) !important;
-    box-shadow: 0 8px 28px rgba(56, 37, 24, 0.08) !important;
+    min-height: 68px;
+    margin: 12px 16px 0;
+    width: calc(100% - 32px) !important;
+    border: 1px solid rgba(255, 255, 255, .24) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 16px 38px rgba(var(--v-theme-primary), .22) !important;
     backdrop-filter: blur(18px);
+}
+
+.table-brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.table-brand-mark {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+}
+
+.table-brand-word {
+    max-width: 260px;
+    overflow: hidden;
+    color: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-custom-logo {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, .12);
+}
+
+.table-user-avatar {
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .14);
 }
 
 .table-app .v-navigation-drawer {
-    border-right: 1px solid var(--table-border) !important;
-    background: rgba(255, 252, 248, 0.86) !important;
+    top: 94px !important;
+    height: calc(100% - 108px) !important;
+    margin-left: 14px;
+    border: 1px solid var(--table-border) !important;
+    border-radius: 26px !important;
+    background: var(--table-surface) !important;
+    box-shadow: 0 24px 58px rgba(25, 35, 55, .12) !important;
     backdrop-filter: blur(18px);
 }
 
+.table-sidebar-list {
+    padding: 12px 8px 8px;
+}
+
+.table-sidebar-profile {
+    margin: 2px 0 14px;
+    padding: 6px;
+    border: 1px solid rgba(var(--v-theme-primary), .12);
+    border-radius: 20px;
+    background: rgba(var(--v-theme-primary), .07);
+}
+
+.table-nav-label {
+    padding-inline: 14px !important;
+    color: rgb(var(--v-theme-primary)) !important;
+    font-size: .68rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.table-sidebar .v-list-item--active {
+    color: rgb(var(--v-theme-primary));
+    background: rgba(var(--v-theme-primary), .12);
+    font-weight: 700;
+}
+
+.table-sidebar-footer {
+    padding: 8px;
+}
+
+.v-theme--TABLE_DARK.table-app .v-navigation-drawer,
 .v-theme--dark.table-app .v-navigation-drawer,
 .v-theme--dark.table-app .v-bottom-navigation {
-    background: rgba(35, 29, 26, 0.9) !important;
+    background: rgba(var(--v-theme-surface), .94) !important;
 }
 
 .table-app .v-card {
@@ -574,8 +664,8 @@ a:hover {
 }
 
 .table-app .v-card:not(.v-card--flat):hover {
-    border-color: rgba(185, 135, 102, 0.3);
-    box-shadow: 0 22px 58px rgba(76, 47, 29, 0.14);
+    border-color: rgba(var(--v-theme-primary), .3);
+    box-shadow: 0 28px 72px rgba(25, 35, 55, .18);
     transform: translateY(-2px);
 }
 

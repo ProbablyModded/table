@@ -146,7 +146,7 @@ GUNICORN_MEDIA = extract_bool('GUNICORN_MEDIA', False)
 
 # default value for user preference 'comment'
 COMMENT_PREF_DEFAULT = extract_bool('COMMENT_PREF_DEFAULT', True)
-FRACTION_PREF_DEFAULT = extract_bool('FRACTION_PREF_DEFAULT', False)
+FRACTION_PREF_DEFAULT = extract_bool('FRACTION_PREF_DEFAULT', True)
 KJ_PREF_DEFAULT = extract_bool('KJ_PREF_DEFAULT', False)
 STICKY_NAV_PREF_DEFAULT = extract_bool('STICKY_NAV_PREF_DEFAULT', True)
 MAX_OWNED_SPACES_PREF_DEFAULT = int(os.getenv('MAX_OWNED_SPACES_PREF_DEFAULT', 100))

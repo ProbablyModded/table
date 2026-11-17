@@ -22,7 +22,7 @@ export function useNavigation() {
             {component: VListItem, prependIcon: 'fa-solid fa-folder-tree', title: t('Database'), to: {name: 'DatabasePage', params: {}}},
         ]
 
-        if (useUserPreferenceStore().deviceSettings.general_showPantry) {
+        if (useUserPreferenceStore().userSettings.showPantry !== false) {
             navigation.splice(5, 0, {component: VListItem, prependIcon: '$pantry', title: t('Pantry'), to: {name: 'PantryPage', params: {}}})
         }
 
@@ -48,7 +48,7 @@ export function useNavigation() {
             {component: VListItem, prependIcon: '$books', title: t('Books'), to: {name: 'BooksPage', params: {}}},
         ]
 
-        if (useUserPreferenceStore().deviceSettings.general_showPantry) {
+        if (useUserPreferenceStore().userSettings.showPantry !== false) {
             navigation.splice(4, 0, {component: VListItem, prependIcon: '$pantry', title: t('Pantry'), to: {name: 'PantryPage', params: {}}})
         }
 

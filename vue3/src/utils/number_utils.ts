@@ -18,7 +18,7 @@ export function roundDecimals(num: number) {
  * @param factor factor to scale food amount by
  * @param useFractions if the returned value should be a fraction or not
  */
-export function calculateFoodAmount(amount: number, factor: number, useFractions: boolean = false) {
+export function calculateFoodAmount(amount: number, factor: number, useFractions: boolean = true) {
     if (useFractions) {
         let return_string = ""
         let fraction = frac(amount * factor, 16, true)

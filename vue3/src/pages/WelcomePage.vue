@@ -2,18 +2,7 @@
     <v-container>
 
 
-        <v-stepper editable v-model="stepper">
-            <v-stepper-header>
-
-                <v-stepper-item :title="$t('Settings')" value="1"></v-stepper-item>
-                <v-divider></v-divider>
-                <v-stepper-item :title="$t('Open Data')" value="2"></v-stepper-item>
-                <v-divider></v-divider>
-                <v-stepper-item :title="$t('Invites')" value="3"></v-stepper-item>
-                <v-divider></v-divider>
-                <v-stepper-item :title="$t('GettingStarted')" value="4"></v-stepper-item>
-            </v-stepper-header>
-
+        <v-stepper editable v-model="stepper" class="welcome-stepper">
             <v-stepper-window>
                 <v-stepper-window-item value="1">
                     <v-card flat>
@@ -25,7 +14,7 @@
                             <v-text-field v-model="space.name" :label="$t('Name')"></v-text-field>
 
                             <v-select :label="$t('Theme')" v-model="useUserPreferenceStore().userSettings.theme"
-                                      :items="[{title: 'Table', value: 'TANDOOR'}, {title: 'Table Dark', value: 'TANDOOR_DARK'}, ]">
+                                      :items="themeOptions">
                             </v-select>
 
                             <v-text-field v-model="useUserPreferenceStore().userSettings.defaultUnit" :label="$t('Default_Unit')" :hint="$t('DefaultUnitHelp')" persistent-hint></v-text-field>
@@ -66,37 +55,9 @@
                 <v-stepper-window-item value="3">
                     <v-card flat>
                         <v-card-text class="text-center">
-                            <v-card variant="outlined">
-                                <v-card-title class="text-h4 pb-0 mb-0 text-center">{{ $t('Space') }}</v-card-title>
-                                <v-card-subtitle class="text-subtitle-1 text-center mb-4 text-wrap">{{ $t('SpaceHelp') }}</v-card-subtitle>
-                                <v-card-text>
-                                    <v-row>
-                                        <v-col class="text-center" v-for="model in [TRecipe, TFood, TUnit, TSupermarket, TKeyword]">
-                                            <v-icon :icon="model.icon" size="x-large"></v-icon>
-                                            <p class="text-h6">{{ $t(model.localizationKey) }}</p>
-                                        </v-col>
-                                        <v-col class="text-center">
-                                            <v-icon icon="fa-solid fa-ellipsis" size="x-large"></v-icon>
-                                            <p class="text-h6">{{ $t('More') }}</p>
-                                        </v-col>
-                                    </v-row>
-
-                                    <div class="border-md border-opacity-75 border-dotted rounded mt-5 w-md-75 ml-auto mr-auto">
-                                        <v-card-subtitle class="text-subtitle-1 text-center mb-4 mt-2 text-wrap">
-                                            {{ $t('SpaceHouseholdHelp') }}
-                                        </v-card-subtitle>
-                                        <v-row>
-                                            <v-col class="text-center" v-for="model in [TMealPlan, TShoppingListEntry, TInventoryEntry]">
-                                                <v-icon :icon="model.icon" size="x-large"></v-icon>
-                                                <p class="text-h6">{{ $t(model.localizationKey) }}</p>
-                                            </v-col>
-                                        </v-row>
-                                    </div>
-                                </v-card-text>
-                            </v-card>
-
                             <v-row class="mt-2" v-if="useUserPreferenceStore().activeUserSpace?.household == undefined">
                                 <v-col>
+                                    <p class="text-h4 mb-2">{{ $t('Household') }}</p>
                                     <p class="text-body-1">{{ $t('HouseholdWelcome') }}</p>
                                     <v-text-field v-model="householdName" :label="$t('Household')"></v-text-field>
                                 </v-col>
@@ -200,20 +161,23 @@
 
 
 import {ApiApi, Space} from "@/openapi";
-import {onMounted, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {ErrorMessageType, MessageType, useMessageStore} from "@/stores/MessageStore.ts";
 import {useUserPreferenceStore} from "@/stores/UserPreferenceStore.ts";
 import OpenDataImportSettings from "@/components/settings/OpenDataImportSettings.vue";
-import {TFood, TInventoryEntry, TInventoryLocation, TKeyword, TMealPlan, TRecipe, TRecipeBook, TShoppingListEntry, TSupermarket, TUnit} from "@/types/Models.ts";
+import {TABLE_THEME_PRESETS} from "@/types/tableThemes";
 import ModelEditDialog from "@/components/dialogs/ModelEditDialog.vue";
 import {RouteLocationRaw, useRouter} from "vue-router";
+import {useI18n} from "vue-i18n";
 
 const router = useRouter()
+const {t} = useI18n()
 
 const space = ref<undefined | Space>(undefined)
 const householdName = ref("")
 const stepper = ref("1")
 const loading = ref(false)
+const themeOptions = computed(() => TABLE_THEME_PRESETS.map(theme => ({title: t(theme.labelKey), value: theme.id})))
 
 onMounted(() => {
     loadSpace()

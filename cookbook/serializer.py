@@ -526,7 +526,7 @@ class SpaceSerializer(WritableNestedModelSerializer):
         fields = (
             'id', 'name', 'created_by', 'created_at', 'message', 'max_recipes', 'max_file_storage_mb', 'max_users',
             'allow_sharing', 'demo', 'food_inherit', 'user_count', 'recipe_count', 'file_size_mb',
-            'image', 'nav_logo', 'space_theme', 'custom_space_theme', 'app_name', 'brand_mark', 'nav_bg_color', 'nav_text_color',
+            'image', 'nav_logo', 'space_theme', 'custom_space_theme', 'app_name', 'brand_mark', 'brand_layout', 'brand_frame', 'brand_font', 'brand_color', 'nav_bg_color', 'nav_text_color',
             'logo_color_32', 'logo_color_128', 'logo_color_144', 'logo_color_180', 'logo_color_192', 'logo_color_512', 'logo_color_svg', 'ai_credits_monthly',
             'ai_credits_balance', 'ai_monthly_credits_used', 'ai_enabled', 'ai_default_provider', 'ai_default_provider_id', 'space_setup_completed', 'household_setup_completed')
         read_only_fields = (
@@ -694,7 +694,7 @@ class UserPreferenceSerializer(WritableNestedModelSerializer):
             'food_inherit_default', 'default_delay',
             'mealplan_autoinclude_related', 'mealplan_autoexclude_onhand', 'shopping_recent_days',
             'csv_delim', 'csv_prefix', 'shopping_update_food_lists', 'default_meal_type', 'default_meal_type_id',
-            'filter_to_supermarket', 'shopping_add_onhand', 'left_handed', 'show_step_ingredients',
+            'filter_to_supermarket', 'shopping_add_onhand', 'left_handed', 'show_step_ingredients', 'show_mealplan_on_start', 'show_pantry',
             'food_children_exist'
         )
         read_only_fields = ('user',)

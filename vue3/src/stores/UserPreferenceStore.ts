@@ -8,6 +8,7 @@ import {DeviceSettings} from "@/types/settings";
 import {useTheme} from "vuetify";
 import {useRouter} from "vue-router";
 import {useRouteQuery} from "@vueuse/router";
+import {resolveTableTheme} from "@/types/tableThemes";
 
 const DEVICE_SETTINGS_KEY = 'TANDOOR_DEVICE_SETTINGS'
 const USER_PREFERENCE_KEY = 'TANDOOR_USER_PREFERENCE'
@@ -260,11 +261,7 @@ export const useUserPreferenceStore = defineStore('user_preference_store', () =>
      * applies user settings regarding themes/styling
      */
     function updateTheme() {
-        if (userSettings.value.theme == 'TANDOOR_DARK' && !isPrintMode.value) {
-            theme.change('dark')
-        } else {
-            theme.change('light')
-        }
+        theme.change(isPrintMode.value ? 'SOCIAL' : resolveTableTheme(userSettings.value.theme))
     }
 
     function init() {

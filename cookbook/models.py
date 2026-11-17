@@ -299,6 +299,10 @@ class Space(ExportModelOperationsMixin('space'), models.Model):
     nav_text_color = models.CharField(max_length=16, choices=NAV_TEXT_COLORS, default=BLANK)
     app_name = models.CharField(max_length=40, null=True, blank=True, )
     brand_mark = models.CharField(max_length=32, default='recipe', blank=True)
+    brand_layout = models.CharField(max_length=24, default='left', blank=True)
+    brand_frame = models.CharField(max_length=24, default='none', blank=True)
+    brand_font = models.CharField(max_length=24, default='sans', blank=True)
+    brand_color = models.CharField(max_length=8, default='#ffffff', blank=True)
     logo_color_32 = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='space_logo_color_32')
     logo_color_128 = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='space_logo_color_128')
     logo_color_144 = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='space_logo_color_144')
@@ -479,6 +483,25 @@ class ConnectorConfig(models.Model, PermissionModelMixin):
 
 class UserPreference(models.Model, PermissionModelMixin):
     # Themes
+    TABLE = 'TABLE'
+    ROSE = 'ROSE'
+    PEACH = 'PEACH'
+    LEMON = 'LEMON'
+    MINT = 'MINT'
+    SKY = 'SKY'
+    LAVENDER = 'LAVENDER'
+    BLUSH = 'BLUSH'
+    SAGE = 'SAGE'
+    BUTTER = 'BUTTER'
+    POWDER = 'POWDER'
+    LILAC = 'LILAC'
+    SAND = 'SAND'
+    GREY = 'GREY'
+    SOCIAL = 'SOCIAL'
+    TABLE_DARK = 'TABLE_DARK'
+
+    # Legacy values are kept so existing installations and API clients can
+    # continue to deserialize old preferences while the UI uses Table themes.
     BOOTSTRAP = 'BOOTSTRAP'
     DARKLY = 'DARKLY'
     FLATLY = 'FLATLY'
@@ -487,7 +510,23 @@ class UserPreference(models.Model, PermissionModelMixin):
     TANDOOR_DARK = 'TANDOOR_DARK'
 
     THEMES = (
-        (TANDOOR, 'Table'),
+        (SOCIAL, 'Social'),
+        (TABLE, 'Table'),
+        (ROSE, 'Rosewater'),
+        (PEACH, 'Peach Fizz'),
+        (LEMON, 'Lemon Cream'),
+        (MINT, 'Mint Leaf'),
+        (SKY, 'Sky Wash'),
+        (LAVENDER, 'Lavender Milk'),
+        (BLUSH, 'Blush Clay'),
+        (SAGE, 'Soft Sage'),
+        (BUTTER, 'Buttercream'),
+        (POWDER, 'Powder Blue'),
+        (LILAC, 'Lilac'),
+        (SAND, 'Sandstone'),
+        (GREY, 'Grey'),
+        (TABLE_DARK, 'Table Night'),
+        (TANDOOR, 'Table (legacy)'),
         (BOOTSTRAP, 'Bootstrap'),
         (DARKLY, 'Darkly'),
         (FLATLY, 'Flatly'),
@@ -520,14 +559,14 @@ class UserPreference(models.Model, PermissionModelMixin):
     user = AutoOneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     image = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='user_image')
 
-    theme = models.CharField(choices=THEMES, max_length=128, default=TANDOOR)
-    nav_bg_color = models.CharField(max_length=8, default='#ddbf86')
-    nav_text_color = models.CharField(max_length=16, choices=NAV_TEXT_COLORS, default=DARK)
+    theme = models.CharField(choices=THEMES, max_length=128, default=SOCIAL)
+    nav_bg_color = models.CharField(max_length=8, default='#1877f2')
+    nav_text_color = models.CharField(max_length=16, choices=NAV_TEXT_COLORS, default=LIGHT)
     nav_show_logo = models.BooleanField(default=True)
     nav_sticky = models.BooleanField(default=STICKY_NAV_PREF_DEFAULT)
     max_owned_spaces = models.IntegerField(default=MAX_OWNED_SPACES_PREF_DEFAULT)
-    default_unit = models.CharField(max_length=32, default='g')
-    use_fractions = models.BooleanField(default=False)
+    default_unit = models.CharField(max_length=32, default='cup')
+    use_fractions = models.BooleanField(default=True)
     use_kj = models.BooleanField(default=KJ_PREF_DEFAULT)
     default_page = models.CharField(choices=PAGES, max_length=64, default=SEARCH)
     plan_share = models.ManyToManyField(User, blank=True, related_name='plan_share_default')
@@ -542,6 +581,8 @@ class UserPreference(models.Model, PermissionModelMixin):
     filter_to_supermarket = models.BooleanField(default=False)
     left_handed = models.BooleanField(default=False)
     show_step_ingredients = models.BooleanField(default=True)
+    show_mealplan_on_start = models.BooleanField(default=True)
+    show_pantry = models.BooleanField(default=True)
     default_delay = models.DecimalField(default=4, max_digits=8, decimal_places=4)
     shopping_recent_days = models.PositiveIntegerField(default=7)
     shopping_update_food_lists = models.BooleanField(default=True)

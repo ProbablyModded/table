@@ -159,6 +159,30 @@ export interface Space {
      */
     brandMark?: string;
     /**
+     * Generated logo icon placement.
+     * @type {string}
+     * @memberof Space
+     */
+    brandLayout?: string;
+    /**
+     * Generated logo frame treatment.
+     * @type {string}
+     * @memberof Space
+     */
+    brandFrame?: string;
+    /**
+     * Generated logo font choice.
+     * @type {string}
+     * @memberof Space
+     */
+    brandFont?: string;
+    /**
+     * Generated logo monochrome color.
+     * @type {string}
+     * @memberof Space
+     */
+    brandColor?: string;
+    /**
      * 
      * @type {UserFileView}
      * @memberof Space
@@ -333,6 +357,10 @@ export function SpaceFromJSONTyped(json: any, ignoreDiscriminator: boolean): Spa
         'fileSizeMb': json['file_size_mb'],
         'appName': json['app_name'] == null ? undefined : json['app_name'],
         'brandMark': json['brand_mark'] == null ? undefined : json['brand_mark'],
+        'brandLayout': json['brand_layout'] == null ? undefined : json['brand_layout'],
+        'brandFrame': json['brand_frame'] == null ? undefined : json['brand_frame'],
+        'brandFont': json['brand_font'] == null ? undefined : json['brand_font'],
+        'brandColor': json['brand_color'] == null ? undefined : json['brand_color'],
         'image': json['image'] == null ? undefined : UserFileViewFromJSON(json['image']),
         'navLogo': json['nav_logo'] == null ? undefined : UserFileViewFromJSON(json['nav_logo']),
         'spaceTheme': json['space_theme'] == null ? undefined : SpaceThemeEnumFromJSON(json['space_theme']),
@@ -373,6 +401,10 @@ export function SpaceToJSONTyped(value?: Omit<Space, 'created_by'|'created_at'|'
         'message': value['message'],
         'app_name': value['appName'],
         'brand_mark': value['brandMark'],
+        'brand_layout': value['brandLayout'],
+        'brand_frame': value['brandFrame'],
+        'brand_font': value['brandFont'],
+        'brand_color': value['brandColor'],
         'food_inherit': value['foodInherit'] == null ? undefined : ((value['foodInherit'] as Array<any>).map(FoodInheritFieldToJSON)),
         'image': UserFileViewToJSON(value['image']),
         'nav_logo': UserFileViewToJSON(value['navLogo']),
