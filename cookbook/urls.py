@@ -7,7 +7,7 @@ from rest_framework import routers
 
 from cookbook.version_info import TABLE_VERSION
 from recipes.settings import PLUGINS
-from .views import api, telegram, views, import_export
+from .views import api, telegram, views, import_export, shopping
 
 
 # extend DRF default router class to allow including additional routers
@@ -109,6 +109,7 @@ urlpatterns = [
     path('api/ai-import/', api.AiImportView.as_view(), name='api_ai_import'),
     path('api/ai-step-sort/', api.AiStepSortView.as_view(), name='api_ai_step_sort'),
     path('api/import-open-data/', api.ImportOpenData.as_view(), name='api_import_open_data'),
+    path('api/shopping-provider/', shopping.ShoppingProviderView.as_view(), name='api_shopping_provider'),
     #path('api/ingredient-from-string/', api.ingredient_from_string, name='api_ingredient_from_string'),
     path('api/fdc-search/', api.FdcSearchView.as_view(), name='api_fdc_search'),
     path('api/share-link/<int:pk>', api.share_link, name='api_share_link'),

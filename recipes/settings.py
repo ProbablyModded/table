@@ -156,6 +156,18 @@ FORCE_THEME_FROM_SPACE = int(os.getenv('FORCE_THEME_FROM_SPACE', 0))
 # minimum interval that users can set for automatic sync of shopping lists
 SHOPPING_MIN_AUTOSYNC_INTERVAL = int(os.getenv('SHOPPING_MIN_AUTOSYNC_INTERVAL', 5))
 
+# Table never sends Walmart credentials to the browser.  A self-hosted
+# installation can optionally call a broker owned by the operator; the broker
+# keeps the Walmart credentials and affiliate configuration private.
+TABLE_SHOPPING_BROKER_URL = os.getenv('TABLE_SHOPPING_BROKER_URL', '').strip().rstrip('/')
+TABLE_SHOPPING_BROKER_TOKEN = os.getenv('TABLE_SHOPPING_BROKER_TOKEN', '')
+TABLE_SHOPPING_BROKER_PATH = os.getenv('TABLE_SHOPPING_BROKER_PATH', '/v1/table/shopping')
+TABLE_SHOPPING_BROKER_TIMEOUT = float(os.getenv('TABLE_SHOPPING_BROKER_TIMEOUT', '12'))
+TABLE_SHOPPING_BROKER_CAPABILITIES = [
+    capability.strip() for capability in os.getenv('TABLE_SHOPPING_BROKER_CAPABILITIES', 'search,cart,handoff').split(',')
+    if capability.strip()
+]
+
 ALLOWED_HOSTS = extract_comma_list('ALLOWED_HOSTS', '')
 CSRF_TRUSTED_ORIGINS = extract_comma_list('CSRF_TRUSTED_ORIGINS')
 

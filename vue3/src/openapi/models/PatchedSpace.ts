@@ -147,6 +147,18 @@ export interface PatchedSpace {
      */
     readonly fileSizeMb?: number;
     /**
+     * Optional display name used by the cookbook branding.
+     * @type {string}
+     * @memberof PatchedSpace
+     */
+    appName?: string | null;
+    /**
+     * Monochrome mark used by the generated cookbook logo.
+     * @type {string}
+     * @memberof PatchedSpace
+     */
+    brandMark?: string;
+    /**
      * 
      * @type {UserFileView}
      * @memberof PatchedSpace
@@ -307,6 +319,8 @@ export function PatchedSpaceFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'userCount': json['user_count'] == null ? undefined : json['user_count'],
         'recipeCount': json['recipe_count'] == null ? undefined : json['recipe_count'],
         'fileSizeMb': json['file_size_mb'] == null ? undefined : json['file_size_mb'],
+        'appName': json['app_name'] == null ? undefined : json['app_name'],
+        'brandMark': json['brand_mark'] == null ? undefined : json['brand_mark'],
         'image': json['image'] == null ? undefined : UserFileViewFromJSON(json['image']),
         'navLogo': json['nav_logo'] == null ? undefined : UserFileViewFromJSON(json['nav_logo']),
         'spaceTheme': json['space_theme'] == null ? undefined : SpaceThemeEnumFromJSON(json['space_theme']),
@@ -345,6 +359,8 @@ export function PatchedSpaceToJSONTyped(value?: Omit<PatchedSpace, 'created_by'|
         'id': value['id'],
         'name': value['name'],
         'message': value['message'],
+        'app_name': value['appName'],
+        'brand_mark': value['brandMark'],
         'food_inherit': value['foodInherit'] == null ? undefined : ((value['foodInherit'] as Array<any>).map(FoodInheritFieldToJSON)),
         'image': UserFileViewToJSON(value['image']),
         'nav_logo': UserFileViewToJSON(value['navLogo']),

@@ -298,6 +298,7 @@ class Space(ExportModelOperationsMixin('space'), models.Model):
     nav_bg_color = models.CharField(max_length=8, default='', blank=True, )
     nav_text_color = models.CharField(max_length=16, choices=NAV_TEXT_COLORS, default=BLANK)
     app_name = models.CharField(max_length=40, null=True, blank=True, )
+    brand_mark = models.CharField(max_length=32, default='recipe', blank=True)
     logo_color_32 = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='space_logo_color_32')
     logo_color_128 = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='space_logo_color_128')
     logo_color_144 = models.ForeignKey("UserFile", on_delete=models.SET_NULL, null=True, blank=True, related_name='space_logo_color_144')

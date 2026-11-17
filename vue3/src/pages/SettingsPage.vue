@@ -9,12 +9,15 @@
                     <v-divider></v-divider>
                     <v-list-subheader>{{ $t('Settings') }}</v-list-subheader>
                     <v-list-item :to="{name: 'CosmeticSettings'}" prepend-icon="fa-solid fa-palette">{{ $t('Cosmetic') }}</v-list-item>
+                    <v-list-item :to="{name: 'BrandingSettings'}" prepend-icon="fa-solid fa-wand-magic-sparkles">{{ $t('BrandStudio') }}</v-list-item>
                     <v-list-item :to="{name: 'ShoppingSettings'}" prepend-icon="$shopping">{{ $t('Shopping_list') }}</v-list-item>
                     <v-list-item :to="{name: 'MealPlanSettings'}" prepend-icon="$mealplan">{{ $t('Meal_Plan') }}</v-list-item>
                     <v-list-item :to="{name: 'SearchSettings'}" prepend-icon="$search">{{ $t('Search') }}</v-list-item>
                     <v-divider></v-divider>
                     <v-list-subheader>Space</v-list-subheader>
+                    <v-list-item :to="{name: 'PeopleSettings'}" prepend-icon="fa-solid fa-people-group">{{ $t('PeopleAndAccess') }}</v-list-item>
                     <v-list-item :to="{name: 'SpaceSettings'}" prepend-icon="$settings">{{ $t('SpaceSettings') }}</v-list-item>
+                    <v-list-item :to="{name: 'MigrationPage'}" prepend-icon="fa-solid fa-file-import">{{ $t('Migration') }}</v-list-item>
                     <v-list-item :to="{name: 'OpenDataImportSettings'}" prepend-icon="fa-solid fa-cloud-arrow-down">{{ $t('Open_Data_Import') }}</v-list-item>
                     <v-list-item :to="{name: 'ExportDataSettings'}" prepend-icon="fa-solid fa-file-export">{{ $t('Export') }}</v-list-item>
 

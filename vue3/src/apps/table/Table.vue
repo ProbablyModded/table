@@ -12,8 +12,11 @@
             <router-link :to="{ name: 'StartPage', params: {} }">
                 <v-img src="../../assets/table_logo.svg" width="140px" class="ms-2"
                        v-if="useUserPreferenceStore().userSettings.navShowLogo && !useUserPreferenceStore().activeSpace.navLogo"></v-img>
-                <v-img :src="useUserPreferenceStore().activeSpace.navLogo.preview" width="140px" class="ms-2"
+                    <v-img :src="useUserPreferenceStore().activeSpace.navLogo.preview" width="140px" class="ms-2"
                        v-if="useUserPreferenceStore().userSettings.navShowLogo && useUserPreferenceStore().activeSpace.navLogo != undefined"></v-img>
+                    <span class="table-brand-name ms-3" v-if="useUserPreferenceStore().userSettings.navShowLogo && !useUserPreferenceStore().activeSpace.navLogo">
+                        {{ useUserPreferenceStore().activeSpace.appName || useUserPreferenceStore().activeSpace.name || 'Table' }}
+                    </span>
             </router-link>
 
             <v-spacer></v-spacer>

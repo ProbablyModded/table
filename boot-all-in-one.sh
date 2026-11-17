@@ -18,6 +18,14 @@ mkdir -p "$PGDATA"
 chown -R postgres:postgres "$PGDATA"
 chmod 700 "$PGDATA"
 
+# Alpine does not always create PostgreSQL's runtime socket directory in a
+# minimal image. PostgreSQL refuses to start when it cannot create its lock
+# file there, so create it on every container start (the directory is runtime
+# state and may be recreated when the container starts).
+mkdir -p /run/postgresql
+chown postgres:postgres /run/postgresql
+chmod 775 /run/postgresql
+
 if [ ! -s "$PGDATA/PG_VERSION" ]; then
     echo "Initializing bundled PostgreSQL data directory"
     password_file=$(mktemp)

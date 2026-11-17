@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Fork and knife mark</title>
+  <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M29 17v35M19 17v18M39 17v18M29 52v53"/>
+    <path d="M77 17v88M77 17c16 10 19 30 0 45"/>
+  </g>
+</svg>

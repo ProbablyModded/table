@@ -37,6 +37,7 @@ let routes = [
     {path: '/books', component: () => import("@/pages/BooksPage.vue"), name: 'BooksPage', meta: {title: 'Books'}},
     {path: '/book/:bookId', component: () => import("@/pages/BookViewPage.vue"), name: 'BookViewPage', props: true, meta: {title: 'Book'}},
     {path: '/recipe/import', component: () => import("@/pages/RecipeImportPage.vue"), name: 'RecipeImportPage', meta: {title: 'Import'}},
+    {path: '/migrate', component: () => import("@/pages/MigrationPage.vue"), name: 'MigrationPage', meta: {title: 'Migration'}},
 
     {path: '/recipe/:id', component: () => import("@/pages/RecipeViewPage.vue"), name: 'RecipeViewPage', props: true, meta: {title: 'Recipe'}},
     {path: '/view/recipe/:id', redirect: {name: 'RecipeViewPage'}}, // legacy v1 URL pattern
@@ -67,6 +68,8 @@ let settings = {
         {path: 'profile', component: () => import("@/components/settings/ProfileSettings.vue"), name: 'ProfileSettings', meta: {title: 'Settings'}},
         {path: 'account', component: () => import("@/components/settings/AccountSettings.vue"), name: 'AccountSettings', meta: {title: 'Settings'}},
         {path: 'cosmetic', component: () => import("@/components/settings/CosmeticSettings.vue"), name: 'CosmeticSettings', meta: {title: 'Settings'}},
+        {path: 'branding', component: () => import("@/components/settings/BrandingSettings.vue"), name: 'BrandingSettings', meta: {title: 'Settings'}},
+        {path: 'people', component: () => import("@/components/settings/PeopleSettings.vue"), name: 'PeopleSettings', meta: {title: 'Settings'}},
         {path: 'shopping', component: () => import("@/components/settings/ShoppingSettings.vue"), name: 'ShoppingSettings', meta: {title: 'Settings'}},
         {path: 'meal-plan', component: () => import("@/components/settings/MealPlanSettings.vue"), name: 'MealPlanSettings', meta: {title: 'Settings'}},
         {path: 'search', component: () => import("@/components/settings/SearchSettings.vue"), name: 'SearchSettings', meta: {title: 'Settings'}},

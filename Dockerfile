@@ -4,7 +4,7 @@ ARG TABLE_BUNDLED_POSTGRES=0
 
 #Install all dependencies.
 RUN apk add --no-cache postgresql-libs postgresql-client gettext zlib libjpeg libwebp libxml2-dev libxslt-dev openldap git libgcc libstdc++ nginx tini envsubst nodejs npm
-RUN if [ "$TABLE_BUNDLED_POSTGRES" = "1" ]; then apk add --no-cache postgresql18 su-exec; fi
+RUN if [ "$TABLE_BUNDLED_POSTGRES" = "1" ]; then apk add --no-cache postgresql18 postgresql18-contrib su-exec; fi
 
 #Print all logs without buffering it.
 ENV PYTHONUNBUFFERED=1 \

@@ -150,6 +150,30 @@
                                 </template>
                             </v-card>
 
+                            <v-card
+                                :title="$t('Migration')"
+                                variant="outlined"
+                                :to="{name: 'MigrationPage'}"
+                                prepend-icon="fa-solid fa-file-import"
+                                append-icon="fa-solid fa-arrow-right"
+                                class="mt-4">
+                                <template #subtitle>
+                                    <p class="text-wrap">{{ $t('MigrationWelcomeHelp') }}</p>
+                                </template>
+                            </v-card>
+
+                            <v-card
+                                :title="$t('BrandStudio')"
+                                variant="outlined"
+                                :to="{name: 'BrandingSettings'}"
+                                prepend-icon="fa-solid fa-wand-magic-sparkles"
+                                append-icon="fa-solid fa-arrow-right"
+                                class="mt-4">
+                                <template #subtitle>
+                                    <p class="text-wrap">{{ $t('BrandStudioWelcomeHelp') }}</p>
+                                </template>
+                            </v-card>
+
 
                         </v-card-text>
                     </v-card>

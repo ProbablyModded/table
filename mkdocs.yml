@@ -45,6 +45,9 @@ nav:
   - Features:
       - Templating: features/templating.md
       - Shopping: features/shopping.md
+      - Branding: features/branding.md
+      - Migration: features/migration.md
+      - Walmart shopping backend: features/walmart-backend.md
       - Authentication: features/authentication.md
       - Automation: features/automation.md
       - Connectors: features/connectors.md
